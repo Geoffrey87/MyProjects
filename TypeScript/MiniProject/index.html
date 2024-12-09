@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+    <script src="./src/main.ts" type="module" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-neutral-900 flex flex-col items-center gap-8">
+    <div class="flex items-center pt-20 gap-4">
+      <form class="w-full max-w-sm flex items-center border-b border-indigo-900 py-2">
+        <input
+          class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
+          name="todo"
+          type="text"
+          placeholder="Todo"
+          id="todo-input" />
+
+        <button
+          class="flex-shrink-0 bg-indigo-500 border-none hover:bg-indigo-600 text-sm border-4 text-white py-1 px-2 rounded transition-all"
+          type="submit">
+          Add
+        </button>
+
+        <button
+          class="flex-shrink-0 border-transparent border-4 text-red-500 hover:text-red-400 text-sm py-1 px-2 rounded transition-all"
+          type="button"
+          id="clear-todo-input">
+          Clear
+        </button>
+      </form>
+    </div>
+
+    <ul id="todo-container" class="flex flex-col">
+      <!-- <li class="bg-neutral-800 px-4 py-2 flex items-center">
+        <label class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+          <input
+            class="w-4 h-4 text-indigo-600 bg-gray-100 rounded border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            type="checkbox" />
+
+          Migrate a large-scale, on-premises data center to the AWS cloud.
+        </label>
+
+        <button
+          class="ml-4 focus:outline-none text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-2 py-1.5 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-900">
+          Delete
+        </button>
+      </li> -->
+    </ul>
+
+    <div class="bg-neutral-800 py-3 px-4 rounded flex items-center justify-between gap-10">
+      <p id="items-left" class="text-gray-500 text-sm">0 items left</p>
+
+      <button
+        id="clear-completed"
+        type="button"
+        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xs px-2 py-1 text-center">
+        Clear Completed
+      </button>
+    </div>
+
+    <div
+      id="error-popup"
+      class="bg-red-800 flex gap-2 border border-red-400 text-white px-4 py-3 rounded relative hidden">
+      <div>
+        <strong class="font-bold">Error!</strong>
+
+        <span class="block sm:inline" id="error-message">Something seriously bad happened.</span>
+      </div>
+
+      <button type="button" id="close-error-popup">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="">
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+    </div>
+  </body>
+</html>
