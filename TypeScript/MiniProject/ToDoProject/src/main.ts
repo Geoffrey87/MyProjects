@@ -36,3 +36,9 @@ elements.clearTodoInputButton.onclick = () => {
   elements.todoInput.value = "";
   hideError();
 };
+
+elements.clearCompleted.onclick = () => {
+  const incompleteTodos = todos.filter((todo) => !todo.completed);
+  todos.splice(0, todos.length, ...incompleteTodos);
+  renderTodos();
+};
