@@ -1,6 +1,7 @@
 import { todos } from "./store/todos";
 import { Todo } from "./types/todos";
 import { elements } from "./utils/elements";
+import { renderTodos } from "./utils/render-todos";
 
 function hideError(): void {
   elements.errorPopup.container.classList.add("hidden");
@@ -27,7 +28,7 @@ elements.form.onsubmit = (event) => {
 
   todos.push(newTodo);
   elements.todoInput.value = "";
-  console.log(todos);
+  renderTodos();
 };
 elements.errorPopup.closeButton.onclick = hideError;
 
