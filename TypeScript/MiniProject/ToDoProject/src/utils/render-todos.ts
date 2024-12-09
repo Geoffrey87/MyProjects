@@ -2,9 +2,15 @@ import { elements } from "./elements";
 import { todos } from "../store/todos";
 import { updateItemsLeft } from "./update-items";
 
+/**
+ * Renders the list of todos in the DOM.
+ * Clears the container and re-creates elements for each todo item.
+ */
 export function renderTodos(): void {
+  // Clear existing todos
   elements.todoContainer.innerHTML = "";
 
+  // Iterate over todos and create elements for each
   todos.forEach((todo) => {
     const li = document.createElement("li");
     li.className = "bg-neutral-800 px-4 py-2 flex items-center";
@@ -33,6 +39,7 @@ export function renderTodos(): void {
 
     button.textContent = "Delete";
     button.onclick = () => {
+      // Remove the todo from the list and re-render
       todos.splice(todos.indexOf(todo, 1));
       renderTodos();
     };
