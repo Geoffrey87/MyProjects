@@ -1,7 +1,6 @@
+import { todos } from "./store/todos";
+import { Todo } from "./types/todos";
 import { elements } from "./utils/elements";
-import type { Todo } from "./types/todos";
-
-const todos: Todo[] = [];
 
 function hideError(): void {
   elements.errorPopup.container.classList.add("hidden");
@@ -19,5 +18,20 @@ elements.form.onsubmit = (event) => {
     showError("Todo cannot be empty");
     return;
   }
-  elements.errorPopup.closeButton.onclick = hideError;
+
+  const newTodo = {
+    id: todos.length + 1,
+    title: value,
+    completed: false,
+  } satisfies Todo;
+
+  todos.push(newTodo);
+  elements.todoInput.value = "";
+  console.log(todos);
+};
+elements.errorPopup.closeButton.onclick = hideError;
+
+elements.clearTodoInputButton.onclick = () => {
+  elements.todoInput.value = "";
+  hideError();
 };
