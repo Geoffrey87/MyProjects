@@ -11,7 +11,8 @@ Each folder within this repository represents a different academic project. Feel
 
 The projects in this repository may include, but are not limited to, the following technologies:
 
-- TypeScript
+- TypeScript;
+- OutSystems;
 
 ## How to Use
 
@@ -20,3 +21,4 @@ If you wish to explore or contribute to any of the projects, please follow these
 1. Clone the repository:
    ```bash
    git clone https://github.com/Geoffrey87/MyProjects.git
+   ```
