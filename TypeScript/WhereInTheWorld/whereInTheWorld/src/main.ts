@@ -1,6 +1,7 @@
 import { type FetchError, xmlGetCountries } from "./api/xml-get-countries";
 import "./styles.css";
 import { elements } from "./utils/elements";
+import { renderCountries } from "./utils/render-countries";
 import { setFetchState } from "./utils/set-fetch-state";
 
 elements.form.onsubmit = (e) => {
@@ -13,19 +14,15 @@ elements.form.onsubmit = (e) => {
   });
   xmlGetCountries(input)
     .then((countries) => {
-      console.log(countries);
       setFetchState({
         state: "sucess",
       });
+      renderCountries(countries);
     })
     .catch((error: FetchError) => {
-      console.log(error);
       setFetchState({
         state: "error",
         error,
       });
-    })
-    .finally(() => {
-      console.log("Here!");
     });
 };
