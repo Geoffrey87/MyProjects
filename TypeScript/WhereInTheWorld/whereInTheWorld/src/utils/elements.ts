@@ -1,4 +1,4 @@
-function getElement<T extends HTMLElement>(query: string): T {
+export function getElement<T extends HTMLElement>(query: string): T {
   const element = document.querySelector<T>(query);
   if (element === null) throw new Error(`Element not found: ${query}`);
   return element;
