@@ -26,7 +26,7 @@ export const elements = {
   /**
    * The input element used for entering search queries.
    */
-  searchInput: getElement<HTMLInputElement>("#seach"),
+  searchInput: getElement<HTMLInputElement>("#search"),
 
   /**
    * The SVG element displayed as a loading spinner during asynchronous operations.

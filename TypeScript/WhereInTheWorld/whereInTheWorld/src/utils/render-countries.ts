@@ -1,5 +1,6 @@
 import { type Country } from "../types/countries";
 import { elements } from "./elements";
+import { renderLearnMore } from "./render-learn-more";
 
 /**
  * Renders a list of countries in the UI by dynamically creating and appending HTML elements.
@@ -45,7 +46,7 @@ export function renderCountries(countries: Country[]): void {
     // Create a "Learn more" button
     const learnMoreButton = document.createElement("button");
     learnMoreButton.onclick = () => {
-      // Placeholder for future functionality
+      renderLearnMore(country);
     };
     learnMoreButton.className = "text-xs font-medium self-end px-6 py-4 hover:animate-pulse";
     learnMoreButton.type = "button";
