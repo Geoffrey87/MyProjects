@@ -1,7 +1,20 @@
+import { FetchError } from "../api/xml-get-countries";
 import { elements } from "./elements";
 
-export function setFetchState(state: "pending" | "sucess" | "error"): void {
-  switch (state) {
+type Args =
+  | {
+      state: "pending";
+    }
+  | {
+      state: "sucess";
+    }
+  | {
+      state: "error";
+      error: FetchError;
+    };
+
+export function setFetchState(args: Args): void {
+  switch (args.state) {
     case "pending":
       elements.button.disabled = true;
       elements.loadingSpinner.classList.remove("hidden");
@@ -13,6 +26,6 @@ export function setFetchState(state: "pending" | "sucess" | "error"): void {
     case "error":
       elements.button.disabled = false;
       elements.loadingSpinner.classList.add("hidden");
-      elements.state.innerHTML = `<p class="text-red-500 text-center">Error! Please try again. </p>`;
+      elements.state.innerHTML = `<p class="text-red-500 text-center"> ${args.error.message} </p>`;
   }
 }

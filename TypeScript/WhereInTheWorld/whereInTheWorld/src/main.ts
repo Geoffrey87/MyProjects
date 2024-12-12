@@ -1,4 +1,4 @@
-import { xmlGetCountries } from "./api/xml-get-countries";
+import { type FetchError, xmlGetCountries } from "./api/xml-get-countries";
 import "./styles.css";
 import { elements } from "./utils/elements";
 import { setFetchState } from "./utils/set-fetch-state";
@@ -8,15 +8,22 @@ elements.form.onsubmit = (e) => {
   e.preventDefault();
 
   const input = elements.searchInput.value.trim();
-  setFetchState("pending");
+  setFetchState({
+    state: "pending",
+  });
   xmlGetCountries(input)
     .then((countries) => {
       console.log(countries);
-      setFetchState("sucess");
+      setFetchState({
+        state: "sucess",
+      });
     })
-    .catch((error) => {
+    .catch((error: FetchError) => {
       console.log(error);
-      setFetchState("error");
+      setFetchState({
+        state: "error",
+        error,
+      });
     })
     .finally(() => {
       console.log("Here!");
