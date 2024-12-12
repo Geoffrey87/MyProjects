@@ -57,7 +57,7 @@ Or with yarn:
 yarn start
 ```
 
-The app should now be running at `http://localhost:3000` (or another available port).
+The app should now be running at `http://localhost:5173.
 
 ## Usage
 
