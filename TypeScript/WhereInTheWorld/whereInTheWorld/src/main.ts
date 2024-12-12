@@ -1,8 +1,8 @@
-import { type FetchError, xmlGetCountries } from "./api/xml-get-countries";
 import "./styles.css";
 import { elements } from "./utils/elements";
 import { renderCountries } from "./utils/render-countries";
 import { setFetchState } from "./utils/set-fetch-state";
+import { api } from "./api";
 
 elements.form.onsubmit = async (e) => {
   //e of event
@@ -29,15 +29,22 @@ elements.form.onsubmit = async (e) => {
     state: "pending",
   });
   try {
-    const countries = await xmlGetCountries(input);
+    const countries = await api.getCountriesByName(input);
     renderCountries(countries);
     setFetchState({
       state: "sucess",
     });
   } catch (error: unknown) {
-    setFetchState({
-      state: "error",
-      error: error as FetchError,
-    });
+    if (error instanceof Error) {
+      setFetchState({
+        state: "error",
+        error: error,
+      });
+    } else {
+      setFetchState({
+        state: "error",
+        error: Error("Somenthing went wrong"),
+      });
+    }
   }
 };
