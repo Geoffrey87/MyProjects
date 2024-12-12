@@ -4,7 +4,7 @@ import { elements } from "./utils/elements";
 import { renderCountries } from "./utils/render-countries";
 import { setFetchState } from "./utils/set-fetch-state";
 
-elements.form.onsubmit = (e) => {
+elements.form.onsubmit = async (e) => {
   //e of event
   e.preventDefault();
 
@@ -12,7 +12,7 @@ elements.form.onsubmit = (e) => {
   setFetchState({
     state: "pending",
   });
-  xmlGetCountries(input)
+  /* xmlGetCountries(input)
     .then((countries) => {
       setFetchState({
         state: "sucess",
@@ -24,5 +24,20 @@ elements.form.onsubmit = (e) => {
         state: "error",
         error,
       });
+    }); */
+  setFetchState({
+    state: "pending",
+  });
+  try {
+    const countries = await xmlGetCountries(input);
+    renderCountries(countries);
+    setFetchState({
+      state: "sucess",
     });
+  } catch (error: unknown) {
+    setFetchState({
+      state: "error",
+      error: error as FetchError,
+    });
+  }
 };
