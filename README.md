@@ -10,14 +10,10 @@ Each folder within this repository represents a different project. Feel free to 
 
 The projects in this repository include, but are not limited to, the following technologies:
 
-- TypeScript
-- OutSystems
-
-## How to Use
-
-If you wish to explore or contribute to any of the projects, please follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Geoffrey87/MyProjects.git
-   ```
+- TypeScript;
+- OutSystems;
+- Java whit:
+     SpringBoot;
+     jUnit;
+     Mockito;
+- Maven;
