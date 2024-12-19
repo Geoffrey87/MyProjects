@@ -33,5 +33,5 @@ export async function initializeLocalStorage(): Promise<void> {
   } else {
     // Parse the stored data and load it into the `countries` array
     countries.push(...JSON.parse(storedCountries));
-  }
+  };
 }
