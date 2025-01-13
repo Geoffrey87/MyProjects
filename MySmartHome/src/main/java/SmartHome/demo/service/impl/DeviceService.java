@@ -54,7 +54,7 @@ public class DeviceService implements IDeviceService {
         if (roomOptional.isEmpty()) {
             throw new IllegalArgumentException("Room not found.");
         }
-        List<Device> devices = deviceRepo.findAllByRoomId(roomId);
+        List<Device> devices = deviceRepo.findAllByRoom_RoomId(roomId);
 
         return DeviceMapper.domainToDto(devices);
 

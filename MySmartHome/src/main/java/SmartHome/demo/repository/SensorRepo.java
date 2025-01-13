@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface SensorRepo extends JpaRepository<AbstractSensor, Integer> {
 
-    List<AbstractSensor> findAllByDeviceId(int deviceId);
+    List<AbstractSensor> findAllByDevice_DeviceId(int deviceId);
 }
