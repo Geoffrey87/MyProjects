@@ -12,12 +12,10 @@ import javax.xml.transform.Source;
 public class HouseDto {
 
 
-    @Min(value = -90, message = "Latitude can't be less than -90")
-    @Max(value = 90, message = "Latitude can't be more than 90" )
+
     private double latitude;
 
-    @Min(value = -180, message = "Longitude can't be less than -180")
-    @Max(value = 180, message = "Longitude can't be more than 180" )
+
     private double longitude;
 
     @NotBlank(message="Address must not be blank")
