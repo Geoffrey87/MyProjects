@@ -2,6 +2,7 @@ package SmartHome.demo.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -21,6 +22,7 @@ public class Device {
     @GenericGenerator(name = "native",strategy = "native")
     private int deviceId;
 
+    @NotNull
     private String deviceName;
 
     private String deviceType;

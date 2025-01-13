@@ -1,6 +1,8 @@
 package SmartHome.demo.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -38,6 +40,5 @@ public class House {
     @OneToMany(mappedBy = "house", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,targetEntity = Room.class)
     private Set<Room> rooms;
-
 
 }

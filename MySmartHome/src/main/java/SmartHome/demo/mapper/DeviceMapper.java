@@ -3,11 +3,12 @@ package SmartHome.demo.mapper;
 import SmartHome.demo.dto.DeviceDto;
 import SmartHome.demo.entity.Device;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
+@Service
 public class DeviceMapper {
 
     public static DeviceDto domainToDto(Device device, DeviceDto deviceDto){

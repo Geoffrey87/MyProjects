@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface ActuatorRepo extends JpaRepository<AbstractActuator, Integer> {
 
-    List<AbstractActuator> findAllByDeviceId(int deviceId);
+    List<AbstractActuator> findAllByDevice_DeviceId(int deviceId);
 }
