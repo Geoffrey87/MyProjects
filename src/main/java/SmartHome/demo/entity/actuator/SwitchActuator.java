@@ -4,9 +4,9 @@ import SmartHome.demo.entity.AbstractActuator;
 
 public class SwitchActuator extends AbstractActuator {
 
-    private boolean value;
+    private boolean on_off;
 
-    public void setValue(boolean value) {
-        this.value = value;
+    public void setSwitch(boolean value) {
+        this.on_off = value;
     }
 }
