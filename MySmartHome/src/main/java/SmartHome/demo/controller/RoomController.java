@@ -1,6 +1,7 @@
 package SmartHome.demo.controller;
 
 import SmartHome.demo.dto.RoomDto;
+import SmartHome.demo.service.IRoomService;
 import SmartHome.demo.service.impl.RoomService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -12,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/rooms")
 public class RoomController {
 
-    private final RoomService roomService;
+    private final IRoomService roomService;
 
-    public RoomController(RoomService roomService) {
+    public RoomController(IRoomService roomService) {
         this.roomService = roomService;
     }
 
