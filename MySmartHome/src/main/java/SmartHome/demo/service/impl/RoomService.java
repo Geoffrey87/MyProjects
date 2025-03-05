@@ -45,5 +45,6 @@ public class RoomService implements IRoomService {
             throw new IllegalArgumentException("Room not found.");
         }
         return RoomMapper.domainToDto(roomOptional.get(), new RoomDto());
+
     }
 }
