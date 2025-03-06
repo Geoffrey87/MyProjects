@@ -7,6 +7,7 @@ import com.tourmusic.setlistfinder.dto.BandDTO;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,29 +36,74 @@ public class ExternalApiService {
     }
 
     private String getBandMbid(String bandName) {
-        String url = API_URL + "/search/artists?artistName=" + bandName;
+        String searchUrl = API_URL + "/search/artists?artistName=" + bandName;
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("x-api-key", API_KEY);
         headers.set("Accept", "application/json");
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> searchResponse = restTemplate.exchange(searchUrl, HttpMethod.GET, entity, String.class);
 
-        if (response.getStatusCode() == HttpStatus.OK) {
+        if (searchResponse.getStatusCode() == HttpStatus.OK) {
             try {
-                JsonNode root = objectMapper.readTree(response.getBody());
+                JsonNode root = objectMapper.readTree(searchResponse.getBody());
                 JsonNode artists = root.path("artist");
 
-                if (artists.isArray() && artists.size() > 0) {
-                    return artists.get(0).path("mbid").asText(); // Get first artist's mbid
+                for (JsonNode artist : artists) {
+                    String name = artist.path("name").asText();
+                    String mbid = artist.path("mbid").asText();
+
+                    // 🔎 Verifica se o nome é EXATAMENTE igual antes de continuar
+                    if (name.equalsIgnoreCase(bandName) && mbid != null && !mbid.isEmpty()) {
+                        // Agora vamos buscar mais detalhes da banda com o MBID
+                        if (isOriginalBand(mbid, bandName)) {
+                            return mbid; // Retorna apenas se for a banda verdadeira
+                        }
+                    }
                 }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return null;
+
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Band not found: " + bandName);
     }
+
+    /**
+     * Faz uma chamada extra à API para confirmar que esta é a banda original.
+     */
+    private boolean isOriginalBand(String mbid, String bandName) {
+        String artistUrl = API_URL + "/artist/" + mbid;
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("x-api-key", API_KEY);
+        headers.set("Accept", "application/json");
+
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+        ResponseEntity<String> artistResponse = restTemplate.exchange(artistUrl, HttpMethod.GET, entity, String.class);
+
+        if (artistResponse.getStatusCode() == HttpStatus.OK) {
+            try {
+                JsonNode artist = objectMapper.readTree(artistResponse.getBody());
+
+                String name = artist.path("name").asText();
+                String disambiguation = artist.path("disambiguation").asText("");
+
+                // 🔹 Se o nome for exato e não houver "disambiguation", então é a banda original
+                return name.equalsIgnoreCase(bandName) && (disambiguation == null || disambiguation.isEmpty());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return false;
+    }
+
+
+
 
     private BandDTO getBandSetlists(String mbid, String bandName) {
         String url = API_URL + "/artist/" + mbid + "/setlists";
