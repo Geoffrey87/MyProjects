@@ -1,6 +1,10 @@
 package com.LegisTrack.LegisTrack.repository;
 
+import com.LegisTrack.LegisTrack.entity.Vote;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface Vote extends JpaRepository<Vote, Long> {
+import java.util.List;
+
+public interface VoteRepo extends JpaRepository<Vote, Long> {
+    List<Vote> findByLawId(Long lawId);
 }

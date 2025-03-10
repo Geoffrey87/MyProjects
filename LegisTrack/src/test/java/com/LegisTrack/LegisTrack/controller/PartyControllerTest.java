@@ -1,8 +1,7 @@
-package com.LegisTrack.LegisTrack.contoller;
+package com.LegisTrack.LegisTrack.controller;
 
 import com.LegisTrack.LegisTrack.Dto.PartyDto;
 import com.LegisTrack.LegisTrack.Dto.PartyInputDto;
-import com.LegisTrack.LegisTrack.controller.PartyController;
 import com.LegisTrack.LegisTrack.service.IPartyService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,8 +26,11 @@ class PartyControllerTest {
 
     @InjectMocks
     private PartyController partyController;
+
     private PartyDto partyDto;
     private PartyInputDto partyInputDto;
+    // Constant for the user ID header value used in tests
+    private final String testUserId = "testUser";
 
     @BeforeEach
     void setUp() {
@@ -44,169 +46,172 @@ class PartyControllerTest {
 
     @Test
     void createParty_ShouldReturnCreatedParty() {
-        when(partyService.createParty(any(PartyInputDto.class))).thenReturn(partyDto);
+        when(partyService.createPartyByUserId(any(PartyInputDto.class), eq(testUserId)))
+                .thenReturn(partyDto);
 
-        ResponseEntity<PartyDto> response = partyController.createParty(partyInputDto);
+        ResponseEntity<PartyDto> response = partyController.createParty(testUserId, partyInputDto);
 
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertEquals(partyDto, response.getBody());
-        verify(partyService).createParty(partyInputDto);
+        verify(partyService).createPartyByUserId(partyInputDto, testUserId);
     }
 
     @Test
     void getPartyById_ShouldReturnParty() {
-        when(partyService.getPartyById(1L)).thenReturn(partyDto);
+        when(partyService.getPartyByIdAndUserId(1L, testUserId))
+                .thenReturn(partyDto);
 
-        ResponseEntity<PartyDto> response = partyController.getPartyById(1L);
+        ResponseEntity<PartyDto> response = partyController.getPartyById(testUserId, 1L);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(partyDto, response.getBody());
-        verify(partyService).getPartyById(1L);
+        verify(partyService).getPartyByIdAndUserId(1L, testUserId);
     }
 
     @Test
     void getAllParties_ShouldReturnAllParties() {
         List<PartyDto> parties = Arrays.asList(partyDto);
-        when(partyService.getAllParties()).thenReturn(parties);
+        when(partyService.getAllParties(testUserId)).thenReturn(parties);
 
-        ResponseEntity<List<PartyDto>> response = partyController.getAllParties();
+        ResponseEntity<List<PartyDto>> response = partyController.getAllParties(testUserId);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(1, response.getBody().size());
-        verify(partyService).getAllParties();
+        verify(partyService).getAllParties(testUserId);
     }
 
     @Test
     void incrementDeputies_ShouldUpdateDeputies() {
-        when(partyService.incrementDeputies(eq(1L), eq(5))).thenReturn(partyDto);
+        when(partyService.incrementDeputies(eq(1L), eq(5), eq(testUserId))).thenReturn(partyDto);
 
-        ResponseEntity<PartyDto> response = partyController.incrementDeputies(1L, 5);
+        ResponseEntity<PartyDto> response = partyController.incrementDeputies(testUserId, 1L, 5);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(partyDto, response.getBody());
-        verify(partyService).incrementDeputies(1L, 5);
+        verify(partyService).incrementDeputies(1L, 5, testUserId);
     }
 
     @Test
     void decrementDeputies_ShouldUpdateDeputies() {
-        when(partyService.decrementDeputies(eq(1L), eq(3))).thenReturn(partyDto);
+        when(partyService.decrementDeputies(eq(1L), eq(3), eq(testUserId))).thenReturn(partyDto);
 
-        ResponseEntity<PartyDto> response = partyController.decrementDeputies(1L, 3);
+        ResponseEntity<PartyDto> response = partyController.decrementDeputies(testUserId, 1L, 3);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(partyDto, response.getBody());
-        verify(partyService).decrementDeputies(1L, 3);
+        verify(partyService).decrementDeputies(1L, 3, testUserId);
     }
 
     @Test
     void updateParty_ShouldReturnUpdatedParty() {
-        when(partyService.updateParty(eq(1L), any(PartyInputDto.class))).thenReturn(partyDto);
+        when(partyService.updateParty(eq(1L), any(PartyInputDto.class), eq(testUserId)))
+                .thenReturn(partyDto);
 
-        ResponseEntity<PartyDto> response = partyController.updateParty(1L, partyInputDto);
+        ResponseEntity<PartyDto> response = partyController.updateParty(testUserId, 1L, partyInputDto);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(partyDto, response.getBody());
-        verify(partyService).updateParty(1L, partyInputDto);
+        verify(partyService).updateParty(1L, partyInputDto, testUserId);
     }
 
     @Test
     void deleteParty_ShouldReturnNoContent() {
-        doNothing().when(partyService).deleteParty(1L);
+        doNothing().when(partyService).deleteParty(1L, testUserId);
 
-        ResponseEntity<Void> response = partyController.deleteParty(1L);
+        ResponseEntity<Void> response = partyController.deleteParty(testUserId, 1L);
 
         assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
-        verify(partyService).deleteParty(1L);
+        verify(partyService).deleteParty(1L, testUserId);
     }
 
     @Test
     void getPartyById_WhenPartyNotFound_ThrowsException() {
-        when(partyService.getPartyById(1L))
+        when(partyService.getPartyByIdAndUserId(1L, testUserId))
                 .thenThrow(new RuntimeException("Party not found with ID: 1"));
 
         RuntimeException exception = assertThrows(RuntimeException.class, () ->
-                partyController.getPartyById(1L)
+                partyController.getPartyById(testUserId, 1L)
         );
 
         assertEquals("Party not found with ID: 1", exception.getMessage());
-        verify(partyService).getPartyById(1L);
+        verify(partyService).getPartyByIdAndUserId(1L, testUserId);
     }
 
     @Test
     void incrementDeputies_WhenPartyNotFound_ThrowsException() {
-        when(partyService.incrementDeputies(1L, 5))
+        when(partyService.incrementDeputies(1L, 5, testUserId))
                 .thenThrow(new RuntimeException("Party not found with ID: 1"));
 
         RuntimeException exception = assertThrows(RuntimeException.class, () ->
-                partyController.incrementDeputies(1L, 5)
+                partyController.incrementDeputies(testUserId, 1L, 5)
         );
 
         assertEquals("Party not found with ID: 1", exception.getMessage());
-        verify(partyService).incrementDeputies(1L, 5);
+        verify(partyService).incrementDeputies(1L, 5, testUserId);
     }
 
     @Test
     void decrementDeputies_WhenPartyNotFound_ThrowsException() {
-        when(partyService.decrementDeputies(1L, 3))
+        when(partyService.decrementDeputies(1L, 3, testUserId))
                 .thenThrow(new RuntimeException("Party not found with ID: 1"));
 
         RuntimeException exception = assertThrows(RuntimeException.class, () ->
-                partyController.decrementDeputies(1L, 3)
+                partyController.decrementDeputies(testUserId, 1L, 3)
         );
 
         assertEquals("Party not found with ID: 1", exception.getMessage());
-        verify(partyService).decrementDeputies(1L, 3);
+        verify(partyService).decrementDeputies(1L, 3, testUserId);
     }
 
     @Test
     void decrementDeputies_WhenResultIsNegative_ThrowsException() {
-        when(partyService.decrementDeputies(1L, 5))
+        when(partyService.decrementDeputies(1L, 5, testUserId))
                 .thenThrow(new RuntimeException("The number of deputies cannot be less than 0"));
 
         RuntimeException exception = assertThrows(RuntimeException.class, () ->
-                partyController.decrementDeputies(1L, 5)
+                partyController.decrementDeputies(testUserId, 1L, 5)
         );
 
         assertEquals("The number of deputies cannot be less than 0", exception.getMessage());
-        verify(partyService).decrementDeputies(1L, 5);
+        verify(partyService).decrementDeputies(1L, 5, testUserId);
     }
 
     @Test
     void updateParty_WhenPartyNotFound_ThrowsException() {
-        when(partyService.updateParty(eq(1L), any(PartyInputDto.class)))
+        when(partyService.updateParty(eq(1L), any(PartyInputDto.class), eq(testUserId)))
                 .thenThrow(new RuntimeException("Party not found with ID: 1"));
 
         RuntimeException exception = assertThrows(RuntimeException.class, () ->
-                partyController.updateParty(1L, partyInputDto)
+                partyController.updateParty(testUserId, 1L, partyInputDto)
         );
 
         assertEquals("Party not found with ID: 1", exception.getMessage());
-        verify(partyService).updateParty(1L, partyInputDto);
+        verify(partyService).updateParty(1L, partyInputDto, testUserId);
     }
 
     @Test
     void deleteParty_WhenPartyNotFound_ThrowsException() {
         doThrow(new RuntimeException("Party not found with ID: 1"))
-                .when(partyService).deleteParty(1L);
+                .when(partyService).deleteParty(1L, testUserId);
 
         RuntimeException exception = assertThrows(RuntimeException.class, () ->
-                partyController.deleteParty(1L)
+                partyController.deleteParty(testUserId, 1L)
         );
 
         assertEquals("Party not found with ID: 1", exception.getMessage());
-        verify(partyService).deleteParty(1L);
+        verify(partyService).deleteParty(1L, testUserId);
     }
 
     @Test
     void getAllParties_WhenNoPartiesExist_ThrowsException() {
-        when(partyService.getAllParties())
-                .thenThrow(new RuntimeException("No parties found"));
+        when(partyService.getAllParties(testUserId))
+                .thenThrow(new RuntimeException("No parties found for user: " + testUserId));
 
         RuntimeException exception = assertThrows(RuntimeException.class,
-                () -> partyController.getAllParties()
+                () -> partyController.getAllParties(testUserId)
         );
 
-        assertEquals("No parties found", exception.getMessage());
-        verify(partyService).getAllParties();
+        assertEquals("No parties found for user: " + testUserId, exception.getMessage());
+        verify(partyService).getAllParties(testUserId);
     }
 }

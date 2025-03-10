@@ -1,0 +1,33 @@
+/* The parent container that holds all three boxes in a row */
+.buttons-container {
+  display: flex;
+  justify-content: center; /* or space-evenly / space-between / flex-start, etc. */
+  gap: 20px;               /* spacing between each box */
+  margin-top: 20px;
+}
+
+/* Each box has a fixed width & height so they're the same size */
+.custom-button {
+  display: flex;
+  flex-direction: column;    /* stack label & dropdown vertically */
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 70px;
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  cursor: pointer; /* so it feels clickable, especially if it's a <div> */
+}
+
+.custom-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* The <select> inside each box */
+.custom-button select {
+  margin-top: 6px;
+  width: 90%;
+  box-sizing: border-box;
+  padding: 2px;
+}
