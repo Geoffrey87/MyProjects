@@ -25,9 +25,9 @@ public class LawController {
      * @return The created law as a LawDto.
      */
     @PostMapping
-    public ResponseEntity<LawDto> createLaw(@RequestBody LawInputDto lawInputDto) {
-        LawDto createdLaw = lawService.createLaw(lawInputDto);
-        return new ResponseEntity<>(createdLaw, HttpStatus.CREATED);
+    public ResponseEntity<LawDto> createLaw(@RequestHeader("X-User-Id") String userId, @RequestBody LawInputDto lawInputDto) {
+        LawDto newLaw = lawService.createLaw(lawInputDto, userId);
+        return new ResponseEntity<>(newLaw, HttpStatus.CREATED);
     }
 
     /**
@@ -46,8 +46,8 @@ public class LawController {
      * @return A list of LawDto.
      */
     @GetMapping
-    public ResponseEntity<List<LawDto>> getAllLaws() {
-        List<LawDto> lawDtos = lawService.getAllLaws();
-        return ResponseEntity.ok(lawDtos);
+    public ResponseEntity<List<LawDto>> getAllLaws(@RequestHeader("X-User-Id") String userId) {
+        List<LawDto> laws = lawService.getLawsByUserId(userId);
+        return ResponseEntity.ok(laws);
     }
 }

@@ -25,7 +25,7 @@ public class Law {
     private LocalDate dateProposed;
 
     @ManyToOne
-    @JoinColumn(name = "party_id")
+    @JoinColumn(name = "party_id", nullable = false)
     private Party proposingParty;
 
     @OneToMany(mappedBy = "law", cascade = CascadeType.ALL, orphanRemoval = true)

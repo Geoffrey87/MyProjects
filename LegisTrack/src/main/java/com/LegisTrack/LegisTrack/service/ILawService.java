@@ -15,7 +15,7 @@ public interface ILawService {
      * @param lawInputDto The DTO containing input data for the law.
      * @return The created law as a LawDto.
      */
-    LawDto createLaw(LawInputDto lawInputDto);
+    LawDto createLaw(LawInputDto lawInputDto, String userId);
 
     /**
      * Retrieves a law by its ID.
@@ -31,4 +31,9 @@ public interface ILawService {
      * @return A list of LawDto.
      */
     List<LawDto> getAllLaws();
+
+    /**
+     * Get law by user ID.
+     */
+    List<LawDto> getLawsByUserId(String userId);
 }

@@ -16,5 +16,6 @@ public class LawDto {
     private String description;
     private String proposingPartyName;
     private LocalDate dateProposed;
+    private Long proposingPartyId;
 }
 

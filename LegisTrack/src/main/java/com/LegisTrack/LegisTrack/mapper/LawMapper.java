@@ -16,6 +16,7 @@ public class LawMapper {
         lawDto.setDescription(law.getDescription());
         lawDto.setProposingPartyName(law.getProposingParty().getName());
         lawDto.setDateProposed(law.getDateProposed());
+        lawDto.setProposingPartyId(law.getProposingParty().getId());
         return lawDto;
     }
 
