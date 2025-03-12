@@ -3,6 +3,7 @@ package com.LegisTrack.LegisTrack.service.impl;
 import com.LegisTrack.LegisTrack.Dto.PartyDto;
 import com.LegisTrack.LegisTrack.Dto.PartyInputDto;
 import com.LegisTrack.LegisTrack.entity.Party;
+import com.LegisTrack.LegisTrack.exception.BusinessException;
 import com.LegisTrack.LegisTrack.mapper.PartyMapper;
 import com.LegisTrack.LegisTrack.repository.PartyRepo;
 import com.LegisTrack.LegisTrack.service.IPartyService;
@@ -58,9 +59,9 @@ public class PartyService implements IPartyService {
     @Override
     public PartyDto getPartyByIdAndUserId(Long id, String userId) {
         Party party = partyRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Party not found with ID: " + id));
+                .orElseThrow(() -> new BusinessException("Party not found with ID: " + id));
         if (!party.getUserId().equals(userId)) {
-            throw new RuntimeException("Party does not belong to user: " + userId);
+            throw new BusinessException("Party does not belong to user: " + userId);
         }
         return PartyMapper.domainToDto(party, new PartyDto());
     }
@@ -72,7 +73,7 @@ public class PartyService implements IPartyService {
     public List<PartyDto> getAllParties(String userId) {
         List<Party> parties = partyRepo.findByUserId(userId);
         if (parties.isEmpty()) {
-            throw new RuntimeException("No parties found for user: " + userId);
+            throw new BusinessException("No parties found for user: " + userId);
         }
         List<PartyDto> partyDTOs = new ArrayList<>();
         for (Party party : parties) {
@@ -87,9 +88,9 @@ public class PartyService implements IPartyService {
     @Override
     public PartyDto incrementDeputies(Long partyId, int count, String userId) {
         Party party = partyRepo.findById(partyId)
-                .orElseThrow(() -> new RuntimeException("Party not found with ID: " + partyId));
+                .orElseThrow(() -> new BusinessException("Party not found with ID: " + partyId));
         if (!party.getUserId().equals(userId)) {
-            throw new RuntimeException("Party does not belong to user: " + userId);
+            throw new BusinessException("Party does not belong to user: " + userId);
         }
         party.setNrOfDeputies(party.getNrOfDeputies() + count);
         partyRepo.save(party);
@@ -102,13 +103,13 @@ public class PartyService implements IPartyService {
     @Override
     public PartyDto decrementDeputies(Long partyId, int count, String userId) {
         Party party = partyRepo.findById(partyId)
-                .orElseThrow(() -> new RuntimeException("Party not found with ID: " + partyId));
+                .orElseThrow(() -> new BusinessException("Party not found with ID: " + partyId));
         if (!party.getUserId().equals(userId)) {
-            throw new RuntimeException("Party does not belong to user: " + userId);
+            throw new BusinessException("Party does not belong to user: " + userId);
         }
         int newCount = party.getNrOfDeputies() - count;
         if (newCount < 0) {
-            throw new RuntimeException("The number of deputies cannot be less than 0");
+            throw new BusinessException("The number of deputies cannot be less than 0");
         }
         party.setNrOfDeputies(newCount);
         partyRepo.save(party);
@@ -122,9 +123,9 @@ public class PartyService implements IPartyService {
     @Override
     public PartyDto updateParty(Long id, PartyInputDto partyInputDTO, String userId) {
         Party party = partyRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Party not found with ID: " + id));
+                .orElseThrow(() -> new BusinessException("Party not found with ID: " + id));
         if (!party.getUserId().equals(userId)) {
-            throw new RuntimeException("Party does not belong to user: " + userId);
+            throw new BusinessException("Party does not belong to user: " + userId);
         }
         PartyMapper.dtoToDomain(partyInputDTO, party);
         partyRepo.save(party);
@@ -137,9 +138,9 @@ public class PartyService implements IPartyService {
     @Override
     public void deleteParty(Long id, String userId) {
         Party party = partyRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Party not found with ID: " + id));
+                .orElseThrow(() -> new BusinessException("Party not found with ID: " + id));
         if (!party.getUserId().equals(userId)) {
-            throw new RuntimeException("Party does not belong to user: " + userId);
+            throw new BusinessException("Party does not belong to user: " + userId);
         }
         partyRepo.delete(party);
     }

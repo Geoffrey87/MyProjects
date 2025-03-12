@@ -3,6 +3,7 @@ package com.LegisTrack.LegisTrack.service.impl;
 import com.LegisTrack.LegisTrack.Dto.VoteDto;
 import com.LegisTrack.LegisTrack.Dto.VoteInputDto;
 import com.LegisTrack.LegisTrack.entity.*;
+import com.LegisTrack.LegisTrack.exception.BusinessException;
 import com.LegisTrack.LegisTrack.mapper.VoteMapper;
 import com.LegisTrack.LegisTrack.repository.VoteRepo;
 import com.LegisTrack.LegisTrack.repository.PartyRepo;
@@ -32,7 +33,7 @@ public class VoteService implements IVoteService {
     @Override
     public List<VoteDto> generateVotes(Long lawId, List<Long> partyIds) {
         Law law = lawRepo.findById(lawId)
-                .orElseThrow(() -> new RuntimeException("Law not found"));
+                .orElseThrow(() -> new BusinessException("Law not found"));
 
         // 1) Get the proposing party
         Party proposingParty = law.getProposingParty();
@@ -62,7 +63,7 @@ public class VoteService implements IVoteService {
                 .collect(Collectors.toList());
 
         if (availableParties.isEmpty()) {
-            throw new RuntimeException("All parties already voted or no parties selected");
+            throw new BusinessException("All parties already voted or no parties selected");
         }
 
         // 6) Shuffle and distribute votes

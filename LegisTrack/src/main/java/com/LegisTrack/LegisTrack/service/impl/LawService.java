@@ -4,6 +4,7 @@ import com.LegisTrack.LegisTrack.Dto.LawDto;
 import com.LegisTrack.LegisTrack.Dto.LawInputDto;
 import com.LegisTrack.LegisTrack.entity.Law;
 import com.LegisTrack.LegisTrack.entity.Party;
+import com.LegisTrack.LegisTrack.exception.BusinessException;
 import com.LegisTrack.LegisTrack.mapper.LawMapper;
 import com.LegisTrack.LegisTrack.repository.LawRepo;
 import com.LegisTrack.LegisTrack.repository.PartyRepo;
@@ -39,10 +40,10 @@ public class LawService implements ILawService {
     public LawDto createLaw(LawInputDto lawInputDto, String userId) {
         // Find the party by ID and validate ownership
         Party party = partyRepo.findById(lawInputDto.getProposingPartyId())
-                .orElseThrow(() -> new RuntimeException("Party not found"));
+                .orElseThrow(() -> new BusinessException("Party not found"));
 
         if (!party.getUserId().equals(userId)) {
-            throw new RuntimeException("You can only propose laws for your own parties.");
+            throw new BusinessException("You can only propose laws for your own parties.");
         }
 
         // Create the new law
@@ -66,7 +67,7 @@ public class LawService implements ILawService {
     @Override
     public LawDto getLawById(Long id) {
         Law law = lawRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Law not found with ID: " + id));
+                .orElseThrow(() -> new BusinessException("Law not found with ID: " + id));
         return LawMapper.domainToDto(law, new LawDto());
     }
 
@@ -79,7 +80,7 @@ public class LawService implements ILawService {
     public List<LawDto> getAllLaws() {
         List<Law> laws = lawRepo.findAll();
         if (laws.isEmpty()) {
-            throw new RuntimeException("No laws found.");
+            throw new BusinessException("No laws found.");
         }
         List<LawDto> lawDtos = new ArrayList<>();
         for (Law law : laws) {
@@ -92,7 +93,7 @@ public class LawService implements ILawService {
     public List<LawDto> getLawsByUserId(String userId) {
         List<Party> parties = partyRepo.findByUserId(userId);
         if (parties.isEmpty()) {
-            throw new RuntimeException("No parties found for user: " + userId);
+            throw new BusinessException("No parties found for user: " + userId);
         }
         List<LawDto> lawDtos = new ArrayList<>();
 
