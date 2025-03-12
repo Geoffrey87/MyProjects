@@ -1,161 +1,97 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function ViewVotesPage() {
   const { lawId } = useParams();
+  const navigate = useNavigate();
   const [votes, setVotes] = useState({
     IN_FAVOR: [],
     AGAINST: [],
-    ABSTENTION: []
+    ABSTENTION: [],
   });
-  const [parties, setParties] = useState([]); // Partidos do usuário
-  const userId = sessionStorage.getItem("userId");
-
-  // Estados para armazenar a soma de deputados em cada categoria
+  const [parties, setParties] = useState([]);
+  const [lawDescription, setLawDescription] = useState("");
   const [deputiesInFavor, setDeputiesInFavor] = useState(0);
   const [deputiesAgainst, setDeputiesAgainst] = useState(0);
   const [deputiesAbstention, setDeputiesAbstention] = useState(0);
+  const userId = sessionStorage.getItem("userId");
 
   useEffect(() => {
-    // 1) Buscar votos da lei
     axios
-      .get(`http://localhost:8080/api/votes/law/${lawId}`, {
-        headers: { "X-User-Id": userId }
-      })
+      .get(`http://localhost:8080/api/votes/law/${lawId}`, { headers: { "X-User-Id": userId } })
       .then((response) => {
         const seen = new Set();
         const cleanData = {
-          IN_FAVOR: (response.data.IN_FAVOR || []).filter((p) => {
-            if (seen.has(p)) return false;
-            seen.add(p);
-            return true;
-          }),
-          AGAINST: (response.data.AGAINST || []).filter((p) => {
-            if (seen.has(p)) return false;
-            seen.add(p);
-            return true;
-          }),
-          ABSTENTION: (response.data.ABSTENTION || []).filter((p) => {
-            if (seen.has(p)) return false;
-            seen.add(p);
-            return true;
-          })
+          IN_FAVOR: (response.data.IN_FAVOR || []).filter((p) => !seen.has(p) && seen.add(p)),
+          AGAINST: (response.data.AGAINST || []).filter((p) => !seen.has(p) && seen.add(p)),
+          ABSTENTION: (response.data.ABSTENTION || []).filter((p) => !seen.has(p) && seen.add(p)),
         };
         setVotes(cleanData);
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      .catch(console.error);
 
-    // 2) Buscar todos os partidos do usuário
     axios
-      .get("http://localhost:8080/api/parties", {
-        headers: { "X-User-Id": userId }
-      })
-      .then((response) => {
-        setParties(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching parties:", error);
-      });
+      .get("http://localhost:8080/api/parties", { headers: { "X-User-Id": userId } })
+      .then((response) => setParties(response.data))
+      .catch(console.error);
+
+    // Obter descrição da lei
+    axios
+      .get(`http://localhost:8080/api/laws/${lawId}`, { headers: { "X-User-Id": userId } })
+      .then((response) => setLawDescription(response.data.description))
+      .catch(console.error);
   }, [lawId, userId]);
 
-  // Sempre que 'votes' ou 'parties' mudarem, recalcular a soma de deputados
   useEffect(() => {
-    if (!parties.length) return; // Se ainda não carregou os partidos, não faz nada
+    if (!parties.length) return;
 
-    // Função auxiliar para somar deputados de uma lista de nomes de partidos
-    const sumDeputies = (partyNames) => {
-      return partyNames.reduce((acc, partyName) => {
-        // Procura o partido no array 'parties' (buscando por nome)
-        const found = parties.find((p) => p.name === partyName);
-        return acc + (found ? found.nrOfDeputies : 0);
-      }, 0);
-    };
+    const sumDeputies = (partyNames) => partyNames.reduce((acc, name) => {
+      const party = parties.find(p => p.name === name);
+      return acc + (party ? party.nrOfDeputies : 0);
+    }, 0);
 
-    const totalFavor = sumDeputies(votes.IN_FAVOR);
-    const totalAgainst = sumDeputies(votes.AGAINST);
-    const totalAbstention = sumDeputies(votes.ABSTENTION);
-
-    setDeputiesInFavor(totalFavor);
-    setDeputiesAgainst(totalAgainst);
-    setDeputiesAbstention(totalAbstention);
+    setDeputiesInFavor(sumDeputies(votes.IN_FAVOR));
+    setDeputiesAgainst(sumDeputies(votes.AGAINST));
+    setDeputiesAbstention(sumDeputies(votes.ABSTENTION));
   }, [votes, parties]);
 
-  // Determina se a lei foi aprovada
   const isApproved = deputiesInFavor > deputiesAgainst;
 
-  // Helper para exibir a lista de partidos
-  const renderVotes = (votesArray) => {
-    if (!votesArray || votesArray.length === 0) {
-      return "No votes in this category";
-    }
-    return votesArray.join(", ");
-  };
+  const renderVotes = (votesArray) => votesArray.length ? votesArray.join(", ") : "No votes in this category";
 
   return (
-    <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
-      <h2 style={{ color: "#2c3e50" }}>Votes for Law {lawId}</h2>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 py-10">
+      <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-xl p-8">
+        <button
+          onClick={() => navigate("/view-laws")}
+          className="mb-4 px-4 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 transition"
+        >
+          ← Back to Laws
+        </button>
 
-      {/* Exemplo de mensagem se a lei foi aprovada */}
-      <div style={{ margin: "10px 0", fontWeight: "bold" }}>
-        {isApproved ? (
-          <span style={{ color: "green" }}>✅ Law Approved!</span>
-        ) : (
-          <span style={{ color: "red" }}>❌ Law Not Approved</span>
-        )}
-      </div>
+        <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">Votes for "{lawDescription}"</h2>
 
-      {/* IN_FAVOR */}
-      <div
-        style={{
-          margin: "15px 0",
-          padding: "10px",
-          border: "1px solid #ecf0f1",
-          borderRadius: "5px"
-        }}
-      >
-        <strong style={{ color: "#27ae60" }}>✅ IN FAVOR:</strong>
-        <span style={{ marginLeft: "10px" }}>{renderVotes(votes.IN_FAVOR)}</span>
-        <br />
-        <small style={{ color: "#27ae60" }}>
-          Deputies in favor: {deputiesInFavor}
-        </small>
-      </div>
+        <div className={`font-bold text-center text-xl mb-4 ${isApproved ? "text-green-600" : "text-red-600"}`}>
+          {isApproved ? "✅ Law Approved!" : "❌ Law Not Approved"}
+        </div>
 
-      {/* AGAINST */}
-      <div
-        style={{
-          margin: "15px 0",
-          padding: "10px",
-          border: "1px solid #ecf0f1",
-          borderRadius: "5px"
-        }}
-      >
-        <strong style={{ color: "#e74c3c" }}>❌ AGAINST:</strong>
-        <span style={{ marginLeft: "10px" }}>{renderVotes(votes.AGAINST)}</span>
-        <br />
-        <small style={{ color: "#e74c3c" }}>
-          Deputies against: {deputiesAgainst}
-        </small>
-      </div>
+        <div className="space-y-4">
+          <div className="p-4 border border-green-300 rounded-lg">
+            <strong className="text-green-600">✅ IN FAVOR:</strong> {renderVotes(votes.IN_FAVOR)}<br />
+            <small>Deputies in favor: {deputiesInFavor}</small>
+          </div>
 
-      {/* ABSTENTION */}
-      <div
-        style={{
-          margin: "15px 0",
-          padding: "10px",
-          border: "1px solid #ecf0f1",
-          borderRadius: "5px"
-        }}
-      >
-        <strong style={{ color: "#f39c12" }}>⚖️ ABSTENTION:</strong>
-        <span style={{ marginLeft: "10px" }}>{renderVotes(votes.ABSTENTION)}</span>
-        <br />
-        <small style={{ color: "#f39c12" }}>
-          Deputies abstention: {deputiesAbstention}
-        </small>
+          <div className="p-4 border border-red-300 rounded-lg">
+            <strong className="text-red-600">❌ AGAINST:</strong> {renderVotes(votes.AGAINST)}<br />
+            <small>Deputies against: {deputiesAgainst}</small>
+          </div>
+
+          <div className="p-4 border border-yellow-300 rounded-lg">
+            <strong className="text-yellow-600">⚖️ ABSTENTION:</strong> {renderVotes(votes.ABSTENTION)}<br />
+            <small>Deputies abstention: {deputiesAbstention}</small>
+          </div>
+        </div>
       </div>
     </div>
   );

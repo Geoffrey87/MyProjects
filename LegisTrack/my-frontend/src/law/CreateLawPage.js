@@ -10,7 +10,6 @@ function CreateLawPage() {
   const userId = sessionStorage.getItem("userId");
   const navigate = useNavigate();
 
-  // Fetch parties belonging to the user
   useEffect(() => {
     axios
       .get("http://localhost:8080/api/parties", {
@@ -38,7 +37,6 @@ function CreateLawPage() {
       });
 
       if (response.status === 201) {
-        // Redireciona para a página "view-laws" ao criar a lei com sucesso
         navigate("/view-laws", { state: { lawCreated: true } });
       }
     } catch (error) {
@@ -47,47 +45,68 @@ function CreateLawPage() {
   };
 
   return (
-    <div>
-      <h2>Create New Law</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Description:</label>
-          <input
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 py-10">
+      <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-xl p-8">
+        <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">Create New Law</h2>
 
-        <div>
-          <label>Date Proposed:</label>
-          <input
-            type="date"
-            value={dateProposed}
-            onChange={(e) => setDateProposed(e.target.value)}
-            required
-          />
-        </div>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-gray-700 font-semibold mb-2">Description:</label>
+            <input
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+              className="w-full border border-gray-300 p-2 rounded"
+            />
+          </div>
 
-        <div>
-          <label>Proposing Party:</label>
-          <select
-            value={partyId}
-            onChange={(e) => setPartyId(e.target.value)}
-            required
-          >
-            <option value="">Select a Party</option>
-            {parties.map((party) => (
-              <option key={party.id} value={party.id}>
-                {party.name}
-              </option>
-            ))}
-          </select>
-        </div>
+          <div>
+            <label className="block text-gray-700 font-semibold mb-2">Date Proposed:</label>
+            <input
+              type="date"
+              value={dateProposed}
+              onChange={(e) => setDateProposed(e.target.value)}
+              required
+              className="w-full border border-gray-300 p-2 rounded"
+            />
+          </div>
 
-        <button type="submit">Create Law</button>
-      </form>
+          <div>
+            <label className="block text-gray-700 font-semibold mb-2">Proposing Party:</label>
+            <select
+              value={partyId}
+              onChange={(e) => setPartyId(e.target.value)}
+              required
+              className="w-full border border-gray-300 p-2 rounded"
+            >
+              <option value="">Select a Party</option>
+              {parties.map((party) => (
+                <option key={party.id} value={party.id}>
+                  {party.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="flex justify-center gap-4">
+            <button
+              type="submit"
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            >
+              Create Law
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate("/simulator")}
+              className="px-6 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 transition"
+            >
+              Back to Party List
+            </button>
+            </div>
+        </form>
+      </div>
     </div>
   );
 }
