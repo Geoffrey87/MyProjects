@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface VoteRepo extends JpaRepository<Vote, Long> {
     List<Vote> findByLawId(Long lawId);
+
+    boolean existsByLawIdAndPartyId(Long lawId, Long partyId);
 }

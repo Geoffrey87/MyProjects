@@ -4,9 +4,9 @@ import HomePage from "./HomePage";
 import PartyList from "./party/PartyList";
 import CreatePartyPage from "./party/CreatePartyPage";
 import UpdatePartyPage from "./party/UpdatePartyPage";
-import LawList from "./law/LawList";
 import CreateLawPage from "./law/CreateLawPage";
 import ViewLawsPage from "./law/ViewLawsPage";
+import ViewVotesPage from "./law/ViewVotesPage";
 
 function App() {
   return (
@@ -16,10 +16,9 @@ function App() {
         <Route path="/simulator" element={<PartyList />} />
         <Route path="/create-party" element={<CreatePartyPage />} />
         <Route path="/update-party/:id" element={<UpdatePartyPage />} />
-
-        <Route path="/laws" element={<LawList />} />
         <Route path="/create-law" element={<CreateLawPage />} />
-        <Route path="/view-laws/:id" element={<ViewLawsPage />} />
+        <Route path="/view-laws" element={<ViewLawsPage />} />
+        <Route path="/view-votes/:lawId" element={<ViewVotesPage />} />
       </Routes>
     </Router>
   );

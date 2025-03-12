@@ -10,8 +10,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VoteDto {
-    private Long lawId;
     private Long id;
+    private Long lawId;
+    private Long partyId;
     private String description;
     private String voteType;
 }

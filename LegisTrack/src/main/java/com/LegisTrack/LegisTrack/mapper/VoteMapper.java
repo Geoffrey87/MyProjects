@@ -12,16 +12,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class VoteMapper {
 
-    public static VoteDto domainToDto(Vote vote, VoteDto voteDto){
+    public static VoteDto domainToDto(Vote vote, VoteDto voteDto) {
         voteDto.setId(vote.getId());
         voteDto.setVoteType(vote.getVoteType().name());
-        voteDto.setDescription(vote.getLaw().getDescription());
         voteDto.setLawId(vote.getLaw().getId());
+        voteDto.setPartyId(vote.getParty().getId()); // Adicionar ID do partido
+        voteDto.setDescription(vote.getLaw().getDescription());
         return voteDto;
     }
 
-    public static Vote dtoToDomain(VoteInputDto voteInputDto, Vote vote){
+    public static Vote dtoToDomain(VoteInputDto voteInputDto, Vote vote) {
         vote.setVoteType(VoteType.valueOf(voteInputDto.getVoteType()));
         return vote;
     }
 }
+

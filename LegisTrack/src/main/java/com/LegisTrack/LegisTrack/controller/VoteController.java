@@ -1,19 +1,20 @@
 package com.LegisTrack.LegisTrack.controller;
 
-import com.LegisTrack.LegisTrack.Dto.VoteCountDto;
+import com.LegisTrack.LegisTrack.Dto.PartySelectionDto;
 import com.LegisTrack.LegisTrack.Dto.VoteDto;
 import com.LegisTrack.LegisTrack.Dto.VoteInputDto;
+import com.LegisTrack.LegisTrack.entity.VoteType;
 import com.LegisTrack.LegisTrack.service.IVoteService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/votes")
 public class VoteController {
-
     private final IVoteService voteService;
 
     public VoteController(IVoteService voteService) {
@@ -21,46 +22,28 @@ public class VoteController {
     }
 
     /**
-     * Creates a new vote.
-     * @param voteInputDto the input DTO containing vote details.
-     * @return the created vote as a VoteDto.
+     * Generates random votes for a law and returns them as DTOs.
      */
-    @PostMapping
-    public ResponseEntity<VoteDto> createVote(@RequestBody VoteInputDto voteInputDto) {
-        VoteDto createdVote = voteService.createVote(voteInputDto);
-        return new ResponseEntity<>(createdVote, HttpStatus.CREATED);
+    @PostMapping("/generate/{lawId}")
+    public ResponseEntity<List<VoteDto>> generateVotes(
+            @PathVariable Long lawId,
+            @RequestBody PartySelectionDto request
+    ) {
+        List<VoteDto> votes = voteService.generateVotes(lawId, request.getPartyIds());
+        return new ResponseEntity<>(votes, HttpStatus.CREATED);
     }
 
-    /**
-     * Retrieves a vote by its ID.
-     * @param id the vote's ID.
-     * @return the vote as a VoteDto.
-     */
-    @GetMapping("/{id}")
-    public ResponseEntity<VoteDto> getVoteById(@PathVariable Long id) {
-        VoteDto voteDto = voteService.getVoteById(id);
-        return ResponseEntity.ok(voteDto);
-    }
+
 
     /**
-     * Retrieves all votes.
-     * @return a list of VoteDto.
+     * Returns votes for a specific law grouped by vote type.
      */
-    @GetMapping
-    public ResponseEntity<List<VoteDto>> getAllVotes() {
-        List<VoteDto> votes = voteService.getAllVotes();
+    @GetMapping("/law/{lawId}")
+    public ResponseEntity<Map<VoteType, List<String>>> getVotesByLaw(
+            @PathVariable Long lawId
+    ) {
+        Map<VoteType, List<String>> votes = voteService.getVotesByLaw(lawId);
         return ResponseEntity.ok(votes);
     }
 
-    /**
-     * Retrieves aggregated vote counts for a given law.
-     * @param lawId the law's ID.
-     * @return the vote counts as a VoteCountDto.
-     */
-    @GetMapping("/law/{lawId}/counts")
-    public ResponseEntity<VoteCountDto> getVoteCountsByLaw(@PathVariable Long lawId) {
-        VoteCountDto voteCountDto = voteService.getVoteCountsByLaw(lawId);
-        return ResponseEntity.ok(voteCountDto);
-    }
 }
-

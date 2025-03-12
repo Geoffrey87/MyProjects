@@ -1,4 +1,3 @@
-// CreateLawPage.js
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -11,13 +10,14 @@ function CreateLawPage() {
   const userId = sessionStorage.getItem("userId");
   const navigate = useNavigate();
 
-  // Buscar partidos do usuário
+  // Fetch parties belonging to the user
   useEffect(() => {
-    axios.get("http://localhost:8080/api/parties", {
-      headers: { "X-User-Id": userId }
-    })
-    .then(response => setParties(response.data))
-    .catch(error => console.error("Error fetching parties:", error));
+    axios
+      .get("http://localhost:8080/api/parties", {
+        headers: { "X-User-Id": userId },
+      })
+      .then((response) => setParties(response.data))
+      .catch((error) => console.error("Error fetching parties:", error));
   }, [userId]);
 
   const handleSubmit = async (e) => {
@@ -26,23 +26,20 @@ function CreateLawPage() {
     const lawData = {
       description,
       dateProposed,
-      proposingPartyId: partyId
+      proposingPartyId: partyId,
     };
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/api/laws",
-        lawData,
-        {
-          headers: {
-            "X-User-Id": userId,
-            "Content-Type": "application/json"
-          }
-        }
-      );
+      const response = await axios.post("http://localhost:8080/api/laws", lawData, {
+        headers: {
+          "X-User-Id": userId,
+          "Content-Type": "application/json",
+        },
+      });
 
       if (response.status === 201) {
-        navigate(`/view-laws/${partyId}`);
+        // Redireciona para a página "view-laws" ao criar a lei com sucesso
+        navigate("/view-laws", { state: { lawCreated: true } });
       }
     } catch (error) {
       console.error("Error creating law:", error);
@@ -81,7 +78,7 @@ function CreateLawPage() {
             required
           >
             <option value="">Select a Party</option>
-            {parties.map(party => (
+            {parties.map((party) => (
               <option key={party.id} value={party.id}>
                 {party.name}
               </option>

@@ -14,6 +14,9 @@ import lombok.*;
 @AllArgsConstructor
 public class VoteInputDto {
 
+    @NotNull(message = "Party ID cannot be null")
+    private Long partyId;
+
     @NotNull(message = "Law ID cannot be null")
     private Long lawId;
 
