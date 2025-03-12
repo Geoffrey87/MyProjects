@@ -10,7 +10,7 @@ function UpdatePartyDropdown({ parties }) {
       alert("Please select a party to update.");
       return;
     }
-    navigate(`/update-party/${selectedParty}`); // ✅ Navigate to update page
+    navigate(`/update-party/${selectedParty}`); // Navigate to update page
   };
 
   return (

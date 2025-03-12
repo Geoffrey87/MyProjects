@@ -36,7 +36,7 @@ function ViewVotesPage() {
       .then((response) => setParties(response.data))
       .catch(console.error);
 
-    // Obter descrição da lei
+    //Get the law description
     axios
       .get(`http://localhost:8080/api/laws/${lawId}`, { headers: { "X-User-Id": userId } })
       .then((response) => setLawDescription(response.data.description))

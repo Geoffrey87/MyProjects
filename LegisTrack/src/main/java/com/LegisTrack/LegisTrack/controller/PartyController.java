@@ -58,7 +58,7 @@ public class PartyController {
     @GetMapping
     public ResponseEntity<List<PartyDto>> getAllParties(
             @RequestHeader("X-User-Id") String userId) {
-        // Ensure that if the user has no parties yet, they get a copy from GLOBAL data.
+
         partyService.ensureUserHasParties(userId);
         List<PartyDto> parties = partyService.getAllParties(userId);
         return ResponseEntity.ok(parties);

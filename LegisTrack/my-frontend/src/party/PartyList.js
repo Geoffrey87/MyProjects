@@ -38,6 +38,8 @@ function PartyList() {
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 py-10">
       <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-xl p-8">
         <h2 className="text-4xl font-bold text-center text-blue-700 mb-6">Parties List</h2>
+        <h3 className="text-2xl font-bold text-center gray-600 mb-4">Build your government</h3>
+        <h4 className="text-lg text-center text-gray-600 mb-4">You start with the existing parties in the Portuguese Assembly(now a caretaker government) </h4>
 
         {message && (
           <div className="bg-green-200 text-green-800 text-center p-3 rounded mb-4">

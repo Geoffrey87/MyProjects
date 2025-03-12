@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.List;
 
+/**
+ * Represents a political party entity in the system.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

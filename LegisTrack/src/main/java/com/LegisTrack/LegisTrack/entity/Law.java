@@ -8,6 +8,9 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Represents a law entity in the system.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

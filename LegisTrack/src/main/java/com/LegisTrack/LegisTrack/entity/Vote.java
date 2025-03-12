@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+/**
+ * Represents a vote associated with a law and a political party.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

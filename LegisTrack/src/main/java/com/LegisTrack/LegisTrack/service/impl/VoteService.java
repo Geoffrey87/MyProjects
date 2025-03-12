@@ -34,11 +34,11 @@ public class VoteService implements IVoteService {
         Law law = lawRepo.findById(lawId)
                 .orElseThrow(() -> new RuntimeException("Law not found"));
 
-        // 1) Identifica o partido proponente
+        // 1) Get the proposing party
         Party proposingParty = law.getProposingParty();
-        // (ou law.getPartyIdProponente() e buscar no partyRepo.findById(...) se for ID)
 
-        // 2) Se o proponente ainda não votou, força voto IN_FAVOR
+
+        // 2) If the proposing party is not in the list, add it
         if (proposingParty != null
                 && !voteRepo.existsByLawIdAndPartyId(lawId, proposingParty.getId())) {
             Vote forcedVote = new Vote();
@@ -48,15 +48,15 @@ public class VoteService implements IVoteService {
             voteRepo.save(forcedVote);
         }
 
-        // 3) Remove o partido proponente da lista, para não duplicar
+        // 3) Removes the proposing party from the list
         List<Long> filteredPartyIds = partyIds.stream()
                 .filter(id -> !id.equals(proposingParty.getId()))
                 .collect(Collectors.toList());
 
-        // 4) Carrega apenas esses partidos
+        // 4) Get selected parties
         List<Party> selectedParties = partyRepo.findAllById(filteredPartyIds);
 
-        // 5) Filtra somente os que ainda não votaram
+        // 5) Filtering parties that already voted
         List<Party> availableParties = selectedParties.stream()
                 .filter(p -> !voteRepo.existsByLawIdAndPartyId(lawId, p.getId()))
                 .collect(Collectors.toList());
@@ -65,7 +65,7 @@ public class VoteService implements IVoteService {
             throw new RuntimeException("All parties already voted or no parties selected");
         }
 
-        // 6) Embaralha e faz a distribuição 40/35/25
+        // 6) Shuffle and distribute votes
         Collections.shuffle(availableParties);
         int total = availableParties.size();
 
@@ -77,27 +77,28 @@ public class VoteService implements IVoteService {
         int index = 0;
 
         // FAV
-        for (; index < favor; index++) {
+        while (index < favor) {
             votes.add(createVote(law, availableParties.get(index), VoteType.IN_FAVOR));
+            index++;
         }
         // AGAINST
-        for (; index < favor + against; index++) {
+        while (index < favor + against) {
             votes.add(createVote(law, availableParties.get(index), VoteType.AGAINST));
+            index++;
         }
         // ABSTENTION
-        for (; index < total; index++) {
+        while (index < total) {
             votes.add(createVote(law, availableParties.get(index), VoteType.ABSTENTION));
+            index++;
         }
 
         voteRepo.saveAll(votes);
 
-        // Converte para DTO
+
         List<VoteDto> result = votes.stream()
                 .map(v -> VoteMapper.domainToDto(v, new VoteDto()))
                 .collect(Collectors.toList());
 
-        // Se quiser incluir o voto forçado na lista final,
-        // busque também o forcedVote (se criado) e mapeie para DTO
 
         return result;
     }
