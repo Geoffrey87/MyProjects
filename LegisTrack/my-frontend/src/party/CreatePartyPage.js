@@ -14,7 +14,7 @@ function CreatePartyPage() {
     const newParty = { name: name, nrOfDeputies };
 
     axios
-      .post("http://localhost:8080/api/parties", newParty, {
+      .post(`${process.env.REACT_APP_API_URL}/api/parties`, newParty, {
         headers: {
           "X-User-Id": userId,
           "Content-Type": "application/json",

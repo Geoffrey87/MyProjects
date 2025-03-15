@@ -10,7 +10,7 @@ function UpdatePartyPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/parties/${id}`, {
+      .get(`${process.env.REACT_APP_API_URL}/api/parties/${id}`, {
         headers: { "X-User-Id": userId },
       })
       .then((response) => setParty(response.data))
@@ -21,7 +21,7 @@ function UpdatePartyPage() {
     event.preventDefault();
 
     axios
-      .put(`http://localhost:8080/api/parties/${id}`, party, {
+      .put(`${process.env.REACT_APP_API_URL}/api/parties/${id}`, party, {
         headers: { "X-User-Id": userId },
       })
       .then(() => {

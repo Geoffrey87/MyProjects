@@ -12,7 +12,7 @@ function CreateLawPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/parties", {
+      .get(`${process.env.REACT_APP_API_URL}/api/parties`, {
         headers: { "X-User-Id": userId },
       })
       .then((response) => setParties(response.data))
@@ -29,7 +29,7 @@ function CreateLawPage() {
     };
 
     try {
-      const response = await axios.post("http://localhost:8080/api/laws", lawData, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/laws`, lawData, {
         headers: {
           "X-User-Id": userId,
           "Content-Type": "application/json",

@@ -11,12 +11,12 @@ function ViewLawsPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/laws", { headers: { "X-User-Id": userId } })
+      .get(`${process.env.REACT_APP_API_URL}/api/laws`, { headers: { "X-User-Id": userId } })
       .then((response) => setLaws(response.data))
       .catch((error) => console.error("Error fetching laws:", error));
 
     axios
-      .get("http://localhost:8080/api/parties", { headers: { "X-User-Id": userId } })
+      .get(`${process.env.REACT_APP_API_URL}/api/parties`, { headers: { "X-User-Id": userId } })
       .then((response) => {
         const filtered = response.data.filter((party) => party.userId !== "GLOBAL");
         setUserParties(filtered);
@@ -29,7 +29,7 @@ function ViewLawsPage() {
     try {
       const partyIds = userParties.map((party) => party.id);
       await axios.post(
-        `http://localhost:8080/api/votes/generate/${lawId}`,
+        `${process.env.REACT_APP_API_URL}/api/votes/generate/${lawId}`,
         { partyIds },
         { headers: { "X-User-Id": userId } }
       );

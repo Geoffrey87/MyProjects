@@ -19,7 +19,7 @@ function ViewVotesPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/votes/law/${lawId}`, { headers: { "X-User-Id": userId } })
+      .get(`${process.env.REACT_APP_API_URL}/api/votes/law/${lawId}`, { headers: { "X-User-Id": userId } })
       .then((response) => {
         const seen = new Set();
         const cleanData = {
@@ -32,13 +32,13 @@ function ViewVotesPage() {
       .catch(console.error);
 
     axios
-      .get("http://localhost:8080/api/parties", { headers: { "X-User-Id": userId } })
+      .get(`${process.env.REACT_APP_API_URL}/api/parties`, { headers: { "X-User-Id": userId } })
       .then((response) => setParties(response.data))
       .catch(console.error);
 
     //Get the law description
     axios
-      .get(`http://localhost:8080/api/laws/${lawId}`, { headers: { "X-User-Id": userId } })
+      .get(`${process.env.REACT_APP_API_URL}/api/laws/${lawId}`, { headers: { "X-User-Id": userId } })
       .then((response) => setLawDescription(response.data.description))
       .catch(console.error);
   }, [lawId, userId]);

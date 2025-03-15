@@ -7,7 +7,7 @@ function LawList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/laws", {
+      .get(`${process.env.REACT_APP_API_URL}/api/laws`, {
         headers: { "X-User-Id": userId },
       })
       .then((response) => {

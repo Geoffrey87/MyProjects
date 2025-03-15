@@ -15,7 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "party", schema = "my_schema")
 public class Party {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

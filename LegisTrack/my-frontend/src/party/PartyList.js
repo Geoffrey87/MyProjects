@@ -11,7 +11,7 @@ function PartyList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/parties", {
+      .get(`${process.env.REACT_APP_API_URL}/api/parties`, {
         headers: { "X-User-Id": userId },
         withCredentials: true,
       })
@@ -29,7 +29,7 @@ function PartyList() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8080/api/parties/${id}`, { headers: { "X-User-Id": userId } })
+      .delete(`${process.env.REACT_APP_API_URL}/api/parties/${id}`, { headers: { "X-User-Id": userId } })
       .then(() => setParties(parties.filter((party) => party.id !== id)))
       .catch((error) => console.error("Error deleting party:", error));
   };
