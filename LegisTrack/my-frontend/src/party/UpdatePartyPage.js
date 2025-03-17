@@ -32,17 +32,52 @@ function UpdatePartyPage() {
   };
 
   return (
-    <div>
-      <h2>Update Party</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Party Name:</label>
-        <input type="text" value={party.name} onChange={(e) => setParty({ ...party, name: e.target.value })} required />
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 py-10">
+      <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-xl p-8">
+        <h2 className="text-4xl font-bold text-center text-blue-700 mb-6">Update Party</h2>
+        <h3 className="text-2xl font-bold text-center text-gray-600 mb-4">Modify party details</h3>
 
-        <label>Number of Deputies:</label>
-        <input type="number" value={party.nrOfDeputies} onChange={(e) => setParty({ ...party, nrOfDeputies: e.target.value })} min="1" required />
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-lg font-semibold text-gray-700">Party Name:</label>
+            <input
+              type="text"
+              value={party.name}
+              onChange={(e) => setParty({ ...party, name: e.target.value })}
+              required
+              className="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        <button type="submit">Update Party</button>
-      </form>
+          <div>
+            <label className="block text-lg font-semibold text-gray-700">Number of Deputies:</label>
+            <input
+              type="number"
+              value={party.nrOfDeputies}
+              onChange={(e) => setParty({ ...party, nrOfDeputies: e.target.value })}
+              min="1"
+              required
+              className="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div className="flex justify-center gap-4 mt-6">
+            <button
+              type="submit"
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition"
+            >
+              ✅ Update Party
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate("/simulator")}
+              className="px-4 py-2 bg-gray-400 text-white rounded-lg shadow hover:bg-gray-500 transition"
+            >
+              ❌ Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

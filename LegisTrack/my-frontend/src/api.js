@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://backend:5000'
+  baseURL: REACT_APP_API_URL
 });
 
 
