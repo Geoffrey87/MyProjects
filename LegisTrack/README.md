@@ -4,6 +4,10 @@
 
 Government Simulator is a web application designed to simulate the process of proposing, voting on, and passing laws within a legislative system. Users can create political parties, propose laws, and generate simulated votes based on predefined rules. The application provides an interactive experience that models real-world government decision-making.
 
+The simulator works like this: after clicking "Let’s get started," we are redirected to a page showing the current Portuguese government (currently in a caretaker status). From there, we can edit, create, or delete any political party.
+Next, we can propose laws, which must always be associated with a party, and then generate the votes. The party proposing the law will always vote in favor, but to make things a bit more unpredictable, the remaining votes are randomly assigned between abstention, in favor, or against.
+Just like in real life, once a law is created and voted on, it can no longer be edited.
+
 ## Features
 
 - **User Identification**: Generates a unique user ID stored in `localStorage` and `sessionStorage`.
@@ -15,12 +19,13 @@ Government Simulator is a web application designed to simulate the process of pr
 
 ## Installation & Setup
 
-### Prerequisites
+### Technologies used
 
-- **Node.js** (for frontend development)
-- **Java 17+** (for backend development)
-- **Spring Boot** (for backend services)
-- **MySQL/PostgreSQL** (for database management)
+- **React.js + Tailwind CSS** for frontend development
+- **Java 17 + Spring Boot** for backend development
+- **PostgreSQL** for database management
+- **Docker/Docker-Compose** for deploy
+- **AWS RDS and Elastic BeanStalk** for DB and cloud deploy
 
 ### Running the Backend
 
@@ -93,19 +98,5 @@ These values provide a realistic yet unpredictable simulation, ensuring that not
 - If the number of deputies voting **IN FAVOR** exceeds those **AGAINST**, the law is **approved**.
 - Otherwise, the law is **rejected**.
 
-## Technologies Used
-
-- **Frontend:** React.js, Tailwind CSS
-- **Backend:** Spring Boot, Java
-- **Database:** MySQL/PostgreSQL
-- **API Communication:** REST API, Axios
-
-## Future Enhancements
-
-- **User Authentication**: Implement login/logout functionality.
-- **Party Alliances**: Allow multiple parties to form alliances.
-- **Historical Data**: Store past voting records for analysis.
-- **UI Improvements**: Enhance the visual representation of voting outcomes.
-
 ## Conclusion
-Government Simulator provides an engaging way to understand how legislative processes work. With randomized voting and a structured approval system, users can simulate real-world decision-making in a government setting. 🚀
+Government Simulator provides an funny way to understand how legislative processes work. With randomized voting and a structured approval system, users can simulate real-world decision-making in a government setting. 
