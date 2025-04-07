@@ -3,6 +3,7 @@ package com.LegisTrack.LegisTrack.controller;
 import com.LegisTrack.LegisTrack.Dto.PartyDto;
 import com.LegisTrack.LegisTrack.Dto.PartyInputDto;
 import com.LegisTrack.LegisTrack.service.IPartyService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class PartyController {
      * @return The created Party as a PartyDto.
      */
     @PostMapping
-    public ResponseEntity<PartyDto> createParty(
+    public ResponseEntity<PartyDto> createParty(@Valid
             @RequestHeader("X-User-Id") String userId,
             @RequestBody PartyInputDto partyInputDto) {
         PartyDto createdParty = partyService.createPartyByUserId(partyInputDto, userId);
