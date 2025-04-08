@@ -1,6 +1,11 @@
+
 services:
+
   backend:
-    build: ./backend
+    build:
+      context: backend
+      dockerfile: ./Dockerfile
+    container_name: backend
     ports:
       - "5000:5000"
     environment:
@@ -12,7 +17,10 @@ services:
       - db
 
   frontend:
-    build: ./frontend
+    build:
+      context: frontend
+      dockerfile: ./Dockerfile
+    container_name: frontend
     ports:
       - "80:80"
     environment:

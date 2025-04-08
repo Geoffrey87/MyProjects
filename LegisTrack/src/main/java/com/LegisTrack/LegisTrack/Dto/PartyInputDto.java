@@ -1,5 +1,6 @@
 package com.LegisTrack.LegisTrack.Dto;
 
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -17,5 +18,6 @@ public class PartyInputDto {
     private String name;
 
     @Min(value = 1, message = "Number of deputies must be at least 1")
+    @Max(value = 200, message = "Number of deputies can't be more than 200")
     private int nrOfDeputies;
 }

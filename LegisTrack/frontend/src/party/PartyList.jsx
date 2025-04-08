@@ -9,7 +9,6 @@ function PartyList() {
     const navigate = useNavigate();
     const location = useLocation();
 
-
   useEffect(() => {
     if (!userId) {
       return;
@@ -27,7 +26,6 @@ function PartyList() {
          setTimeout(() => setMessage(""), 3000);
        }
      }, [userId, location.state]);
-
 
   const sortAscending = () => setParties([...parties].sort((a, b) => a.nrOfDeputies - b.nrOfDeputies));
   const sortDescending = () => setParties([...parties].sort((a, b) => b.nrOfDeputies - a.nrOfDeputies));
