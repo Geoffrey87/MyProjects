@@ -37,6 +37,7 @@ public class UserService implements IUser {
     public UserOutputDto getUserById(Long id) {
         User user = userRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
+
         return UserMapper.domainToDto(user, new UserOutputDto());
     }
 
