@@ -4,7 +4,9 @@ import com.paymentsAlert.paymentsAlert.dto.PaymentInputDto;
 import com.paymentsAlert.paymentsAlert.dto.PaymentOutputDto;
 import com.paymentsAlert.paymentsAlert.entity.Payment;
 import com.paymentsAlert.paymentsAlert.entity.RecurrencePeriod;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PaymentMapper {
 
     public static PaymentOutputDto domainToDto(Payment payment, PaymentOutputDto paymentOutputDto) {

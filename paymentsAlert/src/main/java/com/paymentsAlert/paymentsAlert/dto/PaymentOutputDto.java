@@ -10,7 +10,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 public class PaymentOutputDto {
     private double amount;
     private String dueDate;

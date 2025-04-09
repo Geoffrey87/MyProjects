@@ -37,14 +37,14 @@ public class UserService implements IUser {
     public UserOutputDto getUserById(Long id) {
         User user = userRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
-        return UserMapper.toDto(user);
+        return UserMapper.domainToDto(user, new UserOutputDto());
     }
 
     @Override
     public UserOutputDto getUserByEmail(String email) {
         User user = userRepo.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
-        return UserMapper.toDto(user);
+        return UserMapper.domainToDto(user, new UserOutputDto());
     }
 
     @Override
@@ -55,13 +55,13 @@ public class UserService implements IUser {
         user.setUsername(userInputDto.getUsername());
         user.setEmail(userInputDto.getEmail());
 
-        // atualiza a password codificada se fornecida
+        // update password only if it's provided
         if (userInputDto.getPassword() != null && !userInputDto.getPassword().isBlank()) {
             user.setPassword(passwordEncoder.encode(userInputDto.getPassword()));
         }
 
         User updatedUser = userRepo.save(user);
-        return UserMapper.toDto(updatedUser);
+        return UserMapper.domainToDto(user, new UserOutputDto());
     }
 
     @Override

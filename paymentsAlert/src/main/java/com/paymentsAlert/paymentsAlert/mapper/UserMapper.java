@@ -3,7 +3,9 @@ package com.paymentsAlert.paymentsAlert.mapper;
 import com.paymentsAlert.paymentsAlert.dto.UserInputDto;
 import com.paymentsAlert.paymentsAlert.dto.UserOutputDto;
 import com.paymentsAlert.paymentsAlert.entity.User;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserMapper {
 
     public static UserOutputDto domainToDto(User user, UserOutputDto userOutputDto) {
