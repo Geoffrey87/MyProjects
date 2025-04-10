@@ -43,9 +43,7 @@ public class ServiceTypeService implements IServiceType {
                 .orElseThrow(() -> new RuntimeException("ServiceType not found with id: " + id));
 
         // Map the entity to the DTO
-        ServiceTypeOutputDto serviceTypeOutputDto = new ServiceTypeOutputDto();
-        ServiceTypeMapper.domainToDto(serviceType, serviceTypeOutputDto);
-        return serviceTypeOutputDto;
+        return ServiceTypeMapper.domainToDto(serviceType, new ServiceTypeOutputDto());
     }
 
     @Override
@@ -61,9 +59,7 @@ public class ServiceTypeService implements IServiceType {
         ServiceType updatedServiceType = serviceTypeRepo.save(serviceType);
 
         // Map the updated entity to the output DTO
-        ServiceTypeOutputDto serviceTypeOutputDto = new ServiceTypeOutputDto();
-        ServiceTypeMapper.domainToDto(updatedServiceType, serviceTypeOutputDto);
-        return serviceTypeOutputDto;
+        return ServiceTypeMapper.domainToDto(updatedServiceType, new ServiceTypeOutputDto());
     }
 
     @Override
