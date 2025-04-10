@@ -1,5 +1,6 @@
 package com.paymentsAlert.paymentsAlert.controller;
 
+import com.paymentsAlert.paymentsAlert.dto.LoginDto;
 import com.paymentsAlert.paymentsAlert.dto.UserInputDto;
 import com.paymentsAlert.paymentsAlert.dto.UserOutputDto;
 import com.paymentsAlert.paymentsAlert.service.IUser;
@@ -51,5 +52,15 @@ public class UserController {
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<UserOutputDto> loginUser(@Valid @RequestBody LoginDto loginDto) {
+        try {
+            UserOutputDto user = userService.loginUser(loginDto.getEmail(), loginDto.getPassword());
+            return ResponseEntity.ok(user);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
     }
 }

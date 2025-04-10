@@ -35,6 +35,18 @@ public class UserService implements IUser {
         return UserMapper.domainToDto(savedUser, new UserOutputDto());
     }
 
+    public UserOutputDto loginUser(String email, String password) {
+        User user = userRepo.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            throw new RuntimeException("Invalid password");
+        }
+
+        return UserMapper.domainToDto(user, new UserOutputDto());
+    }
+
+
     @Override
     public UserOutputDto getUserById(Long id) {
         User user = userRepo.findById(id)

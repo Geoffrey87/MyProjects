@@ -20,7 +20,7 @@ public class UserInputDto {
     @Size(min = 5, message = "Password must be at least 5 characters long")
     private String password;
 
-    @NotBlank(message = "Password cannot be blank")
+    @NotBlank(message = "Email cannot be blank")
     @Email(message = "Email should be valid")
     private String email;
 }
