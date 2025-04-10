@@ -10,6 +10,7 @@ import com.paymentsAlert.paymentsAlert.repository.PaymentRepo;
 import com.paymentsAlert.paymentsAlert.repository.ServiceTypeRepo;
 import com.paymentsAlert.paymentsAlert.repository.UserRepo;
 import com.paymentsAlert.paymentsAlert.service.IPayment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class PaymentService implements IPayment {
     private final UserRepo userRepo;
     private final ServiceTypeRepo serviceTypeRepo;
 
+    @Autowired
     public PaymentService(PaymentRepo paymentRepo, UserRepo userRepo, ServiceTypeRepo serviceTypeRepo) {
         this.paymentRepo = paymentRepo;
         this.userRepo = userRepo;
