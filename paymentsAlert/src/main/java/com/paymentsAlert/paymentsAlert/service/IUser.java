@@ -8,6 +8,8 @@ public interface IUser {
 
     UserOutputDto registerUser(UserInputDto userInputDto);    UserOutputDto getUserById(Long id);
 
+    UserOutputDto loginUser(String email, String password);
+
     UserOutputDto getUserByEmail(String email);
 
     UserOutputDto updateUser(Long id, UserInputDto userInputDto);

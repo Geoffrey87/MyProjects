@@ -1,0 +1,56 @@
+/* LoginPage.css */
+.password-input {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.additional-options {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.register-link {
+  color: #0d6efd;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.forgot-password {
+  display: block;
+  margin-top: 1rem;
+  color: #6c757d;
+  text-decoration: none;
+}
+
+.register-link:hover,
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
