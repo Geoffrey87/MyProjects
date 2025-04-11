@@ -96,7 +96,7 @@ public class PaymentService implements IPayment {
         double total = 0.0;
 
         for (Payment payment : payments) {
-            LocalDate paymentDate = payment.getDueDate();
+            LocalDate paymentDate = payment.getDueDate().toLocalDate();
 
             if (paymentDate.getYear() == year && paymentDate.getMonthValue() == month) {
                 total += payment.getAmount();
@@ -114,7 +114,7 @@ public class PaymentService implements IPayment {
         double total = 0.0;
 
         for (Payment payment : payments) {
-            LocalDate paymentDate = payment.getDueDate();
+            LocalDate paymentDate = payment.getDueDate().toLocalDate();
 
             if (paymentDate.getYear() == year) {
                 total += payment.getAmount();

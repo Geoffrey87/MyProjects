@@ -10,7 +10,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserOutputDto {
+    private long userId;
+
     private String username;
 
     private String email;
+
+    private String token;
 }

@@ -13,7 +13,7 @@ import lombok.Setter;
 public class PaymentOutputDto {
 
     private Long id;
-    private String title;
+    private String description;
     private double amount;
     private String dueDate;
     private boolean paid;

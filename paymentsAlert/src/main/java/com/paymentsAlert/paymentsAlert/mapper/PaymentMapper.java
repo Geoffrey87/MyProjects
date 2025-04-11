@@ -13,13 +13,14 @@ public class PaymentMapper {
         paymentOutputDto.setAmount(payment.getAmount());
         paymentOutputDto.setDueDate(payment.getDueDate().toString());
         paymentOutputDto.setPaid(payment.isPaid());
-        paymentOutputDto.setRecurrencePeriod(payment.getRecurrencePeriod().toString());
+        paymentOutputDto.setDescription(payment.getDescription());
         return paymentOutputDto;
     }
 
     public static Payment dtoToDomain(PaymentInputDto paymentInputDto, Payment payment) {
         payment.setAmount(paymentInputDto.getAmount());
         payment.setDueDate(paymentInputDto.getDueDate());
+        payment.setDescription(paymentInputDto.getDescription());
         payment.setPaid(false); // it's always false when creating a new payment;
         payment.setRecurrencePeriod(RecurrencePeriod.valueOf(paymentInputDto.getRecurrencePeriod()));
         return payment;

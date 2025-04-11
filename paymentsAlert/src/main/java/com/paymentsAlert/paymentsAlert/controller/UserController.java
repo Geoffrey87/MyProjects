@@ -58,7 +58,12 @@ public class UserController {
     public ResponseEntity<UserOutputDto> loginUser(@Valid @RequestBody LoginDto loginDto) {
         try {
             UserOutputDto user = userService.loginUser(loginDto.getEmail(), loginDto.getPassword());
-            return ResponseEntity.ok(user);
+
+            if (user != null && user.getToken() != null) {
+                return ResponseEntity.ok(user);
+            } else {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+            }
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }

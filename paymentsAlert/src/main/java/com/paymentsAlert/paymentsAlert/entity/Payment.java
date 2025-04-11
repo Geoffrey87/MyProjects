@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -20,10 +21,13 @@ public class Payment {
     private Long id;
 
     @Column(nullable = false)
+    private String description;
+
+    @Column(nullable = false)
     private double amount;
 
     @Column(nullable = false)
-    private LocalDate dueDate;
+    private LocalDateTime dueDate;
 
     @Column(nullable = false)
     private boolean paid;
