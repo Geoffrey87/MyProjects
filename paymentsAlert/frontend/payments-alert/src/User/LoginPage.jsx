@@ -24,9 +24,9 @@ function LoginPage() {
             });
 
             if (response.status === 200) {
-                // Salvar token e redirecionar
+
                 localStorage.setItem('authToken', response.data.token);
-                navigate('/home');
+                navigate('/service-type');
             }
         } catch (error) {
             setError(error.response?.data?.message || 'Login failed. Please check your credentials.');

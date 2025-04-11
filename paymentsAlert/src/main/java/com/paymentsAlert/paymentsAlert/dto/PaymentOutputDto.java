@@ -11,8 +11,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaymentOutputDto {
+
+    private Long id;
+    private String title;
     private double amount;
     private String dueDate;
     private boolean paid;
-    private String recurrencePeriod;
 }

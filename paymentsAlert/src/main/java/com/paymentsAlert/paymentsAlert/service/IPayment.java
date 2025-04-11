@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface IPayment {
 
+
     PaymentOutputDto createPayment(PaymentInputDto paymentInputDto);
 
     PaymentOutputDto getPaymentById(Long id);
@@ -18,5 +19,8 @@ public interface IPayment {
     List<PaymentOutputDto> getPaymentsByUserId(Long userId);
 
     void markAsPaid(Long id);
+    double getMonthlyTotalAmount(Long userId, int year, int month);
+
+    double getYearlyTotalAmount(Long userId, int year);
 }
 

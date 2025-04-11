@@ -35,8 +35,4 @@ public class Payment {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "service_type_id", nullable = false)
-    private ServiceType serviceType;
-
 }

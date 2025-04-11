@@ -6,6 +6,7 @@ import GetUserByEmail from './User/GetUserByEmail';
 import UpdateUser from './User/UpdateUser';
 import DeleteUser from './User/DeleteUser';
 import LoginPage from './User/LoginPage';
+import ServiceTypePage from './ServiceType/ServiceTypePage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/users/email/:email" element={<GetUserByEmail />} />
         <Route path="/update/:id" element={<UpdateUser />} />
         <Route path="/delete/:id" element={<DeleteUser />} />
+        <Route path="/service-type" element={<ServiceTypePage />} />
       </Routes>
     </Router>
   );

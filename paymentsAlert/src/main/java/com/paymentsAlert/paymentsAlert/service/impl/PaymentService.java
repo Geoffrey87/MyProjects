@@ -3,16 +3,15 @@ package com.paymentsAlert.paymentsAlert.service.impl;
 import com.paymentsAlert.paymentsAlert.dto.PaymentInputDto;
 import com.paymentsAlert.paymentsAlert.dto.PaymentOutputDto;
 import com.paymentsAlert.paymentsAlert.entity.Payment;
-import com.paymentsAlert.paymentsAlert.entity.ServiceType;
 import com.paymentsAlert.paymentsAlert.entity.User;
 import com.paymentsAlert.paymentsAlert.mapper.PaymentMapper;
 import com.paymentsAlert.paymentsAlert.repository.PaymentRepo;
-import com.paymentsAlert.paymentsAlert.repository.ServiceTypeRepo;
 import com.paymentsAlert.paymentsAlert.repository.UserRepo;
 import com.paymentsAlert.paymentsAlert.service.IPayment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,13 +20,11 @@ public class PaymentService implements IPayment {
 
     private final PaymentRepo paymentRepo;
     private final UserRepo userRepo;
-    private final ServiceTypeRepo serviceTypeRepo;
 
     @Autowired
-    public PaymentService(PaymentRepo paymentRepo, UserRepo userRepo, ServiceTypeRepo serviceTypeRepo) {
+    public PaymentService(PaymentRepo paymentRepo, UserRepo userRepo) {
         this.paymentRepo = paymentRepo;
         this.userRepo = userRepo;
-        this.serviceTypeRepo = serviceTypeRepo;
     }
 
     @Override
@@ -35,13 +32,9 @@ public class PaymentService implements IPayment {
         User user = userRepo.findById(inputDto.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        ServiceType serviceType = serviceTypeRepo.findById(inputDto.getServiceTypeId())
-                .orElseThrow(() -> new RuntimeException("Service Type not found"));
-
         Payment payment = new Payment();
         PaymentMapper.dtoToDomain(inputDto, payment);
         payment.setUser(user);
-        payment.setServiceType(serviceType);
 
         Payment saved = paymentRepo.save(payment);
         return PaymentMapper.domainToDto(saved, new PaymentOutputDto());
@@ -62,12 +55,9 @@ public class PaymentService implements IPayment {
         User user = userRepo.findById(inputDto.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        ServiceType serviceType = serviceTypeRepo.findById(inputDto.getServiceTypeId())
-                .orElseThrow(() -> new RuntimeException("Service Type not found"));
 
         PaymentMapper.dtoToDomain(inputDto, payment);
         payment.setUser(user);
-        payment.setServiceType(serviceType);
 
         Payment updated = paymentRepo.save(payment);
         return PaymentMapper.domainToDto(updated, new PaymentOutputDto());
@@ -97,6 +87,41 @@ public class PaymentService implements IPayment {
                 .orElseThrow(() -> new RuntimeException("Payment not found"));
         payment.setPaid(true);
         paymentRepo.save(payment);
+    }
+
+    @Override
+    public double getMonthlyTotalAmount(Long userId, int year, int month) {
+        List<Payment> payments = paymentRepo.findByUserId(userId);
+
+        double total = 0.0;
+
+        for (Payment payment : payments) {
+            LocalDate paymentDate = payment.getDueDate();
+
+            if (paymentDate.getYear() == year && paymentDate.getMonthValue() == month) {
+                total += payment.getAmount();
+            }
+        }
+
+        return total;
+    }
+
+
+    @Override
+    public double getYearlyTotalAmount(Long userId, int year) {
+        List<Payment> payments = paymentRepo.findByUserId(userId);
+
+        double total = 0.0;
+
+        for (Payment payment : payments) {
+            LocalDate paymentDate = payment.getDueDate();
+
+            if (paymentDate.getYear() == year) {
+                total += payment.getAmount();
+            }
+        }
+
+        return total;
     }
 }
 
