@@ -2,13 +2,13 @@ package com.paymentsAlert.paymentsAlert.service;
 
 import com.paymentsAlert.paymentsAlert.dto.UserInputDto;
 import com.paymentsAlert.paymentsAlert.dto.UserOutputDto;
-import com.paymentsAlert.paymentsAlert.entity.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-public interface IUser {
+
+public interface IUser extends UserDetailsService {
 
     UserOutputDto registerUser(UserInputDto userInputDto);    UserOutputDto getUserById(Long id);
 
-    UserOutputDto loginUser(String email, String password);
 
     UserOutputDto getUserByEmail(String email);
 

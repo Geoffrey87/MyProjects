@@ -7,6 +7,7 @@ import com.paymentsAlert.paymentsAlert.service.IUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
@@ -54,18 +55,4 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<UserOutputDto> loginUser(@Valid @RequestBody LoginDto loginDto) {
-        try {
-            UserOutputDto user = userService.loginUser(loginDto.getEmail(), loginDto.getPassword());
-
-            if (user != null && user.getToken() != null) {
-                return ResponseEntity.ok(user);
-            } else {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-            }
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-        }
-    }
 }

@@ -14,7 +14,7 @@ function LoginPage() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8080/users/login', {
+            const response = await axios.post('http://localhost:8080/login', {
                 email,
                 password
             }, {
@@ -23,12 +23,19 @@ function LoginPage() {
                 }
             });
 
-            if (response.status === 200) {
+            const token = response.data;
 
-                localStorage.setItem('authToken', response.data.token);
-                navigate('/service-type');
+            if (token) {
+                localStorage.setItem('authToken', token);
+                axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+                navigate('/calendar');
+            } else {
+                setError("Login succeeded but token is missing.");
+                console.warn("Login token missing:", response.data);
             }
+
         } catch (error) {
+            console.error("Error:", error.response || error);
             setError(error.response?.data?.message || 'Login failed. Please check your credentials.');
         }
     };

@@ -1,19 +1,14 @@
 package com.paymentsAlert.paymentsAlert.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "users")
-public class User {
+public class CustomUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

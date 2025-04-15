@@ -1,14 +1,14 @@
 package com.paymentsAlert.paymentsAlert.repository;
 
-import com.paymentsAlert.paymentsAlert.entity.User;
+import com.paymentsAlert.paymentsAlert.entity.CustomUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UserRepo extends JpaRepository<User, Long> {
-    Optional<User> findByUsername(String username);
+public interface UserRepo extends JpaRepository<CustomUser, Long> {
+    Optional<CustomUser> findByUsername(String username);
 
-    Optional<User> findByEmail(String email);
+    Optional<CustomUser> findByEmail(String email);
 
 }

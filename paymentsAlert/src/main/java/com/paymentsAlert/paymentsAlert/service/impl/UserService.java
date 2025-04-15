@@ -1,29 +1,44 @@
 package com.paymentsAlert.paymentsAlert.service.impl;
 
-import com.paymentsAlert.paymentsAlert.JwtTokenProvider;
 import com.paymentsAlert.paymentsAlert.dto.UserInputDto;
 import com.paymentsAlert.paymentsAlert.dto.UserOutputDto;
-import com.paymentsAlert.paymentsAlert.entity.User;
+import com.paymentsAlert.paymentsAlert.entity.CustomUser;
 import com.paymentsAlert.paymentsAlert.mapper.UserMapper;
 import com.paymentsAlert.paymentsAlert.repository.UserRepo;
 import com.paymentsAlert.paymentsAlert.service.IUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService implements IUser {
+public class UserService implements IUser{
 
     private final UserRepo userRepo;
     private final PasswordEncoder passwordEncoder;
-    private final JwtTokenProvider jwtTokenProvider;
+
 
     @Autowired
-    public UserService(UserRepo userRepo, PasswordEncoder passwordEncoder, JwtTokenProvider jwtTokenProvider) {
+    public UserService(UserRepo userRepo, PasswordEncoder passwordEncoder) {
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
-        this.jwtTokenProvider = jwtTokenProvider;
     }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        CustomUser customUser = userRepo.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
+
+        return User
+                .withUsername(customUser.getEmail())
+                .password(customUser.getPassword())
+                .build();
+    }
+
 
     @Override
     public UserOutputDto registerUser(UserInputDto userInputDto) {
@@ -31,32 +46,18 @@ public class UserService implements IUser {
             throw new RuntimeException("Email already exists");
         }
 
-        User user = UserMapper.dtoToDomain(userInputDto, new User());
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        CustomUser user = UserMapper.dtoToDomain(userInputDto, new CustomUser());
+        user.setPassword(passwordEncoder.encode(userInputDto.getPassword()));
 
-        User savedUser = userRepo.save(user);
+        CustomUser savedUser = userRepo.save(user);
         return UserMapper.domainToDto(savedUser, new UserOutputDto());
     }
 
-    public UserOutputDto loginUser(String email, String password) {
-        User user = userRepo.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-
-        if (!passwordEncoder.matches(password, user.getPassword())) {
-            throw new RuntimeException("Invalid password");
-        }
-        String token = jwtTokenProvider.generateToken(user.getEmail());
-
-        UserOutputDto outputDto = UserMapper.domainToDto(user, new UserOutputDto());
-        outputDto.setToken(token);
-
-        return outputDto;
-    }
 
 
     @Override
     public UserOutputDto getUserById(Long id) {
-        User user = userRepo.findById(id)
+        CustomUser user = userRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         return UserMapper.domainToDto(user, new UserOutputDto());
@@ -64,14 +65,14 @@ public class UserService implements IUser {
 
     @Override
     public UserOutputDto getUserByEmail(String email) {
-        User user = userRepo.findByEmail(email)
+        CustomUser user = userRepo.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         return UserMapper.domainToDto(user, new UserOutputDto());
     }
 
     @Override
     public UserOutputDto updateUser(Long id, UserInputDto userInputDto) {
-        User user = userRepo.findById(id)
+        CustomUser user = userRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
 
@@ -89,7 +90,7 @@ public class UserService implements IUser {
             user.setPassword(passwordEncoder.encode(userInputDto.getPassword()));
         }
 
-        User updatedUser = userRepo.save(user);
+        CustomUser updatedUser = userRepo.save(user);
         return UserMapper.domainToDto(updatedUser, new UserOutputDto());
     }
 

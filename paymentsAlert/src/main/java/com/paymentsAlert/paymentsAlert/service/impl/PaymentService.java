@@ -3,7 +3,7 @@ package com.paymentsAlert.paymentsAlert.service.impl;
 import com.paymentsAlert.paymentsAlert.dto.PaymentInputDto;
 import com.paymentsAlert.paymentsAlert.dto.PaymentOutputDto;
 import com.paymentsAlert.paymentsAlert.entity.Payment;
-import com.paymentsAlert.paymentsAlert.entity.User;
+import com.paymentsAlert.paymentsAlert.entity.CustomUser;
 import com.paymentsAlert.paymentsAlert.mapper.PaymentMapper;
 import com.paymentsAlert.paymentsAlert.repository.PaymentRepo;
 import com.paymentsAlert.paymentsAlert.repository.UserRepo;
@@ -29,7 +29,7 @@ public class PaymentService implements IPayment {
 
     @Override
     public PaymentOutputDto createPayment(PaymentInputDto inputDto) {
-        User user = userRepo.findById(inputDto.getUserId())
+        CustomUser user = userRepo.findById(inputDto.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         Payment payment = new Payment();
@@ -52,7 +52,7 @@ public class PaymentService implements IPayment {
         Payment payment = paymentRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Payment not found"));
 
-        User user = userRepo.findById(inputDto.getUserId())
+        CustomUser user = userRepo.findById(inputDto.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
 
