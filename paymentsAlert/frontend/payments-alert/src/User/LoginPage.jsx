@@ -23,10 +23,11 @@ function LoginPage() {
                 }
             });
 
-            const token = response.data;
+            const { token, userId } = response.data;
 
             if (token) {
                 localStorage.setItem('authToken', token);
+                localStorage.setItem('userId', userId);
                 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
                 navigate('/calendar');
             } else {
@@ -93,7 +94,7 @@ function LoginPage() {
                     Don't have an account?
                     <a href="/register" className="register-link"> Create account</a>
                 </p>
-                <a href="/forgot-password" className="forgot-password">Forgot password?</a>
+
             </div>
         </div>
     );

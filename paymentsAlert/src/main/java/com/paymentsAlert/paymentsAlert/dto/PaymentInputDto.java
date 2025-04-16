@@ -30,6 +30,7 @@ public class PaymentInputDto {
     @NotNull(message = "Date is required")
     private LocalDateTime dueDate;
 
-    @Pattern(regexp = "MONTHLY|QUARTERLY|SEMI_ANNUALLY|YEARLY", message = "Frequency must be one of MONTHLY, QUARTERLY, SEMI_ANNUALLY, or YEARLY")
+    @NotNull(message = "Recurrence period is required")
+    @Pattern(regexp = "NONE|MONTHLY|QUARTERLY|SEMI_ANNUALLY|YEARLY", message = "Choose one frequency: NONE, MONTHLY, QUARTERLY, SEMI_ANNUALLY, YEARLY")
     private String recurrencePeriod;
 }

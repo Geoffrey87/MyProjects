@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 public class PaymentMapper {
 
     public static PaymentOutputDto domainToDto(Payment payment, PaymentOutputDto paymentOutputDto) {
+        paymentOutputDto.setId(payment.getId());
         paymentOutputDto.setAmount(payment.getAmount());
         paymentOutputDto.setDueDate(payment.getDueDate().toString());
         paymentOutputDto.setPaid(payment.isPaid());
@@ -22,7 +23,11 @@ public class PaymentMapper {
         payment.setDueDate(paymentInputDto.getDueDate());
         payment.setDescription(paymentInputDto.getDescription());
         payment.setPaid(false); // it's always false when creating a new payment;
-        payment.setRecurrencePeriod(RecurrencePeriod.valueOf(paymentInputDto.getRecurrencePeriod()));
+        if (paymentInputDto.getRecurrencePeriod() != null) {
+            payment.setRecurrencePeriod(RecurrencePeriod.valueOf(paymentInputDto.getRecurrencePeriod()));
+        } else {
+            payment.setRecurrencePeriod(null);
+        }
         return payment;
     }
 }

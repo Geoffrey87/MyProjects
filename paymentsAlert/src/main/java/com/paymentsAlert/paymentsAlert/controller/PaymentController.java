@@ -6,9 +6,14 @@ import com.paymentsAlert.paymentsAlert.entity.Payment;
 import com.paymentsAlert.paymentsAlert.service.IPayment;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/payments")
@@ -33,13 +38,30 @@ public class PaymentController {
         return ResponseEntity.ok(dto);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<PaymentOutputDto> updatePayment(
-            @PathVariable Long id,
-            @Valid @RequestBody PaymentInputDto payment) {
-        PaymentOutputDto dto = paymentService.updatePayment(id, payment);
-        return ResponseEntity.ok(dto);
+    @GetMapping("/by-date")
+    public ResponseEntity<List<PaymentOutputDto>> getPaymentsByDate(
+            @RequestParam Long userId,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+        List<PaymentOutputDto> payments = paymentService.getPaymentsByUserAndDate(userId, date);
+        return ResponseEntity.ok(payments);
     }
+
+
+    @PatchMapping("/{id}/paid")
+    public ResponseEntity<Void> markPaymentPaidStatus(
+            @PathVariable Long id,
+            @RequestBody Map<String, Boolean> payload) {
+
+        Boolean paid = payload.get("paid");
+        if (paid == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        paymentService.setPaidStatus(id, paid);
+        return ResponseEntity.ok().build();
+    }
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePayment(@PathVariable Long id) {

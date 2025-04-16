@@ -3,6 +3,8 @@ package com.paymentsAlert.paymentsAlert.service;
 import com.paymentsAlert.paymentsAlert.dto.PaymentInputDto;
 import com.paymentsAlert.paymentsAlert.dto.PaymentOutputDto;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface IPayment {
@@ -18,9 +20,11 @@ public interface IPayment {
 
     List<PaymentOutputDto> getPaymentsByUserId(Long userId);
 
-    void markAsPaid(Long id);
+    void setPaidStatus(Long id, boolean paid);
     double getMonthlyTotalAmount(Long userId, int year, int month);
 
     double getYearlyTotalAmount(Long userId, int year);
+
+    List<PaymentOutputDto> getPaymentsByUserAndDate(Long userId, LocalDate date);
 }
 

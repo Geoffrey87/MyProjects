@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,12 +83,13 @@ public class PaymentService implements IPayment {
     }
 
     @Override
-    public void markAsPaid(Long id) {
+    public void setPaidStatus(Long id, boolean paid) {
         Payment payment = paymentRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Payment not found"));
-        payment.setPaid(true);
+        payment.setPaid(paid);
         paymentRepo.save(payment);
     }
+
 
     @Override
     public double getMonthlyTotalAmount(Long userId, int year, int month) {
@@ -123,5 +125,24 @@ public class PaymentService implements IPayment {
 
         return total;
     }
+    @Override
+    public List<PaymentOutputDto> getPaymentsByUserAndDate(Long userId, LocalDate date) {
+        LocalDateTime startOfDay = date.atStartOfDay();
+        LocalDateTime endOfDay = date.plusDays(1).atStartOfDay();
+
+        List<Payment> payments = paymentRepo.findByUserIdAndDueDateBetween(userId, startOfDay, endOfDay);
+        List<PaymentOutputDto> result = new ArrayList<>();
+
+        for (Payment payment : payments) {
+            PaymentOutputDto dto = new PaymentOutputDto();
+            PaymentMapper.domainToDto(payment, dto);
+            result.add(dto);
+        }
+
+        return result;
+    }
+
+
+
 }
 

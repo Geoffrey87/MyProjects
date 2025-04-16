@@ -5,7 +5,8 @@ import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "users")
 public class CustomUser {

@@ -1,6 +1,9 @@
 package com.paymentsAlert.paymentsAlert.controller;
 
 import com.paymentsAlert.paymentsAlert.dto.LoginDto;
+import com.paymentsAlert.paymentsAlert.dto.LoginResponseDto;
+import com.paymentsAlert.paymentsAlert.entity.CustomUser;
+import com.paymentsAlert.paymentsAlert.repository.UserRepo;
 import com.paymentsAlert.paymentsAlert.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,14 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
 
     private final AuthenticationManager manager;
+    private final UserRepo userRepo;
 
     @Autowired
-    public LoginController(AuthenticationManager manager) {
+    public LoginController(AuthenticationManager manager, UserRepo userRepo) {
         this.manager = manager;
+        this.userRepo = userRepo;
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginDto loginDto) {
+    public ResponseEntity<LoginResponseDto> login(@RequestBody LoginDto loginDto) {
 
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
                 loginDto.getEmail(),
@@ -34,7 +39,10 @@ public class LoginController {
         Authentication authentication = manager.authenticate(token);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
+        CustomUser user = userRepo.findByEmail(loginDto.getEmail())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
         String jwtToken = JwtUtil.generateToken((User)authentication.getPrincipal());
-        return ResponseEntity.ok(jwtToken);
+        return ResponseEntity.ok(new LoginResponseDto(jwtToken, user.getId()));
     }
 }
