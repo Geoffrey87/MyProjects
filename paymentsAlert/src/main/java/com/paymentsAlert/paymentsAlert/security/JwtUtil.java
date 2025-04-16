@@ -15,7 +15,7 @@ public class JwtUtil {
         return Jwts
                 .builder()
                 .subject(user.getUsername())
-                .expiration(new Date(System.currentTimeMillis() + 300_000))//5min
+                .expiration(new Date(System.currentTimeMillis() + 3000_000))//30min
                 .signWith(getSigningKey())
                 .compact();
     }

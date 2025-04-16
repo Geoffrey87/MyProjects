@@ -33,13 +33,37 @@ public class PaymentService implements IPayment {
         CustomUser user = userRepo.findById(inputDto.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        Payment payment = new Payment();
-        PaymentMapper.dtoToDomain(inputDto, payment);
-        payment.setUser(user);
+        List<Payment> paymentsToSave = new ArrayList<>();
 
-        Payment saved = paymentRepo.save(payment);
-        return PaymentMapper.domainToDto(saved, new PaymentOutputDto());
+        LocalDate dueDate = inputDto.getDueDate();
+        int occurrences = switch (inputDto.getRecurrencePeriod()) {
+            case "MONTHLY" -> 12;
+            case "QUARTERLY" -> 4;
+            case "YEARLY" -> 1;
+            default -> 1; // NONE
+        };
+
+        int monthsToAdd = switch (inputDto.getRecurrencePeriod()) {
+            case "MONTHLY" -> 1;
+            case "QUARTERLY" -> 3;
+            case "YEARLY" -> 12;
+            default -> 0;
+        };
+
+        for (int i = 0; i < occurrences; i++) {
+            Payment payment = new Payment();
+            PaymentMapper.dtoToDomain(inputDto, payment);
+            payment.setUser(user);
+            payment.setDueDate(dueDate.plusMonths((long) i * monthsToAdd));
+            paymentsToSave.add(payment);
+        }
+
+        List<Payment> savedPayments = paymentRepo.saveAll(paymentsToSave);
+
+
+        return PaymentMapper.domainToDto(savedPayments.getFirst(), new PaymentOutputDto());
     }
+
 
     @Override
     public PaymentOutputDto getPaymentById(Long id) {
@@ -98,7 +122,7 @@ public class PaymentService implements IPayment {
         double total = 0.0;
 
         for (Payment payment : payments) {
-            LocalDate paymentDate = payment.getDueDate().toLocalDate();
+            LocalDate paymentDate = payment.getDueDate();
 
             if (paymentDate.getYear() == year && paymentDate.getMonthValue() == month) {
                 total += payment.getAmount();
@@ -116,7 +140,7 @@ public class PaymentService implements IPayment {
         double total = 0.0;
 
         for (Payment payment : payments) {
-            LocalDate paymentDate = payment.getDueDate().toLocalDate();
+            LocalDate paymentDate = payment.getDueDate();
 
             if (paymentDate.getYear() == year) {
                 total += payment.getAmount();
@@ -127,10 +151,7 @@ public class PaymentService implements IPayment {
     }
     @Override
     public List<PaymentOutputDto> getPaymentsByUserAndDate(Long userId, LocalDate date) {
-        LocalDateTime startOfDay = date.atStartOfDay();
-        LocalDateTime endOfDay = date.plusDays(1).atStartOfDay();
-
-        List<Payment> payments = paymentRepo.findByUserIdAndDueDateBetween(userId, startOfDay, endOfDay);
+        List<Payment> payments = paymentRepo.findByUserIdAndDueDate(userId, date);
         List<PaymentOutputDto> result = new ArrayList<>();
 
         for (Payment payment : payments) {
@@ -141,6 +162,7 @@ public class PaymentService implements IPayment {
 
         return result;
     }
+
 
 
 

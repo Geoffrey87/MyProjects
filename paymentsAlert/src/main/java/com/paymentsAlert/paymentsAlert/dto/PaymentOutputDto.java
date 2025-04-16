@@ -15,6 +15,6 @@ public class PaymentOutputDto {
     private Long id;
     private String description;
     private double amount;
-    private String dueDate;
+    private String date;
     private boolean paid;
 }

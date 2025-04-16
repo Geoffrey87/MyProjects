@@ -12,7 +12,7 @@ public class PaymentMapper {
     public static PaymentOutputDto domainToDto(Payment payment, PaymentOutputDto paymentOutputDto) {
         paymentOutputDto.setId(payment.getId());
         paymentOutputDto.setAmount(payment.getAmount());
-        paymentOutputDto.setDueDate(payment.getDueDate().toString());
+        paymentOutputDto.setDate(payment.getDueDate().toString());
         paymentOutputDto.setPaid(payment.isPaid());
         paymentOutputDto.setDescription(payment.getDescription());
         return paymentOutputDto;

@@ -10,7 +10,6 @@ import lombok.Setter;
 import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -28,7 +27,7 @@ public class PaymentInputDto {
     private double amount;
 
     @NotNull(message = "Date is required")
-    private LocalDateTime dueDate;
+    private LocalDate dueDate;
 
     @NotNull(message = "Recurrence period is required")
     @Pattern(regexp = "NONE|MONTHLY|QUARTERLY|SEMI_ANNUALLY|YEARLY", message = "Choose one frequency: NONE, MONTHLY, QUARTERLY, SEMI_ANNUALLY, YEARLY")
