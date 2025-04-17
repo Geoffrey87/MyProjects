@@ -37,7 +37,7 @@ function LoginPage() {
 
         } catch (error) {
             console.error("Error:", error.response || error);
-            setError(error.response?.data?.message || 'Login failed. Please check your credentials.');
+            setError('Invalid username or password');
         }
     };
 

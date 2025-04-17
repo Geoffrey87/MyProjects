@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './RegisterUser.css';
+
 
 const RegisterUser = () => {
   const [username, setUsername] = useState('');
@@ -82,6 +84,10 @@ const RegisterUser = () => {
 
       <p className="login-link">
         Already have an account? <a href="/login">Login here</a>
+      </p>
+
+      <p className="academic-note">
+         This is an academic app — feel free to use a fictional email and any password.
       </p>
     </div>
   );
