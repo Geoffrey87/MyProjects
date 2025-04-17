@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import axios from 'axios';
 import './CalendarPage.css';
 import LogoutButton from './LogoutButton';
+import API from './api'; // Usa a instância de axios com baseURL
 
 function toLocalDateOnlyString(date) {
   const year = date.getFullYear();
@@ -33,7 +33,7 @@ function CalendarPage() {
       if (!authToken) return;
 
       try {
-        const res = await axios.get('http://localhost:8080/users/me', {
+        const res = await API.get('/users/me', {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -53,44 +53,42 @@ function CalendarPage() {
     fetchUserData();
   }, []);
 
-const handleDateClick = async (date) => {
-  setSelectedDate(date);
-  setShowModal(true);
-  setFormData(prev => ({ ...prev, dueDate: toLocalDateOnlyString(date) }));
+  const handleDateClick = async (date) => {
+    setSelectedDate(date);
+    setShowModal(true);
+    setFormData(prev => ({ ...prev, dueDate: toLocalDateOnlyString(date) }));
 
-  if (userId) {
-    await fetchPaymentsForDate(date, userId);
-  } else {
-    const waitForUserId = () => {
-      if (userId) {
-        fetchPaymentsForDate(date, userId);
-      } else {
-        setTimeout(waitForUserId, 100);
-      }
-    };
-    waitForUserId();
-  }
-};
+    if (userId) {
+      await fetchPaymentsForDate(date, userId);
+    } else {
+      const waitForUserId = () => {
+        if (userId) {
+          fetchPaymentsForDate(date, userId);
+        } else {
+          setTimeout(waitForUserId, 100);
+        }
+      };
+      waitForUserId();
+    }
+  };
 
+  const fetchPaymentsForDate = async (date, userId) => {
+    const authToken = localStorage.getItem('authToken');
+    if (!userId || !authToken) return;
 
+    const dateString = date.toISOString().split('T')[0];
 
-const fetchPaymentsForDate = async (date, userId) => {
-  const authToken = localStorage.getItem('authToken');
-  if (!userId || !authToken) return;
-
-  const dateString = date.toISOString().split('T')[0];
-
-  try {
-    const res = await axios.get(`http://localhost:8080/payments/by-date`, {
-      params: { userId, date: dateString },
-      headers: { Authorization: `Bearer ${authToken}` },
-    });
-    setDailyPayments(res.data);
-  } catch (error) {
-    console.error('Error getting payments:', error);
-    setDailyPayments([]);
-  }
-};
+    try {
+      const res = await API.get('/payments/by-date', {
+        params: { userId, date: dateString },
+        headers: { Authorization: `Bearer ${authToken}` },
+      });
+      setDailyPayments(res.data);
+    } catch (error) {
+      console.error('Error getting payments:', error);
+      setDailyPayments([]);
+    }
+  };
 
   const validateForm = () => {
     const newErrors = {};
@@ -107,74 +105,71 @@ const fetchPaymentsForDate = async (date, userId) => {
     return Object.keys(newErrors).length === 0;
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const authToken = localStorage.getItem('authToken');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const authToken = localStorage.getItem('authToken');
 
-  if (!userId || !authToken) {
-    setErrors({ submit: 'User not authenticated' });
-    return;
-  }
+    if (!userId || !authToken) {
+      setErrors({ submit: 'User not authenticated' });
+      return;
+    }
 
-  if (!validateForm()) return;
+    if (!validateForm()) return;
 
-  const recurrence =
-    !formData.recurrencePeriod || formData.recurrencePeriod === 'None'
-      ? 'NONE'
-      : formData.recurrencePeriod;
+    const recurrence =
+      !formData.recurrencePeriod || formData.recurrencePeriod === 'None'
+        ? 'NONE'
+        : formData.recurrencePeriod;
 
-  const data = {
-    ...formData,
-    userId, //
-    amount: parseFloat(formData.amount),
-    recurrencePeriod: recurrence,
-  };
-
-  console.log("Payload send:", data); // Debug
-
-  try {
-    const response = await axios.post('http://localhost:8080/payments', data, {
-      headers: {
-        'Authorization': `Bearer ${authToken}`,
-        'Content-Type': 'application/json',
-      },
-    });
-
-if (response.status === 201) {
-  setFormData({ description: '', amount: '', dueDate: '', recurrencePeriod: '' });
-  setShowModal(false);
-
-
-  const dateToFetch = new Date(formData.dueDate);
-
-
-  if (userId) {
-    await fetchPaymentsForDate(dateToFetch, userId);
-  } else {
-    const waitForUserId = async () => {
-      return new Promise((resolve) => {
-        const check = () => {
-          if (userId) {
-            resolve();
-          } else {
-            setTimeout(check, 100);
-          }
-        };
-        check();
-      });
+    const data = {
+      ...formData,
+      userId,
+      amount: parseFloat(formData.amount),
+      recurrencePeriod: recurrence,
     };
 
-    await waitForUserId();
-    await fetchPaymentsForDate(dateToFetch, userId);
-  }
-}
+    console.log("Payload send:", data);
 
-  } catch (error) {
-    console.error('Error creating payment:', error);
-    setErrors({ submit: error.response?.data?.message || 'Error creating payment' });
-  }
-};
+    try {
+      const response = await API.post('/payments', data, {
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
+        },
+      });
 
+      if (response.status === 201) {
+        setFormData({ description: '', amount: '', dueDate: '', recurrencePeriod: '' });
+        setShowModal(false);
+
+        const dateToFetch = new Date(formData.dueDate);
+
+        if (userId) {
+          await fetchPaymentsForDate(dateToFetch, userId);
+        } else {
+          const waitForUserId = async () => {
+            return new Promise((resolve) => {
+              const check = () => {
+                if (userId) {
+                  resolve();
+                } else {
+                  setTimeout(check, 100);
+                }
+              };
+              check();
+            });
+          };
+
+          await waitForUserId();
+          await fetchPaymentsForDate(dateToFetch, userId);
+        }
+      }
+
+    } catch (error) {
+      console.error('Error creating payment:', error);
+      setErrors({ submit: error.response?.data?.message || 'Error creating payment' });
+    }
+  };
 
   const handleTogglePaid = async (paymentId) => {
     const authToken = localStorage.getItem('authToken');
@@ -182,14 +177,14 @@ if (response.status === 201) {
     const newPaidStatus = !payment.paid;
 
     try {
-      await axios.patch(`http://localhost:8080/payments/${paymentId}/paid`, {
+      await API.patch(`/payments/${paymentId}/paid`, {
         paid: newPaidStatus
       }, {
         headers: {
           Authorization: `Bearer ${authToken}`
         }
       });
-      await fetchPaymentsForDate(selectedDate, userId); // <-- Correção aqui
+      await fetchPaymentsForDate(selectedDate, userId);
     } catch (error) {
       console.error("Error updating paid status:", error);
     }
@@ -198,15 +193,14 @@ if (response.status === 201) {
   const handleDeletePayment = async (paymentId) => {
     const authToken = localStorage.getItem('authToken');
     try {
-      await axios.delete(`http://localhost:8080/payments/${paymentId}`, {
+      await API.delete(`/payments/${paymentId}`, {
         headers: { Authorization: `Bearer ${authToken}` },
       });
-      await fetchPaymentsForDate(selectedDate, userId); // <-- Correção aqui
+      await fetchPaymentsForDate(selectedDate, userId);
     } catch (error) {
       console.error('Error deleting payment:', error);
     }
   };
-
 
   return (
     <div className="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-md">
@@ -313,7 +307,6 @@ if (response.status === 201) {
                           Delete
                         </button>
                       </div>
-
                     </li>
                   ))}
                 </ul>

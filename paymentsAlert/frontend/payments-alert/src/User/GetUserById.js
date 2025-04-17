@@ -1,23 +1,23 @@
-// GetUserById.js
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import API from './api';
 
-const GetUserById = ({ match }) => {
+const GetUserById = () => {
   const [user, setUser] = useState(null);
-  const userId = match.params.id;
+  const { id } = useParams();
 
   const fetchUser = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/users/${userId}`);
+      const response = await API.get(`/users/${id}`);
       setUser(response.data);
     } catch (error) {
       console.error('Error fetching user:', error);
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchUser();
-  }, [userId]);
+  }, [id]);
 
   return (
     <div>

@@ -10,11 +10,15 @@ function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
+    const API = axios.create({
+      baseURL: process.env.REACT_APP_API_BASE_URL,
+    });
+
     const handleLogin = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8080/login', {
+            const response = await API.post('/login', {
                 email,
                 password
             }, {

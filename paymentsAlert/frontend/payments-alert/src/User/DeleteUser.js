@@ -1,17 +1,18 @@
-// DeleteUser.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import API from './api';
 
-const DeleteUser = ({ match }) => {
+const DeleteUser = () => {
   const [message, setMessage] = useState('');
-  const userId = match.params.id;
+  const { id: userId } = useParams();
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8080/users/${userId}`);
+      await API.delete(`/users/${userId}`);
       setMessage('User deleted successfully');
     } catch (error) {
       setMessage('Error deleting user');
+      console.error('Delete error:', error);
     }
   };
 

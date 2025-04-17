@@ -1,15 +1,15 @@
-// UpdateUser.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import API from './api'; // axios centralizado
 
-const UpdateUser = ({ match }) => {
+const UpdateUser = () => {
   const [user, setUser] = useState({ username: '', password: '', email: '' });
-  const userId = match.params.id;
+  const { id: userId } = useParams();
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/users/${userId}`);
+        const response = await API.get(`/users/${userId}`);
         setUser(response.data);
       } catch (error) {
         console.error('Error fetching user:', error);
@@ -21,7 +21,7 @@ const UpdateUser = ({ match }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`http://localhost:8080/users/${userId}`, user);
+      const response = await API.put(`/users/${userId}`, user);
       console.log('User updated:', response.data);
     } catch (error) {
       console.error('Error updating user:', error);

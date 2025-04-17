@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './RegisterUser.css';
-
+import API from './api'; // instância centralizada de axios
 
 const RegisterUser = () => {
   const [username, setUsername] = useState('');
@@ -17,14 +16,14 @@ const RegisterUser = () => {
     const userInputDto = {
       username,
       password,
-      email
+      email,
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/users', userInputDto, {
+      const response = await API.post('/users', userInputDto, {
         headers: {
           'Content-Type': 'application/json',
-        }
+        },
       });
 
       setMessage('User registered successfully!');
@@ -33,11 +32,9 @@ const RegisterUser = () => {
       setPassword('');
       setEmail('');
 
-
       setTimeout(() => {
         navigate('/');
       }, 1000);
-
     } catch (error) {
       let errorMessage = 'Error registering user. Please try again.';
       if (error.response?.data?.message) {
@@ -87,7 +84,7 @@ const RegisterUser = () => {
       </p>
 
       <p className="academic-note">
-         This is an academic app — feel free to use a fictional email and any password.
+        This is an academic app — feel free to use a fictional email and any password.
       </p>
     </div>
   );
