@@ -69,7 +69,6 @@ public class UserService implements IUser{
                 .orElseThrow(() -> new RuntimeException("User not found"));
         return UserMapper.domainToDto(user, new UserOutputDto());
     }
-
     @Override
     public UserOutputDto updateUser(Long id, UserInputDto userInputDto) {
         CustomUser user = userRepo.findById(id)

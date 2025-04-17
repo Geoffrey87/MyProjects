@@ -26,6 +26,7 @@ const RegisterUser = () => {
       });
 
       setMessage('User registered successfully!');
+      localStorage.setItem('username', username);
       setUsername('');
       setPassword('');
       setEmail('');

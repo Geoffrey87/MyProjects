@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
@@ -32,6 +33,13 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<UserOutputDto> getUserById(@PathVariable Long id) {
         UserOutputDto user = userService.getUserById(id);
+        return ResponseEntity.ok(user);
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<UserOutputDto> getCurrentUser() {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        UserOutputDto user = userService.getUserByEmail(email);
         return ResponseEntity.ok(user);
     }
 
