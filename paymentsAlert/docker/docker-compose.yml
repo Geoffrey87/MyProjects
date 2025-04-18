@@ -1,0 +1,43 @@
+
+services:
+
+  backend:
+    build:
+      context: backend
+      dockerfile: ./Dockerfile
+    container_name: backend
+    ports:
+      - "5000:5000"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database-1.c5gqasca0khp.eu-west-3.rds.amazonaws.com:5432/myappdb
+      - SPRING_DATASOURCE_USERNAME=myappdb
+      - SPRING_DATASOURCE_PASSWORD=1234567890
+      - SERVER_PORT=5000
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: frontend
+      dockerfile: ./Dockerfile
+    container_name: frontend
+    ports:
+      - "80:80"
+    environment:
+      - REACT_APP_API_BASE_URL=http://localhost:5000
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=database-1
+      - POSTGRES_USER=myappdb
+      - POSTGRES_PASSWORD=1234567890
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
