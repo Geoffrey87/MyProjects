@@ -3,7 +3,9 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './CalendarPage.css';
 import LogoutButton from './LogoutButton';
-import API from './api'; // Usa a instância de axios com baseURL
+import API from './api';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function toLocalDateOnlyString(date) {
   const year = date.getFullYear();
@@ -142,6 +144,8 @@ function CalendarPage() {
         setFormData({ description: '', amount: '', dueDate: '', recurrencePeriod: '' });
         setShowModal(false);
 
+        toast.success('Payment created successfully!')
+
         const dateToFetch = new Date(formData.dueDate);
 
         if (userId) {
@@ -204,6 +208,7 @@ function CalendarPage() {
 
   return (
     <div className="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-md">
+    <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} />
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">Hello {username} 👋</h1>
         <LogoutButton />
@@ -315,6 +320,7 @@ function CalendarPage() {
           </div>
         </div>
       )}
+
     </div>
   );
 }

@@ -69,9 +69,11 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(Arrays.asList(
+        configuration.setAllowedOrigins(Arrays.asList(
                 "http://localhost:3000",
-                "http://localhost"
+                "http://localhost:5000",
+                "http://localhost",
+                "http://http://payalertv1-env.eba-vutva8fm.eu-west-3.elasticbeanstalk.com"
                         ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("*"));

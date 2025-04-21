@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
+import API from '../api'
 
 function LoginPage() {
     const [email, setEmail] = useState('');
@@ -9,10 +10,6 @@ function LoginPage() {
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
-
-    const API = axios.create({
-      baseURL: process.env.REACT_APP_API_BASE_URL,
-    });
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -48,7 +45,6 @@ function LoginPage() {
     return (
         <div className="login-container">
             <h2>Payments Alert</h2>
-            <h3>Sign In</h3>
 
             {error && <p className="error-message">{error}</p>}
 
