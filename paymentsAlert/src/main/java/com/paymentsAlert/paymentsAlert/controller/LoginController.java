@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
+/**
+ * Controller class responsible for handling user login requests.
+ */
 @RestController
 public class LoginController {
 
@@ -28,6 +32,9 @@ public class LoginController {
         this.userRepo = userRepo;
     }
 
+/**
+ * Authenticates the user with the given email and password.
+ */
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDto> login(@RequestBody LoginDto loginDto) {
 

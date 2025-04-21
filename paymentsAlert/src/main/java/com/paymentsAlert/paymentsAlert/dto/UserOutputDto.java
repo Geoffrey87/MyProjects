@@ -5,6 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Data Transfer Object for user output.
+ * The server responds with the user ID, username, email and token.
+ */
+
 @Getter
 @Setter
 @NoArgsConstructor

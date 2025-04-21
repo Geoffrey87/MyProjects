@@ -7,6 +7,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Data Transfer Object for user login.
+ * The client must provide an email and password.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

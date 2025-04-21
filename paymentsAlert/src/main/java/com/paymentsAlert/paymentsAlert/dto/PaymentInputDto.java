@@ -11,6 +11,11 @@ import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDate;
 
+
+/**
+ * Data Transfer Object for payment input.
+ * The client must provide a user ID (witch is the ID of the user who created the payment), a description, value, date and recurrence period.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

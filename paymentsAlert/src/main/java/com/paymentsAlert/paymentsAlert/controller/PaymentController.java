@@ -26,18 +26,27 @@ public class PaymentController {
         this.paymentService = paymentService;
     }
 
+    /**
+     * Creates a new payment.
+     */
     @PostMapping
     public ResponseEntity<PaymentOutputDto> createPayment(@Valid @RequestBody PaymentInputDto payment) {
         PaymentOutputDto paymentOutputDto = paymentService.createPayment(payment);
         return ResponseEntity.status(HttpStatus.CREATED).body(paymentOutputDto);
     }
 
+    /**
+     * Retrieves a payment by its ID.
+     */
     @GetMapping("/{id}")
     public ResponseEntity<PaymentOutputDto> getPaymentById(@PathVariable Long id) {
         PaymentOutputDto dto = paymentService.getPaymentById(id);
         return ResponseEntity.ok(dto);
     }
 
+    /**
+     * Updates a payment by its ID.
+     */
     @GetMapping("/by-date")
     public ResponseEntity<List<PaymentOutputDto>> getPaymentsByDate(
             @RequestParam Long userId,
@@ -46,7 +55,9 @@ public class PaymentController {
         return ResponseEntity.ok(payments);
     }
 
-
+    /**
+     * Retrieves all payments for a user.
+     */
     @PatchMapping("/{id}/paid")
     public ResponseEntity<Void> markPaymentPaidStatus(
             @PathVariable Long id,
@@ -61,6 +72,9 @@ public class PaymentController {
         return ResponseEntity.ok().build();
     }
 
+    /**
+     * Retrieves all payments for a user.
+    */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePayment(@PathVariable Long id) {
         paymentService.deletePayment(id);

@@ -24,18 +24,27 @@ public class UserController {
         this.userService = userService;
     }
 
+    /**
+     * Registers a new user in the system.
+     */
     @PostMapping
     public ResponseEntity<UserOutputDto> registerUser(@Valid @RequestBody UserInputDto userInputDto) {
         UserOutputDto user = userService.registerUser(userInputDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 
+    /**
+     * Retrieves a user by their ID.
+     */
     @GetMapping("/{id}")
     public ResponseEntity<UserOutputDto> getUserById(@PathVariable Long id) {
         UserOutputDto user = userService.getUserById(id);
         return ResponseEntity.ok(user);
     }
 
+    /**
+     * Retrieves the currently authenticated user.
+     */
     @GetMapping("/me")
     public ResponseEntity<UserOutputDto> getCurrentUser() {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -43,12 +52,18 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    /**
+     * Retrieves a user by their email.
+     */
     @GetMapping("/email/{email}")
     public ResponseEntity<UserOutputDto> getUserByEmail(@PathVariable String email) {
         UserOutputDto user = userService.getUserByEmail(email);
         return ResponseEntity.ok(user);
     }
 
+    /**
+     * Updates a user by their ID.
+     */
     @PutMapping("/{id}")
     public ResponseEntity<UserOutputDto> updateUser(
             @PathVariable Long id,
@@ -57,6 +72,9 @@ public class UserController {
         return ResponseEntity.ok(updated);
     }
 
+    /**
+     * Deletes a user by their ID.
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);

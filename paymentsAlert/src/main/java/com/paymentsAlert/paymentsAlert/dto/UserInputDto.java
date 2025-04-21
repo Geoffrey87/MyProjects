@@ -8,6 +8,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Data Transfer Object for user input.
+ * For the registration, the client must provide a username, password and email.
+ */
+
 @Getter
 @Setter
 @NoArgsConstructor

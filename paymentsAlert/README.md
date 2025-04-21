@@ -175,11 +175,3 @@ To allow communication between frontend (e.g., `localhost:3000`) and backend (El
 
 ---
 
-## 🧪 Stack
-
-- **Java 21** (Spring Boot)
-- **PostgreSQL** (AWS RDS)
-- **React** (Frontend)
-- **Docker & Docker Compose**
-- **AWS Elastic Beanstalk** (Deployment)
-
