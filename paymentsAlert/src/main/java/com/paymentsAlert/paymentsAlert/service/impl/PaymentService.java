@@ -16,6 +16,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Service implementation for managing payments.
+ * Handles creation, retrieval, updating, deletion, and filtering of payments.
+ */
 @Service
 public class PaymentService implements IPayment {
 
@@ -28,6 +32,13 @@ public class PaymentService implements IPayment {
         this.userRepo = userRepo;
     }
 
+    /**
+     * Creates one or more payments based on the recurrence specified.
+     *
+     * @param inputDto The payment input data including amount, due date, user ID, and recurrence.
+     * @return The output DTO of the first created payment.
+     * @throws RuntimeException if the user is not found.
+     */
     @Override
     public PaymentOutputDto createPayment(PaymentInputDto inputDto) {
         CustomUser user = userRepo.findById(inputDto.getUserId())
@@ -64,7 +75,13 @@ public class PaymentService implements IPayment {
         return PaymentMapper.domainToDto(savedPayments.getFirst(), new PaymentOutputDto());
     }
 
-
+    /**
+     * Retrieves a payment by its ID.
+     *
+     * @param id The ID of the payment.
+     * @return The corresponding payment as an output DTO.
+     * @throws RuntimeException if the payment is not found.
+     */
     @Override
     public PaymentOutputDto getPaymentById(Long id) {
         Payment payment = paymentRepo.findById(id)
@@ -72,6 +89,14 @@ public class PaymentService implements IPayment {
         return PaymentMapper.domainToDto(payment, new PaymentOutputDto());
     }
 
+    /**
+     * Updates an existing payment with new information.
+     *
+     * @param id       The ID of the payment to update.
+     * @param inputDto The new data for the payment.
+     * @return The updated payment as an output DTO.
+     * @throws RuntimeException if the payment or user is not found.
+     */
     @Override
     public PaymentOutputDto updatePayment(Long id, PaymentInputDto inputDto) {
         Payment payment = paymentRepo.findById(id)
@@ -88,6 +113,12 @@ public class PaymentService implements IPayment {
         return PaymentMapper.domainToDto(updated, new PaymentOutputDto());
     }
 
+    /**
+     * Deletes a payment by its ID.
+     *
+     * @param id The ID of the payment.
+     * @throws RuntimeException if the payment is not found.
+     */
     @Override
     public void deletePayment(Long id) {
         if (!paymentRepo.existsById(id)) {
@@ -96,6 +127,12 @@ public class PaymentService implements IPayment {
         paymentRepo.deleteById(id);
     }
 
+    /**
+     * Retrieves all payments for a specific user.
+     *
+     * @param userId The ID of the user.
+     * @return A list of payment output DTOs.
+     */
     @Override
     public List<PaymentOutputDto> getPaymentsByUserId(Long userId) {
         List<Payment> payments = paymentRepo.findByUserId(userId);
@@ -105,7 +142,13 @@ public class PaymentService implements IPayment {
         }
         return output;
     }
-
+    /**
+     * Updates the paid status of a payment.
+     *
+     * @param id   The ID of the payment.
+     * @param paid The new paid status.
+     * @throws RuntimeException if the payment is not found.
+     */
     @Override
     public void setPaidStatus(Long id, boolean paid) {
         Payment payment = paymentRepo.findById(id)
@@ -114,7 +157,14 @@ public class PaymentService implements IPayment {
         paymentRepo.save(payment);
     }
 
-
+    /**
+     * Calculates the total amount of payments for a given user in a specific month.
+     *
+     * @param userId The ID of the user.
+     * @param year   The year to filter.
+     * @param month  The month to filter.
+     * @return The total payment amount for that month.
+     */
     @Override
     public double getMonthlyTotalAmount(Long userId, int year, int month) {
         List<Payment> payments = paymentRepo.findByUserId(userId);
@@ -132,7 +182,13 @@ public class PaymentService implements IPayment {
         return total;
     }
 
-
+    /**
+     * Calculates the total amount of payments for a given user in a specific year.
+     *
+     * @param userId The ID of the user.
+     * @param year   The year to filter.
+     * @return The total payment amount for that year.
+     */
     @Override
     public double getYearlyTotalAmount(Long userId, int year) {
         List<Payment> payments = paymentRepo.findByUserId(userId);
@@ -149,6 +205,14 @@ public class PaymentService implements IPayment {
 
         return total;
     }
+
+    /**
+     * Retrieves all payments for a user on a specific date.
+     *
+     * @param userId The ID of the user.
+     * @param date   The date to filter by.
+     * @return A list of payment output DTOs matching the date.
+     */
     @Override
     public List<PaymentOutputDto> getPaymentsByUserAndDate(Long userId, LocalDate date) {
         List<Payment> payments = paymentRepo.findByUserIdAndDueDate(userId, date);

@@ -22,22 +22,45 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 
+/**
+ * Spring Security configuration class.
+ * Enables method-level security, sets up CORS, disables CSRF for API use,
+ * configures JWT authentication, and defines password encoding.
+ */
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
 
-
+    /**
+     * Provides an {@link AuthenticationManager} bean used for processing authentication requests.
+     *
+     * @param httpSecurity the {@link HttpSecurity} shared object
+     * @return an instance of {@link AuthenticationManager}
+     * @throws Exception if the configuration fails
+     */
     @Bean
-    public AuthenticationManager authenticationManager (HttpSecurity httpSecurity) throws Exception {
+    public AuthenticationManager authenticationManager(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.getSharedObject(AuthenticationManagerBuilder.class).build();
+    }
 
-        };
-
+    /**
+     * Provides a {@link PasswordEncoder} bean using BCrypt hashing algorithm.
+     *
+     * @return a {@link BCryptPasswordEncoder} instance
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * Configures the security filter chain.
+     * Disables CSRF, enables CORS, configures headers, and sets authorization rules.
+     *
+     * @param http the {@link HttpSecurity} to modify
+     * @return the configured {@link SecurityFilterChain}
+     * @throws Exception if an error occurs during configuration
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
@@ -60,12 +83,22 @@ public class SecurityConfig {
                 ).build();
     }
 
+    /**
+     * Provides a {@link JwtAuthenticationFilter} bean.
+     * Used to intercept and validate JWTs in requests.
+     *
+     * @return the {@link JwtAuthenticationFilter} instance
+     */
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {
         return new JwtAuthenticationFilter();
     }
 
-
+    /**
+     * Configures CORS to allow frontend access from specified origins.
+     *
+     * @return the configured {@link CorsConfigurationSource}
+     */
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -73,8 +106,8 @@ public class SecurityConfig {
                 "http://localhost:3000",
                 "http://localhost:5000",
                 "http://localhost",
-                "http://http://payalertv1-env.eba-vutva8fm.eu-west-3.elasticbeanstalk.com"
-                        ));
+                "http://payalertv1-env.eba-vutva8fm.eu-west-3.elasticbeanstalk.com"
+        ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setExposedHeaders(Arrays.asList("Authorization"));
