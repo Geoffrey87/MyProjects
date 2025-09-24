@@ -1,0 +1,329 @@
+@startuml
+' ---------------------
+' Users
+' ---------------------
+
+class User {
+  +id: Long
+  +name: String
+  +email: String
+  +passwordHash: String
+  +age: int
+  +location: String
+  +avatarUrl: String
+  +createdAt: DateTime
+  +updatedAt: DateTime
+}
+
+note right of User
+Only personal accounts are allowed.
+- No political parties
+- No companies
+- No institutional pages
+end note
+
+class UserSettings {
+  +id: Long
+  +accountVisibility: Visibility       ' default = FRIENDS
+  +canReceiveRequests: String          ' Everyone / FriendsOfFriends / Nobody
+  +defaultPostVisibility: Visibility   ' default = FRIENDS
+  +allowFollowers: Boolean             ' default = false
+  +emailNotifications: Boolean
+  +pushNotifications: Boolean
+  +isDeactivated: Boolean              ' temporary deactivation
+  +deleteRequestedAt: DateTime         ' scheduled permanent deletion
+  +createdAt: DateTime
+  +updatedAt: DateTime
+}
+
+User "1" -- "1" UserSettings : hasSettings
+
+note right of UserSettings
+Privacy & Preferences:
+- Account visibility
+- Who can send requests
+- Allow followers
+- Default post visibility
+- Notifications (email, push)
+- Deactivate account
+- Delete account
+end note
+
+' ---------------------
+' Social Connections
+' ---------------------
+
+class ConnectionRequest {
+  +id: Long
+  +status: RequestStatus
+  +sentAt: DateTime
+  +respondedAt: DateTime
+}
+enum RequestStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+ConnectionRequest --> RequestStatus
+
+class Relationship {
+  +id: Long
+  +type: RelationshipType
+  +since: Date
+}
+enum RelationshipType {
+  FRIEND
+  FAMILY
+  BOTH
+}
+Relationship --> RelationshipType
+
+class Follower {
+  +id: Long
+  +since: Date
+}
+
+' ---------------------
+' Content
+' ---------------------
+
+class Post {
+  +id: Long
+  +content: String
+  +createdAt: DateTime
+  +visibility: Visibility
+}
+
+class Media {
+  +id: Long
+  +title: String
+  +type: MediaType
+  +url: String
+  +sizeMB: double
+  +uploadedAt: DateTime
+  +visibility: Visibility
+}
+
+class Album {
+  +id: Long
+  +title: String
+  +description: String
+  +createdAt: DateTime
+  +visibility: Visibility
+}
+
+class Story {
+  +id: Long
+  +type: StoryType
+  +url: String
+  +sizeMB: double
+  +createdAt: DateTime
+  +expiresAt: DateTime
+  +visibility: Visibility
+}
+
+class MemoryCapsule {
+  +id: Long
+  +unlockAt: DateTime
+  +isPublished: Boolean
+}
+
+class MusicPost {
+  +id: Long
+  +platform: String      ' Spotify, YouTube, AppleMusic
+  +trackUrl: String
+  +title: String
+  +artist: String
+  +coverUrl: String
+  +sharedAt: DateTime
+  +visibility: Visibility
+}
+
+User "1" -- "*" MusicPost
+MusicPost "1" -- "*" Comment
+MusicPost "1" -- "*" Reaction
+
+
+User "1" -- "*" Album
+Album "1" -- "*" Media
+
+' ---------------------
+' Profile Music
+' ---------------------
+
+class ProfileMusic {
+  +id: Long
+  +platform: String      ' e.g. Spotify, YouTube
+  +trackUrl: String
+  +title: String
+  +artist: String
+  +addedAt: DateTime
+  +isActive: Boolean
+}
+
+User "1" -- "*" ProfileMusic
+
+' ---------------------
+' Categories & Tags
+' ---------------------
+
+class Category {
+  +id: Long
+  +name: String
+}
+
+class Tag {
+  +id: Long
+  +name: String
+}
+
+Category "1" -- "*" Tag
+UserPreference "*" -- "*" Tag : preferredTags
+Post "*" -- "*" Tag
+Media "*" -- "*" Tag
+Story "*" -- "*" Tag
+
+class UserPreference {
+  +id: Long
+  +createdAt: DateTime
+}
+
+User "1" -- "1" UserPreference
+
+enum MediaType {
+  PHOTO
+  VIDEO
+}
+enum StoryType {
+  PHOTO
+  VIDEO
+}
+enum Visibility {
+  FRIENDS
+  FAMILY
+  BOTH
+  PUBLIC
+}
+Media --> MediaType
+Media --> Visibility
+Post --> Visibility
+Story --> StoryType
+Story --> Visibility
+Album --> Visibility
+
+Post "1" -- "*" MemoryCapsule
+Media "1" -- "*" MemoryCapsule
+Story "1" -- "*" MemoryCapsule
+
+' ---------------------
+' Interactions
+' ---------------------
+
+class Comment {
+  +id: Long
+  +content: String
+  +createdAt: DateTime
+}
+
+class Reaction {
+  +id: Long
+  +type: ReactionType
+  +createdAt: DateTime
+}
+
+enum ReactionType {
+  HEART
+  THUMBS_UP
+  LAUGH
+  SURPRISED
+  SAD
+  COURAGE
+}
+Reaction --> ReactionType
+
+class StoryReaction {
+  +id: Long
+  +createdAt: DateTime
+}
+
+' ---------------------
+' Reports (with AI moderation)
+' ---------------------
+
+class Report {
+  +id: Long
+  +reason: ReportReason
+  +description: String
+  +createdAt: DateTime
+  +status: ReportStatus
+  +confidenceScore: double
+  +autoAction: Boolean
+}
+
+enum ReportReason {
+  NUDITY
+  VIOLENCE
+  HATE_SPEECH
+  SPAM
+  FAKE_ACCOUNT
+  POLITICAL_ORGANIZATION
+  OTHER
+}
+
+enum ReportStatus {
+  PENDING
+  REVIEWED
+  RESOLVED
+  REJECTED
+}
+
+Report --> ReportReason
+Report --> ReportStatus
+
+User "1" -- "*" Report : submittedReports
+Report "1" -- "1" User : reportedBy
+
+Post "1" -- "*" Report
+Media "1" -- "*" Report
+Story "1" -- "*" Report
+Comment "1" -- "*" Report
+
+' ---------------------
+' Notifications
+' ---------------------
+
+class Notification {
+  +id: Long
+  +message: String
+  +createdAt: DateTime
+  +isRead: Boolean
+}
+
+' ---------------------
+' Relationships
+' ---------------------
+User "1" -- "*" ConnectionRequest : sentRequests
+User "1" -- "*" ConnectionRequest : receivedRequests
+ConnectionRequest "1" -- "1" User : sender
+ConnectionRequest "1" -- "1" User : receiver
+
+User "1" -- "*" Relationship
+Relationship "1" -- "*" User
+
+User "1" -- "*" Follower : hasFollowers
+Follower "1" -- "1" User : follower
+
+User "1" -- "*" Media
+User "1" -- "*" Post
+User "1" -- "*" Story
+
+Post "1" -- "*" Comment
+Media "1" -- "*" Comment
+
+Post "1" -- "*" Reaction
+Media "1" -- "*" Reaction
+
+Story "1" -- "*" StoryReaction
+
+User "1" -- "*" Notification
+@enduml
