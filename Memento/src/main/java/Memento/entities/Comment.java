@@ -10,10 +10,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "comments")
-@NamedEntityGraph(
-        name = "Comment.withAuthor",
-        attributeNodes = {@NamedAttributeNode("author")}
-)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -34,9 +30,12 @@ public class Comment {
     @JoinColumn(name = "author_id", nullable = false)
     private User author;
 
-    @ManyToOne
-    @JoinColumn(name = "music_post_id")
-    private MusicPost musicPost;
+    @Column(nullable = false)
+    private Long targetId;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private CommentTargetType targetType; // POST, MEDIA, MUSIC_POST
 
     @PrePersist
     protected void onCreate() {

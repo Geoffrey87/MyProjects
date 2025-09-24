@@ -31,13 +31,15 @@ public class Reaction {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "music_post_id")
-    private MusicPost musicPost;
+    @Column(nullable = false)
+    private Long targetId;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ReactionTargetType targetType; // POST, MEDIA, MUSIC_POST
 
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
 }
-

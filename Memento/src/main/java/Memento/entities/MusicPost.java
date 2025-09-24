@@ -52,9 +52,6 @@ public class MusicPost {
     private User author;
 
     @OneToMany(mappedBy = "musicPost")
-    private Set<Comment> comments = new HashSet<>();
-
-    @OneToMany(mappedBy = "musicPost")
     private Set<Reaction> reactions = new HashSet<>();
 
     @PrePersist
