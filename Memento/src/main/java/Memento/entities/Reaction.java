@@ -38,6 +38,11 @@ public class Reaction {
     @Column(nullable = false)
     private ReactionTargetType targetType; // POST, MEDIA, MUSIC_POST
 
+    @ManyToOne
+    @JoinColumn(name = "music_post_id")
+    private MusicPost musicPost;
+
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
