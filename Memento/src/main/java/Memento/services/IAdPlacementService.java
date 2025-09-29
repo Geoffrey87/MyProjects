@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Service interface for managing advertisement placements.
- * Provides operations for creating, moderating, and retrieving ads.
+ * Provides operations for creating, moderating, updating, deleting, and retrieving ads.
  */
 public interface IAdPlacementService {
 
@@ -22,6 +22,22 @@ public interface IAdPlacementService {
      * @return created ad placement as output DTO
      */
     AdPlacementOutputDto create(AdPlacementCreateDto dto);
+
+    /**
+     * Update an existing ad placement.
+     *
+     * @param id  the ad ID
+     * @param dto input DTO containing updated ad placement details
+     * @return updated ad placement as output DTO
+     */
+    AdPlacementOutputDto update(Long id, AdPlacementCreateDto dto);
+
+    /**
+     * Delete an ad placement.
+     *
+     * @param id the ad ID
+     */
+    void delete(Long id);
 
     // -----------------------------
     // Moderation (admin only)
@@ -78,4 +94,19 @@ public interface IAdPlacementService {
      * @return list of active ads filtered by tag
      */
     List<AdPlacementOutputDto> getActiveAdsByTag(Long tagId);
+
+    /**
+     * Retrieve ad placement by its ID.
+     *
+     * @param id the ad ID
+     * @return ad placement as output DTO
+     */
+    AdPlacementOutputDto getByIdDto(Long id);
+
+    /**
+     * Retrieve all ad placements.
+     *
+     * @return list of all ads
+     */
+    List<AdPlacementOutputDto> getAll();
 }

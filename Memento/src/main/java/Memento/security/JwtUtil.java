@@ -37,14 +37,16 @@ public final class JwtUtil {
      */
     public String generateToken(User user) {
         Date now = new Date();
-        return Jwts
-                .builder()
+        return Jwts.builder()
                 .subject(user.getEmail())
+                .claim("roles", user.getRoles().stream().map(r -> r.getName().name()).toList())
+                .claim("userId", user.getId())
                 .issuedAt(now)
                 .expiration(new Date(now.getTime() + accessTokenTtl.toMillis()))
                 .signWith(signingKey)
                 .compact();
     }
+
 
     /**
      * Parses and returns the claims (payload) from a given JWT token.

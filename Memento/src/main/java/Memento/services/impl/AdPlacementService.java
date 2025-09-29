@@ -74,6 +74,7 @@ public class AdPlacementService implements IAdPlacementService {
     public AdPlacementOutputDto approve(Long id) {
         AdPlacement ad = getById(id);
         ad.setStatus(AdStatus.APPROVED);
+        adPlacementRepository.save(ad);
         return toOutputDto(ad);
     }
 
@@ -85,6 +86,7 @@ public class AdPlacementService implements IAdPlacementService {
             throw new IllegalStateException("Ad cannot be activated outside its schedule");
         }
         ad.setStatus(AdStatus.ACTIVE);
+        adPlacementRepository.save(ad);
         return toOutputDto(ad);
     }
 
@@ -92,8 +94,42 @@ public class AdPlacementService implements IAdPlacementService {
     public AdPlacementOutputDto expire(Long id) {
         AdPlacement ad = getById(id);
         ad.setStatus(AdStatus.EXPIRED);
+        adPlacementRepository.save(ad);
         return toOutputDto(ad);
     }
+
+    @Override
+    public AdPlacementOutputDto update(Long id, AdPlacementCreateDto dto) {
+        AdPlacement ad = getById(id);
+
+        // atualizar campos simples
+        AdPlacementMapper.dtoToDomainForCreate(dto, ad);
+
+        if (dto.getCategoryId() != null) {
+            Category category = categoryRepository.findById(dto.getCategoryId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Category not found with id " + dto.getCategoryId()));
+            ad.setCategory(category);
+        }
+
+        if (dto.getTagId() != null) {
+            Tag tag = tagRepository.findById(dto.getTagId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Tag not found with id " + dto.getTagId()));
+            ad.setTag(tag);
+        }
+
+        AdPlacement updated = adPlacementRepository.save(ad);
+        AdPlacementOutputDto output = new AdPlacementOutputDto();
+        AdPlacementMapper.domainToDto(updated, output);
+        return output;
+    }
+
+    @Override
+    public void delete(Long id) {
+        AdPlacement ad = getById(id);
+        adPlacementRepository.delete(ad);
+    }
+
+
 
     // -----------------------------
     // Retrieval (public endpoints)
@@ -118,6 +154,20 @@ public class AdPlacementService implements IAdPlacementService {
                 .map(this::toOutputDto)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public AdPlacementOutputDto getByIdDto(Long id) {
+        AdPlacement ad = getById(id);
+        return toOutputDto(ad);
+    }
+
+    @Override
+    public List<AdPlacementOutputDto> getAll() {
+        return adPlacementRepository.findAll().stream()
+                .map(this::toOutputDto)
+                .collect(Collectors.toList());
+    }
+
 
     // -----------------------------
     // Helpers
