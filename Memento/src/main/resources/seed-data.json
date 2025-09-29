@@ -1,0 +1,20 @@
+{
+  "categories": [
+    {
+      "name": "Sports",
+      "tags": ["Football", "Gym", "Basketball", "Tennis"]
+    },
+    {
+      "name": "Music",
+      "tags": ["Rock", "Jazz", "Hip Hop", "Classical"]
+    },
+    {
+      "name": "Technology",
+      "tags": ["AI", "Programming", "Gaming"]
+    },
+    {
+      "name": "Travel",
+      "tags": ["Beaches", "Mountains", "Road Trips"]
+    }
+  ]
+}
