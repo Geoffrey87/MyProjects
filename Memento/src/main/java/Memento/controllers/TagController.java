@@ -5,6 +5,7 @@ import Memento.dtos.OutputDto.TagOutputDto;
 import Memento.services.ITagService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,17 +21,20 @@ public class TagController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<TagOutputDto> create(@Valid @RequestBody TagCreateDto dto) {
         return ResponseEntity.ok(tagService.create(dto));
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<TagOutputDto> update(@PathVariable Long id,
                                                @Valid @RequestBody TagCreateDto dto) {
         return ResponseEntity.ok(tagService.update(id, dto));
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         tagService.delete(id);
         return ResponseEntity.noContent().build();
@@ -46,4 +50,3 @@ public class TagController {
         return ResponseEntity.ok(tagService.getAll());
     }
 }
-
