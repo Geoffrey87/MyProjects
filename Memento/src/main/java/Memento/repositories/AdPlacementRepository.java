@@ -1,7 +1,7 @@
 package Memento.repositories;
 
 import Memento.entities.AdPlacement;
-import Memento.entities.AdStatus;
+import Memento.entities.enums.AdStatus;
 import Memento.entities.Category;
 import Memento.entities.Tag;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
 package Memento.dtos.OutputDto;
 
-import Memento.entities.AuditAction;
+import Memento.entities.enums.AuditAction;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

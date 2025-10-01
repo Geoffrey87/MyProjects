@@ -1,7 +1,7 @@
 package Memento.repositories;
 
 import Memento.entities.Role;
-import Memento.entities.RoleType;
+import Memento.entities.enums.RoleType;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

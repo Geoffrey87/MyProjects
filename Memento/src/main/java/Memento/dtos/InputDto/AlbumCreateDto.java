@@ -1,6 +1,6 @@
 package Memento.dtos.InputDto;
 
-import Memento.entities.Visibility;
+import Memento.entities.enums.Visibility;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

@@ -1,6 +1,5 @@
 package Memento.dtos.InputDto;
 
-import Memento.entities.Visibility;
 import jakarta.validation.constraints.*;
 
 import lombok.*;

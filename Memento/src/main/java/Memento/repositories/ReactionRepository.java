@@ -1,7 +1,7 @@
 package Memento.repositories;
 
 import Memento.entities.Reaction;
-import Memento.entities.ReactionTargetType;
+import Memento.entities.enums.ReactionTargetType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

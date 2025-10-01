@@ -1,6 +1,6 @@
 package Memento.dtos.InputDto;
 
-import Memento.entities.RelationshipType;
+import Memento.entities.enums.RelationshipType;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;

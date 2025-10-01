@@ -1,7 +1,7 @@
 package Memento.dtos.OutputDto;
 
-import Memento.entities.StoryType;
-import Memento.entities.Visibility;
+import Memento.entities.enums.StoryType;
+import Memento.entities.enums.Visibility;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

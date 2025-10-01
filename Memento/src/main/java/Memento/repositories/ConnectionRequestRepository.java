@@ -1,7 +1,7 @@
 package Memento.repositories;
 
 import Memento.entities.ConnectionRequest;
-import Memento.entities.RequestStatus;
+import Memento.entities.enums.RequestStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

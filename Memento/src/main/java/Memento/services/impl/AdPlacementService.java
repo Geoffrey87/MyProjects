@@ -3,6 +3,7 @@ package Memento.services.impl;
 import Memento.dtos.InputDto.AdPlacementCreateDto;
 import Memento.dtos.OutputDto.AdPlacementOutputDto;
 import Memento.entities.*;
+import Memento.entities.enums.AdStatus;
 import Memento.exception.ResourceNotFoundException;
 import Memento.mapper.AdPlacementMapper;
 import Memento.repositories.AdPlacementRepository;

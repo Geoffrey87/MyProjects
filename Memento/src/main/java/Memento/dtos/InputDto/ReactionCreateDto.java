@@ -1,7 +1,7 @@
 package Memento.dtos.InputDto;
 
-import Memento.entities.ReactionTargetType;
-import Memento.entities.ReactionType;
+import Memento.entities.enums.ReactionTargetType;
+import Memento.entities.enums.ReactionType;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;

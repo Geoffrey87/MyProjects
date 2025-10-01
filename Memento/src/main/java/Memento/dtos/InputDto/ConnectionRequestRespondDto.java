@@ -1,6 +1,6 @@
 package Memento.dtos.InputDto;
 
-import Memento.entities.RequestStatus;
+import Memento.entities.enums.RequestStatus;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;

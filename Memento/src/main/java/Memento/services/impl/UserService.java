@@ -3,6 +3,7 @@ package Memento.services.impl;
 import Memento.dtos.InputDto.*;
 import Memento.dtos.OutputDto.*;
 import Memento.entities.*;
+import Memento.entities.enums.RoleType;
 import Memento.exception.ResourceNotFoundException;
 import Memento.mapper.UserMapper;
 import Memento.mapper.UserPreferenceMapper;

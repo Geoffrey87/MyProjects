@@ -1,5 +1,6 @@
 package Memento.entities;
 
+import Memento.entities.enums.Visibility;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,6 +33,10 @@ public class Post {
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    @Column(nullable = false)
+    private LocalDateTime updatedAt;
+
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Visibility visibility = Visibility.FRIENDS;
@@ -51,8 +56,18 @@ public class Post {
     @OneToMany(mappedBy = "post")
     private Set<MemoryCapsule> memoryCapsules = new HashSet<>();
 
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Media> media = new HashSet<>();
+
+    // Lifecycle
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 }

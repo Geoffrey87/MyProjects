@@ -1,14 +1,12 @@
 package Memento.dtos.InputDto;
 
-import Memento.entities.MediaType;
-import Memento.entities.Visibility;
+import Memento.entities.enums.MediaType;
+import Memento.entities.enums.Visibility;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import jakarta.validation.constraints.*;
 
 @Getter
 @Setter

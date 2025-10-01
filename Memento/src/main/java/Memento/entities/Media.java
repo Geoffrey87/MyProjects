@@ -1,5 +1,7 @@
 package Memento.entities;
 
+import Memento.entities.enums.MediaType;
+import Memento.entities.enums.Visibility;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -52,6 +54,10 @@ public class Media {
     @ManyToOne(optional = false)
     @JoinColumn(name = "owner_id", nullable = false)
     private User owner;
+
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private Post post;
 
     @ManyToOne
     @JoinColumn(name = "album_id")

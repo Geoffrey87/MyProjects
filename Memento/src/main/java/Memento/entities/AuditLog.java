@@ -1,5 +1,6 @@
 package Memento.entities;
 
+import Memento.entities.enums.AuditAction;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.*;

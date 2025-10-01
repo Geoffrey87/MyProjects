@@ -1,6 +1,6 @@
 package Memento.dtos.OutputDto;
 
-import Memento.entities.RelationshipType;
+import Memento.entities.enums.RelationshipType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

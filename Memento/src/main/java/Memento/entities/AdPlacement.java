@@ -1,5 +1,7 @@
 package Memento.entities;
 
+import Memento.entities.enums.AdStatus;
+import Memento.entities.enums.Visibility;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

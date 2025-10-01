@@ -1,6 +1,6 @@
 package Memento.dtos.InputDto;
 
-import Memento.entities.CommentTargetType;
+import Memento.entities.enums.CommentTargetType;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

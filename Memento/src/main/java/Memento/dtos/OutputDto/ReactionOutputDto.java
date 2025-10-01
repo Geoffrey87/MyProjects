@@ -1,7 +1,7 @@
 package Memento.dtos.OutputDto;
 
-import Memento.entities.ReactionTargetType;
-import Memento.entities.ReactionType;
+import Memento.entities.enums.ReactionTargetType;
+import Memento.entities.enums.ReactionType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

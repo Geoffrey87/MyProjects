@@ -1,6 +1,6 @@
 package Memento.dtos.OutputDto;
 
-import Memento.entities.RequestStatus;
+import Memento.entities.enums.RequestStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

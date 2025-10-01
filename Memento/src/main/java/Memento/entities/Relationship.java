@@ -1,5 +1,6 @@
 package Memento.entities;
 
+import Memento.entities.enums.RelationshipType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

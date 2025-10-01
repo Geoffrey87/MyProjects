@@ -1,5 +1,7 @@
 package Memento.entities;
 
+import Memento.entities.enums.ReactionTargetType;
+import Memento.entities.enums.ReactionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,6 +1,6 @@
 package Memento.dtos.OutputDto;
 
-import Memento.entities.Visibility;
+import Memento.entities.enums.Visibility;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,8 +17,10 @@ public class PostOutputDto {
     private Long id;
     private String content;
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     private Visibility visibility;
     private UserSummaryDto author;
     private List<TagOutputDto> tags;
+    private List<MediaOutputDto> media;
 }
 

@@ -1,7 +1,7 @@
 package Memento.repositories;
 
 import Memento.entities.Comment;
-import Memento.entities.CommentTargetType;
+import Memento.entities.enums.CommentTargetType;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

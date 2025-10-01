@@ -1,6 +1,6 @@
 package Memento.dtos.OutputDto;
 
-import Memento.entities.CommentTargetType;
+import Memento.entities.enums.CommentTargetType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

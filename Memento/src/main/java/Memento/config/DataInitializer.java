@@ -1,6 +1,7 @@
 package Memento.config;
 
 import Memento.entities.*;
+import Memento.entities.enums.RoleType;
 import Memento.repositories.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

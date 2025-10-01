@@ -1,7 +1,7 @@
 package Memento.dtos.OutputDto;
 
-import Memento.entities.AdStatus;
-import Memento.entities.Visibility;
+import Memento.entities.enums.AdStatus;
+import Memento.entities.enums.Visibility;
 import lombok.*;
 
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package Memento.entities;
+package Memento.entities.enums;
 
 public enum MediaType {
     PHOTO,
