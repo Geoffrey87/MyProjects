@@ -43,6 +43,17 @@ public class AdPlacementController {
         return ResponseEntity.ok(adPlacementService.getActiveAdsByTag(tagId));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<AdPlacementOutputDto> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(adPlacementService.getByIdDto(id));
+    }
+
+    @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<List<AdPlacementOutputDto>> getAll() {
+        return ResponseEntity.ok(adPlacementService.getAll());
+    }
+
     // ---------------------------
     // ADMIN ENDPOINTS
     // ---------------------------
@@ -52,6 +63,20 @@ public class AdPlacementController {
     public ResponseEntity<AdPlacementOutputDto> createAd(@Valid @RequestBody AdPlacementCreateDto dto) {
         AdPlacementOutputDto createdAd = adPlacementService.create(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdAd);
+    }
+
+    @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<AdPlacementOutputDto> updateAd(@PathVariable Long id,
+                                                         @Valid @RequestBody AdPlacementCreateDto dto) {
+        return ResponseEntity.ok(adPlacementService.update(id, dto));
+    }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<Void> deleteAd(@PathVariable Long id) {
+        adPlacementService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{id}/approve")
@@ -72,4 +97,5 @@ public class AdPlacementController {
         return ResponseEntity.ok(adPlacementService.expire(id));
     }
 }
+
 

@@ -11,11 +11,12 @@ import Memento.entities.User;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class MediaMapper {
 
-    public static void domainToDto(Media media, MediaOutputDto dto) {
+    public static void domainToDto(Media media, MediaOutputDto dto, UserSummaryDto ownerDto, List<TagOutputDto> tagDtos) {
         Objects.requireNonNull(media, "media must not be null");
         Objects.requireNonNull(dto, "dto must not be null");
 
@@ -27,13 +28,12 @@ public class MediaMapper {
         dto.setUploadedAt(media.getUploadedAt());
         dto.setVisibility(media.getVisibility());
 
-        // Owner
-        if (media.getOwner() != null && dto.getOwner() != null) {
-            User user = media.getOwner();
-            UserSummaryDto ownerDto = dto.getOwner();
-            ownerDto.setId(user.getId());
-            ownerDto.setName(user.getName());
-            ownerDto.setAvatarUrl(user.getAvatarUrl());
+        // Owner (only fills if provided)
+        if (media.getOwner() != null && ownerDto != null) {
+            ownerDto.setId(media.getOwner().getId());
+            ownerDto.setName(media.getOwner().getName());
+            ownerDto.setAvatarUrl(media.getOwner().getAvatarUrl());
+            dto.setOwner(ownerDto);
         }
 
         // Album
@@ -41,24 +41,13 @@ public class MediaMapper {
             dto.setAlbumId(media.getAlbum().getId());
         }
 
-        // Tags
-        if (media.getTags() != null) {
-            List<TagOutputDto> tagDtos = media.getTags().stream()
-                    .map(tag -> {
-                        TagOutputDto t = new TagOutputDto();
-                        t.setId(tag.getId());
-                        t.setName(tag.getName());
-                        if (tag.getCategory() != null) {
-                            t.setCategoryId(tag.getCategory().getId());
-                        }
-                        return t;
-                    })
-                    .collect(Collectors.toList());
+        // Tags (pre-filled list passed in)
+        if (media.getTags() != null && tagDtos != null) {
             dto.setTags(tagDtos);
         }
     }
 
-    public static void dtoToDomain(MediaCreateDto dto, Media media, User owner, Album album, List<Tag> tags) {
+    public static void dtoToDomain(MediaCreateDto dto, Media media, User owner, Album album, Set<Tag> tags) {
         Objects.requireNonNull(dto, "dto must not be null");
         Objects.requireNonNull(media, "media must not be null");
         Objects.requireNonNull(owner, "owner must not be null");
@@ -72,8 +61,9 @@ public class MediaMapper {
         if (album != null) {
             media.setAlbum(album);
         }
-        if (tags != null) {
-            media.setTags(tags.stream().collect(Collectors.toSet()));
+        if (tags != null && !tags.isEmpty()) {
+            media.setTags(tags);
         }
     }
 }
+
