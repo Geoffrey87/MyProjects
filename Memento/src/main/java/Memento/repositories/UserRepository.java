@@ -12,12 +12,7 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @EntityGraph(value = "User.withSettings", type = EntityGraph.EntityGraphType.LOAD)
     Optional<User> findByEmail(String email);
-
-    @Query("select u from User u where u.id = :id")
-    @EntityGraph(value = "User.withSettings", type = EntityGraph.EntityGraphType.LOAD)
-    Optional<User> findWithSettingsById(Long id);
 
     boolean existsByEmail(String email);
 

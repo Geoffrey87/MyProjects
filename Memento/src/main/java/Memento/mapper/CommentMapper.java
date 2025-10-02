@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class CommentMapper {
 
-    public static void domainToDto(Comment comment, CommentOutputDto dto) {
+    public static CommentOutputDto domainToDto(Comment comment, CommentOutputDto dto) {
         Objects.requireNonNull(comment, "comment must not be null");
         Objects.requireNonNull(dto, "dto must not be null");
 
@@ -28,9 +28,11 @@ public class CommentMapper {
             authorDto.setName(author.getName());
             authorDto.setAvatarUrl(author.getAvatarUrl());
         }
+
+        return dto;
     }
 
-    public static void dtoToDomain(CommentCreateDto dto, Comment comment, User author) {
+    public static Comment dtoToDomain(CommentCreateDto dto, Comment comment, User author) {
         Objects.requireNonNull(dto, "dto must not be null");
         Objects.requireNonNull(comment, "comment must not be null");
         Objects.requireNonNull(author, "author must not be null");
@@ -39,5 +41,9 @@ public class CommentMapper {
         comment.setTargetType(dto.getTargetType());
         comment.setTargetId(dto.getTargetId());
         comment.setAuthor(author);
+
+        return comment;
     }
 }
+
+
