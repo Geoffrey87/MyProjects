@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public class ProfileMusicMapper {
 
-    public static void domainToDto(ProfileMusic profileMusic, ProfileMusicOutputDto dto) {
+    public static ProfileMusicOutputDto domainToDto(ProfileMusic profileMusic, ProfileMusicOutputDto dto) {
         Objects.requireNonNull(profileMusic, "profileMusic must not be null");
         Objects.requireNonNull(dto, "dto must not be null");
 
@@ -20,9 +20,11 @@ public class ProfileMusicMapper {
         dto.setArtist(profileMusic.getArtist());
         dto.setAddedAt(profileMusic.getAddedAt());
         dto.setIsActive(profileMusic.getIsActive());
+
+        return dto;
     }
 
-    public static void dtoToDomain(ProfileMusicCreateDto dto, ProfileMusic profileMusic, User user) {
+    public static ProfileMusic dtoToDomain(ProfileMusicCreateDto dto, ProfileMusic profileMusic, User user) {
         Objects.requireNonNull(dto, "dto must not be null");
         Objects.requireNonNull(profileMusic, "profileMusic must not be null");
         Objects.requireNonNull(user, "user must not be null");
@@ -33,5 +35,8 @@ public class ProfileMusicMapper {
         profileMusic.setArtist(dto.getArtist());
         profileMusic.setIsActive(dto.getIsActive());
         profileMusic.setUser(user);
+
+        return profileMusic;
     }
 }
+

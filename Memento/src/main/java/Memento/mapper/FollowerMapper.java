@@ -10,7 +10,10 @@ import java.util.Objects;
 
 public class FollowerMapper {
 
-    public static void domainToDto(Follower follower, FollowerOutputDto dto) {
+    public static FollowerOutputDto domainToDto(Follower follower,
+                                                FollowerOutputDto dto,
+                                                UserSummaryDto followerDto,
+                                                UserSummaryDto followingDto) {
         Objects.requireNonNull(follower, "follower must not be null");
         Objects.requireNonNull(dto, "dto must not be null");
 
@@ -18,25 +21,30 @@ public class FollowerMapper {
         dto.setSince(follower.getSince());
 
         // follower → UserSummaryDto
-        if (follower.getFollower() != null && dto.getFollower() != null) {
+        if (follower.getFollower() != null && followerDto != null) {
             User followerUser = follower.getFollower();
-            UserSummaryDto followerDto = dto.getFollower();
             followerDto.setId(followerUser.getId());
             followerDto.setName(followerUser.getName());
             followerDto.setAvatarUrl(followerUser.getAvatarUrl());
+            dto.setFollower(followerDto);
         }
 
         // following → UserSummaryDto
-        if (follower.getFollowing() != null && dto.getFollowing() != null) {
+        if (follower.getFollowing() != null && followingDto != null) {
             User followingUser = follower.getFollowing();
-            UserSummaryDto followingDto = dto.getFollowing();
             followingDto.setId(followingUser.getId());
             followingDto.setName(followingUser.getName());
             followingDto.setAvatarUrl(followingUser.getAvatarUrl());
+            dto.setFollowing(followingDto);
         }
+
+        return dto;
     }
 
-    public static void dtoToDomain(FollowRequestDto dto, Follower follower, User followerUser, User followingUser) {
+    public static Follower dtoToDomain(FollowRequestDto dto,
+                                       Follower follower,
+                                       User followerUser,
+                                       User followingUser) {
         Objects.requireNonNull(dto, "dto must not be null");
         Objects.requireNonNull(follower, "follower must not be null");
         Objects.requireNonNull(followerUser, "followerUser must not be null");
@@ -44,6 +52,7 @@ public class FollowerMapper {
 
         follower.setFollower(followerUser);
         follower.setFollowing(followingUser);
-        // `since` é gerido pela entidade (ex: @PrePersist), não pelo mapper
+
+        return follower;
     }
 }

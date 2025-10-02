@@ -10,7 +10,8 @@ import java.util.Objects;
 
 public class ConnectionRequestMapper {
 
-    public static void domainToDto(ConnectionRequest request, ConnectionRequestOutputDto dto) {
+    public static ConnectionRequestOutputDto domainToDto(ConnectionRequest request, ConnectionRequestOutputDto dto,
+                                                         UserSummaryDto senderDto, UserSummaryDto receiverDto) {
         Objects.requireNonNull(request, "request must not be null");
         Objects.requireNonNull(dto, "dto must not be null");
 
@@ -19,30 +20,33 @@ public class ConnectionRequestMapper {
         dto.setSentAt(request.getSentAt());
         dto.setRespondedAt(request.getRespondedAt());
 
-        // Sender
-        if (request.getSender() != null && dto.getSender() != null) {
-            User sender = request.getSender();
-            UserSummaryDto senderDto = dto.getSender();
-            senderDto.setId(sender.getId());
-            senderDto.setName(sender.getName());
-            senderDto.setAvatarUrl(sender.getAvatarUrl());
+        if (request.getSender() != null && senderDto != null) {
+            senderDto.setId(request.getSender().getId());
+            senderDto.setName(request.getSender().getName());
+            senderDto.setAvatarUrl(request.getSender().getAvatarUrl());
+            dto.setSender(senderDto);
         }
 
-        // Receiver
-        if (request.getReceiver() != null && dto.getReceiver() != null) {
-            User receiver = request.getReceiver();
-            UserSummaryDto receiverDto = dto.getReceiver();
-            receiverDto.setId(receiver.getId());
-            receiverDto.setName(receiver.getName());
-            receiverDto.setAvatarUrl(receiver.getAvatarUrl());
+        if (request.getReceiver() != null && receiverDto != null) {
+            receiverDto.setId(request.getReceiver().getId());
+            receiverDto.setName(request.getReceiver().getName());
+            receiverDto.setAvatarUrl(request.getReceiver().getAvatarUrl());
+            dto.setReceiver(receiverDto);
         }
+
+        return dto;
     }
 
-    public static void applyRespondDto(ConnectionRequestRespondDto dto, ConnectionRequest request) {
+    public static ConnectionRequest applyRespondDto(ConnectionRequestRespondDto dto, ConnectionRequest request) {
         Objects.requireNonNull(dto, "dto must not be null");
         Objects.requireNonNull(request, "request must not be null");
 
         request.setStatus(dto.getStatus());
+        request.setRespondedAt(java.time.LocalDateTime.now());
 
+        return request;
     }
 }
+
+
+

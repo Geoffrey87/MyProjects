@@ -77,6 +77,10 @@ public class User {
     @OneToMany(mappedBy = "author")
     private Set<Post> posts = new HashSet<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ProfileMusic> profileMusic = new HashSet<>();
+
+
     @OneToMany(mappedBy = "owner")
     private Set<Media> media = new HashSet<>();
 
@@ -86,11 +90,6 @@ public class User {
     @OneToMany(mappedBy = "author")
     private Set<Story> stories = new HashSet<>();
 
-    @OneToMany(mappedBy = "author")
-    private Set<MusicPost> musicPosts = new HashSet<>();
-
-    @OneToMany(mappedBy = "user")
-    private Set<ProfileMusic> profileMusic = new HashSet<>();
 
     @OneToMany(mappedBy = "sender")
     private Set<ConnectionRequest> sentRequests = new HashSet<>();
