@@ -2,8 +2,6 @@
 
 Payments Alert is a web application that allows users to manage their recurring payments through an intuitive calendar-based interface. Built with Spring Boot on the backend and React on the frontend, it supports user authentication, CRUD operations for payments, and automatic scheduling based on recurrence (monthly, quarterly, yearly).
 
-the project is available here:
-http://paymentalertv-env.eba-ypp8k93w.eu-west-3.elasticbeanstalk.com/
 ---
 
 ## Tech Stack
