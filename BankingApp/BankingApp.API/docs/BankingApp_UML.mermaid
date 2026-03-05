@@ -1,0 +1,104 @@
+erDiagram
+    USER {
+        int Id PK
+        string FirstName
+        string LastName
+        string Email
+        string PasswordHash
+        string PhoneNumber
+        string NIF
+        string Address
+        date DateOfBirth
+        string Role
+        bool IsActive
+        datetime CreatedAt
+    }
+
+    ACCOUNT {
+        int Id PK
+        int UserId FK
+        string AccountNumber
+        string IBAN
+        decimal Balance
+        string Currency
+        string AccountType
+        bool IsActive
+        datetime CreatedAt
+    }
+
+    TRANSACTION {
+        int Id PK
+        int FromAccountId FK
+        int ToAccountId FK
+        decimal Amount
+        string Currency
+        string TransactionType
+        string Status
+        string Description
+        datetime CreatedAt
+    }
+
+    CARD {
+        int Id PK
+        int AccountId FK
+        string CardNumber
+        string CardHolderName
+        string CardType
+        date ExpiryDate
+        bool IsActive
+        decimal DailyLimit
+        datetime CreatedAt
+    }
+
+    LOAN {
+        int Id PK
+        int UserId FK
+        int AccountId FK
+        decimal Amount
+        decimal InterestRate
+        int TermMonths
+        decimal MonthlyPayment
+        decimal RemainingBalance
+        string Status
+        datetime StartDate
+        datetime EndDate
+    }
+
+    BENEFICIARY {
+        int Id PK
+        int UserId FK
+        string Name
+        string IBAN
+        string Bank
+        datetime CreatedAt
+    }
+
+    NOTIFICATION {
+        int Id PK
+        int UserId FK
+        string Title
+        string Message
+        string Type
+        bool IsRead
+        datetime CreatedAt
+    }
+
+    AUDITLOG {
+        int Id PK
+        int UserId FK
+        string Action
+        string Entity
+        string IpAddress
+        string Details
+        datetime CreatedAt
+    }
+
+    USER ||--o{ ACCOUNT : "has"
+    USER ||--o{ LOAN : "requests"
+    USER ||--o{ BENEFICIARY : "saves"
+    USER ||--o{ NOTIFICATION : "receives"
+    USER ||--o{ AUDITLOG : "generates"
+    ACCOUNT ||--o{ TRANSACTION : "sends"
+    ACCOUNT ||--o{ TRANSACTION : "receives"
+    ACCOUNT ||--o{ CARD : "has"
+    ACCOUNT ||--o{ LOAN : "linked to"
