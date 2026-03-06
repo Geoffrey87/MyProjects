@@ -1,5 +1,4 @@
 ﻿using BankingApp.API.Common;
-using BankingApp.API.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankingApp.API.Entities
@@ -9,7 +8,9 @@ namespace BankingApp.API.Entities
     {
         public string Title { get; set; } = string.Empty;
         public string Message { get; set; } = string.Empty;
-        public NotificationType Type { get; set; }
+        public int NotificationTypeId { get; set; }
+        public NotificationType NotificationType { get; set; } = null!;
+
         public bool IsRead { get; set; } = false;
 
         // Foreign Key

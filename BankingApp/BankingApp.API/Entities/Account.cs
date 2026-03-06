@@ -1,7 +1,5 @@
 ﻿using BankingApp.API.Common;
 using System.ComponentModel.DataAnnotations.Schema;
-using BankingApp.API.Enums;
-
 
 namespace BankingApp.API.Entities
 {
@@ -12,7 +10,8 @@ namespace BankingApp.API.Entities
         public string IBAN { get; set; } = string.Empty;
         public decimal Balance { get; set; } = 0;
         public string Currency { get; set; } = "EUR";
-        public AccountType AccountType { get; set; } = AccountType.Checking;
+        public int AccountTypeId { get; set; }
+        public AccountType AccountType { get; set; } = null!;
         public bool IsActive { get; set; } = true;
 
         // Foreign Key

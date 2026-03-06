@@ -1,5 +1,4 @@
 ﻿using BankingApp.API.Common;
-using BankingApp.API.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankingApp.API.Entities
@@ -12,7 +11,8 @@ namespace BankingApp.API.Entities
         public int TermMonths { get; set; }
         public decimal MonthlyPayment { get; set; }
         public decimal RemainingBalance { get; set; }
-        public LoanStatus Status { get; set; } = LoanStatus.Pending;
+        public int LoanStatusId { get; set; }
+        public LoanStatus LoanStatus { get; set; } = null!;
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
 
