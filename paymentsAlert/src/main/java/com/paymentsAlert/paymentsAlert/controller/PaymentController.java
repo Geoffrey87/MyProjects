@@ -2,7 +2,6 @@ package com.paymentsAlert.paymentsAlert.controller;
 
 import com.paymentsAlert.paymentsAlert.dto.PaymentInputDto;
 import com.paymentsAlert.paymentsAlert.dto.PaymentOutputDto;
-import com.paymentsAlert.paymentsAlert.entity.Payment;
 import com.paymentsAlert.paymentsAlert.service.IPayment;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

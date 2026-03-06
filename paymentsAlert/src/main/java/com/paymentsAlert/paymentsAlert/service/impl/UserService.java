@@ -2,13 +2,11 @@ package com.paymentsAlert.paymentsAlert.service.impl;
 
 import com.paymentsAlert.paymentsAlert.dto.UserInputDto;
 import com.paymentsAlert.paymentsAlert.dto.UserOutputDto;
-import com.paymentsAlert.paymentsAlert.entity.CustomUser;
+import com.paymentsAlert.paymentsAlert.entities.CustomUser;
 import com.paymentsAlert.paymentsAlert.mapper.UserMapper;
 import com.paymentsAlert.paymentsAlert.repository.UserRepo;
 import com.paymentsAlert.paymentsAlert.service.IUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

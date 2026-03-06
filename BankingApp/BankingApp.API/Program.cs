@@ -1,8 +1,15 @@
+using BankingApp.API.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// DbContext — InMemory
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseInMemoryDatabase("BankingAppDb"));
 
 var app = builder.Build();
 

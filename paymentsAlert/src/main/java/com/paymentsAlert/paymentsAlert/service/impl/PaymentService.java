@@ -2,8 +2,8 @@ package com.paymentsAlert.paymentsAlert.service.impl;
 
 import com.paymentsAlert.paymentsAlert.dto.PaymentInputDto;
 import com.paymentsAlert.paymentsAlert.dto.PaymentOutputDto;
-import com.paymentsAlert.paymentsAlert.entity.Payment;
-import com.paymentsAlert.paymentsAlert.entity.CustomUser;
+import com.paymentsAlert.paymentsAlert.entities.Payment;
+import com.paymentsAlert.paymentsAlert.entities.CustomUser;
 import com.paymentsAlert.paymentsAlert.mapper.PaymentMapper;
 import com.paymentsAlert.paymentsAlert.repository.PaymentRepo;
 import com.paymentsAlert.paymentsAlert.repository.UserRepo;
@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 

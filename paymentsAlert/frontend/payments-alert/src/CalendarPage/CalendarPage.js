@@ -29,31 +29,32 @@ function CalendarPage() {
   const [errors, setErrors] = useState({});
   const [dailyPayments, setDailyPayments] = useState([]);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const authToken = localStorage.getItem('authToken');
-      if (!authToken) return;
+useEffect(() => {
+  const fetchUserData = async () => {
+    const authToken = localStorage.getItem('authToken');
+    const userId = localStorage.getItem('userId');
+    if (!authToken || !userId) return;
 
-      try {
-        const res = await API.get('/users/me', {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        });
+    try {
+      const res = await API.get(`/users/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
 
-        const user = res.data;
-        setUsername(user.username);
-        setUserId(user.userId);
-        localStorage.setItem('userId', user.id);
+      const user = res.data;
+      setUsername(user.username);
+      setUserId(user.userId || user.id);
 
-        console.log("Fetched user:", user);
-      } catch (error) {
-        console.error('Error getting username:', error);
-      }
-    };
+      console.log("Fetched user:", user);
+    } catch (error) {
+      console.error('Error getting username:', error);
+    }
+  };
 
-    fetchUserData();
-  }, []);
+  fetchUserData();
+}, []);
+
 
   const handleDateClick = async (date) => {
     setSelectedDate(date);

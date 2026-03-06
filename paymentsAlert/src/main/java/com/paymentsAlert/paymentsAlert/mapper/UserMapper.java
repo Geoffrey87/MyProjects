@@ -2,7 +2,7 @@ package com.paymentsAlert.paymentsAlert.mapper;
 
 import com.paymentsAlert.paymentsAlert.dto.UserInputDto;
 import com.paymentsAlert.paymentsAlert.dto.UserOutputDto;
-import com.paymentsAlert.paymentsAlert.entity.CustomUser;
+import com.paymentsAlert.paymentsAlert.entities.CustomUser;
 import org.springframework.stereotype.Component;
 
 @Component

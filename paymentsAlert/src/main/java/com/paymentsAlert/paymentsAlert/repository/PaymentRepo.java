@@ -1,6 +1,6 @@
 package com.paymentsAlert.paymentsAlert.repository;
 
-import com.paymentsAlert.paymentsAlert.entity.Payment;
+import com.paymentsAlert.paymentsAlert.entities.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +11,5 @@ import java.util.List;
 public interface PaymentRepo extends JpaRepository<Payment, Long> {
     List<Payment> findByUserId(Long userId);
     List<Payment> findByUserIdAndDueDate(Long userId, LocalDate dueDate);
-
 
 }

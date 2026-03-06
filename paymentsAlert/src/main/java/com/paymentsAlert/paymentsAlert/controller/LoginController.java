@@ -2,7 +2,7 @@ package com.paymentsAlert.paymentsAlert.controller;
 
 import com.paymentsAlert.paymentsAlert.dto.LoginDto;
 import com.paymentsAlert.paymentsAlert.dto.LoginResponseDto;
-import com.paymentsAlert.paymentsAlert.entity.CustomUser;
+import com.paymentsAlert.paymentsAlert.entities.CustomUser;
 import com.paymentsAlert.paymentsAlert.repository.UserRepo;
 import com.paymentsAlert.paymentsAlert.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;

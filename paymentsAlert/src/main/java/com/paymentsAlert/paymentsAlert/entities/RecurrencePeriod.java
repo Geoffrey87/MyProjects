@@ -1,4 +1,4 @@
-package com.paymentsAlert.paymentsAlert.entity;
+package com.paymentsAlert.paymentsAlert.entities;
 
 public enum RecurrencePeriod {
     NONE,

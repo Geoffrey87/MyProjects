@@ -20,7 +20,7 @@ const RegisterUser = () => {
     };
 
     try {
-      const response = await API.post('/users', userInputDto, {
+      const response = await API.post('/users/register', userInputDto, {
         headers: {
           'Content-Type': 'application/json',
         },

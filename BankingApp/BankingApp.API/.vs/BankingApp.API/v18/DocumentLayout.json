@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\loan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\loan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -73,10 +81,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -86,7 +90,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,19 +102,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NotificationType.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\NotificationType.cs",
-              "RelativeDocumentMoniker": "Entities\\NotificationType.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\NotificationType.cs",
-              "RelativeToolTip": "Entities\\NotificationType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA1wCgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T10:22:41.703Z"
+              "WhenOpened": "2026-03-06T10:56:08.085Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "AccountType.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AccountType.cs",
               "RelativeDocumentMoniker": "Entities\\AccountType.cs",
@@ -122,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Account.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Account.cs",
               "RelativeDocumentMoniker": "Entities\\Account.cs",
@@ -134,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Loan.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Loan.cs",
               "RelativeDocumentMoniker": "Entities\\Loan.cs",
@@ -147,7 +152,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T12:56:00.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NotificationType.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\NotificationType.cs",
+              "RelativeDocumentMoniker": "Entities\\NotificationType.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\NotificationType.cs",
+              "RelativeToolTip": "Entities\\NotificationType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T10:22:41.703Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Notification.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Notification.cs",
               "RelativeDocumentMoniker": "Entities\\Notification.cs",
@@ -159,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "LoanStatus.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\LoanStatus.cs",
               "RelativeDocumentMoniker": "Entities\\LoanStatus.cs",
@@ -171,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\User.cs",
               "RelativeDocumentMoniker": "Entities\\User.cs",
@@ -183,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Beneficiary.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Beneficiary.cs",
               "RelativeDocumentMoniker": "Entities\\Beneficiary.cs",
@@ -195,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": ".gitignore",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
@@ -207,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "AuditLog.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AuditLog.cs",
               "RelativeDocumentMoniker": "Entities\\AuditLog.cs",
@@ -219,7 +249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "CardType.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\CardType.cs",
               "RelativeDocumentMoniker": "Enums\\CardType.cs",
@@ -231,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Card.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Card.cs",
               "RelativeDocumentMoniker": "Entities\\Card.cs",
@@ -243,7 +273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "TransactionStatus.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\TransactionStatus.cs",
               "RelativeDocumentMoniker": "Enums\\TransactionStatus.cs",
@@ -255,7 +285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "TransactionType.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\TransactionType.cs",
               "RelativeDocumentMoniker": "Enums\\TransactionType.cs",
@@ -267,7 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "Transaction.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Transaction.cs",
               "RelativeDocumentMoniker": "Entities\\Transaction.cs",
@@ -279,7 +309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Common\\BaseEntity.cs",
               "RelativeDocumentMoniker": "Common\\BaseEntity.cs",
@@ -291,7 +321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "UserRole.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\UserRole.cs",
               "RelativeDocumentMoniker": "Enums\\UserRole.cs",
@@ -303,7 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "BankingApp.API.csproj",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\BankingApp.API.csproj",
               "RelativeDocumentMoniker": "BankingApp.API.csproj",
@@ -312,18 +342,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-03-05T15:43:57.006Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T12:56:00.188Z"
             }
           ]
         }
