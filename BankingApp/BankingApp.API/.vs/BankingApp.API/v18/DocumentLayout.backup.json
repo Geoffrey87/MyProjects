@@ -1,81 +1,81 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\",
+  "WorkspaceRootPath": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\entities\\loan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\loan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\loan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\entities\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\entities\\accounttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\accounttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\accounttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\entities\\notificationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\notificationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\notificationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\entities\\loanstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\loanstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\loanstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\entities\\beneficiary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\beneficiary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\beneficiary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\entities\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\entities\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\enums\\cardtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\enums\\cardtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:enums\\cardtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\entities\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\enums\\transactionstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\enums\\transactionstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:enums\\transactionstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\enums\\transactiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\enums\\transactiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:enums\\transactiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\bankingapp.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\bankingapp.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:bankingapp.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\users\\lloyd\\onedrive\\documentos\\desktop\\myprojects\\myprojects\\bankingapp\\bankingapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -96,50 +96,47 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "NotificationType.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\NotificationType.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\NotificationType.cs",
               "RelativeDocumentMoniker": "Entities\\NotificationType.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\NotificationType.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\NotificationType.cs",
               "RelativeToolTip": "Entities\\NotificationType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T10:22:41.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T10:22:41.703Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "AccountType.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AccountType.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AccountType.cs",
               "RelativeDocumentMoniker": "Entities\\AccountType.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AccountType.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AccountType.cs",
               "RelativeToolTip": "Entities\\AccountType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T10:21:37.501Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T10:21:37.501Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Account.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Account.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Account.cs",
               "RelativeDocumentMoniker": "Entities\\Account.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Account.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Account.cs",
               "RelativeToolTip": "Entities\\Account.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T16:33:44.605Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T16:33:44.605Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Loan.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Loan.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Loan.cs",
               "RelativeDocumentMoniker": "Entities\\Loan.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Loan.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Loan.cs",
               "RelativeToolTip": "Entities\\Loan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAcwBoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T16:46:03.299Z",
               "EditorCaption": ""
@@ -148,35 +145,33 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Notification.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Notification.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Notification.cs",
               "RelativeDocumentMoniker": "Entities\\Notification.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Notification.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Notification.cs",
               "RelativeToolTip": "Entities\\Notification.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T16:47:38.189Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T16:47:38.189Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "LoanStatus.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\LoanStatus.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\LoanStatus.cs",
               "RelativeDocumentMoniker": "Entities\\LoanStatus.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\LoanStatus.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\LoanStatus.cs",
               "RelativeToolTip": "Entities\\LoanStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T10:22:21.214Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T10:22:21.214Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\User.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\User.cs",
               "RelativeDocumentMoniker": "Entities\\User.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\User.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\User.cs",
               "RelativeToolTip": "Entities\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -186,9 +181,9 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Beneficiary.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Beneficiary.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Beneficiary.cs",
               "RelativeDocumentMoniker": "Entities\\Beneficiary.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Beneficiary.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Beneficiary.cs",
               "RelativeToolTip": "Entities\\Beneficiary.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -198,22 +193,21 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\.gitignore",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\.gitignore",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\.gitignore",
               "RelativeToolTip": ".gitignore",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAACcAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-03-05T16:01:07.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T16:01:07.156Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "AuditLog.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AuditLog.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AuditLog.cs",
               "RelativeDocumentMoniker": "Entities\\AuditLog.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AuditLog.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AuditLog.cs",
               "RelativeToolTip": "Entities\\AuditLog.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwBQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -223,9 +217,9 @@
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "CardType.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\CardType.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\CardType.cs",
               "RelativeDocumentMoniker": "Enums\\CardType.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\CardType.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\CardType.cs",
               "RelativeToolTip": "Enums\\CardType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -235,9 +229,9 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "Card.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Card.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Card.cs",
               "RelativeDocumentMoniker": "Entities\\Card.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Card.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Card.cs",
               "RelativeToolTip": "Entities\\Card.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -247,9 +241,9 @@
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "TransactionStatus.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\TransactionStatus.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\TransactionStatus.cs",
               "RelativeDocumentMoniker": "Enums\\TransactionStatus.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\TransactionStatus.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\TransactionStatus.cs",
               "RelativeToolTip": "Enums\\TransactionStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -259,9 +253,9 @@
               "$type": "Document",
               "DocumentIndex": 14,
               "Title": "TransactionType.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\TransactionType.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\TransactionType.cs",
               "RelativeDocumentMoniker": "Enums\\TransactionType.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\TransactionType.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\TransactionType.cs",
               "RelativeToolTip": "Enums\\TransactionType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -271,9 +265,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "Transaction.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Transaction.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Transaction.cs",
               "RelativeDocumentMoniker": "Entities\\Transaction.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Transaction.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Transaction.cs",
               "RelativeToolTip": "Entities\\Transaction.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -283,9 +277,9 @@
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "BaseEntity.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Common\\BaseEntity.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Common\\BaseEntity.cs",
               "RelativeDocumentMoniker": "Common\\BaseEntity.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Common\\BaseEntity.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Common\\BaseEntity.cs",
               "RelativeToolTip": "Common\\BaseEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -295,9 +289,9 @@
               "$type": "Document",
               "DocumentIndex": 17,
               "Title": "UserRole.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\UserRole.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\UserRole.cs",
               "RelativeDocumentMoniker": "Enums\\UserRole.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\UserRole.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\UserRole.cs",
               "RelativeToolTip": "Enums\\UserRole.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -307,9 +301,9 @@
               "$type": "Document",
               "DocumentIndex": 16,
               "Title": "BankingApp.API.csproj",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\BankingApp.API.csproj",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\BankingApp.API.csproj",
               "RelativeDocumentMoniker": "BankingApp.API.csproj",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\BankingApp.API.csproj",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\BankingApp.API.csproj",
               "RelativeToolTip": "BankingApp.API.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -319,9 +313,9 @@
               "$type": "Document",
               "DocumentIndex": 18,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Lloyd\\OneDrive\\Documentos\\Desktop\\MyProjects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
