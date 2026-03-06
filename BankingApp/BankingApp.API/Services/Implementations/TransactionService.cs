@@ -1,5 +1,7 @@
 ﻿using BankingApp.API.Entities;
 using BankingApp.API.Enums;
+using BankingApp.API.Exceptions;
+using BankingApp.API.Exceptions.Custom;
 using BankingApp.API.Repositories.Interfaces;
 using BankingApp.API.Services.Interfaces;
 
@@ -8,14 +10,14 @@ namespace BankingApp.API.Services.Implementations
     public class TransactionService : BaseService<Transaction>, ITransactionService
     {
         private readonly ITransactionRepository _transactionRepository;
-        private readonly IAccountRepository _accountRepository;
+        private readonly IAccountService _accountService;
 
         public TransactionService(
             ITransactionRepository transactionRepository,
-            IAccountRepository accountRepository) : base(transactionRepository)
+            IAccountService accountService) : base(transactionRepository)
         {
             _transactionRepository = transactionRepository;
-            _accountRepository = accountRepository;
+            _accountService = accountService;
         }
 
         public async Task<List<Transaction>> GetByAccountIdAsync(int accountId)
@@ -26,20 +28,14 @@ namespace BankingApp.API.Services.Implementations
 
         public async Task TransferAsync(int fromAccountId, int toAccountId, decimal amount)
         {
-            var fromAccount = await _accountRepository.GetByIdAsync(fromAccountId)
-                ?? throw new Exception("Source account not found");
+            if (fromAccountId == toAccountId)
+                throw new BadRequestException(ErrorMessages.InvalidTransfer);
 
-            var toAccount = await _accountRepository.GetByIdAsync(toAccountId)
-                ?? throw new Exception("Destination account not found");
+            if (amount <= 0)
+                throw new BadRequestException(ErrorMessages.InvalidAmount);
 
-            if (fromAccount.Balance < amount)
-                throw new Exception("Insufficient funds");
-
-            fromAccount.Balance -= amount;
-            toAccount.Balance += amount;
-
-            await _accountRepository.UpdateAsync(fromAccount);
-            await _accountRepository.UpdateAsync(toAccount);
+            await _accountService.WithdrawAsync(fromAccountId, amount);
+            await _accountService.DepositAsync(toAccountId, amount);
 
             await _transactionRepository.AddAsync(new Transaction
             {

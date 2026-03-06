@@ -1,4 +1,5 @@
 using BankingApp.API.Data;
+using BankingApp.API.Exceptions.Handlers;
 using BankingApp.API.Repositories.Implementations;
 using BankingApp.API.Repositories.Interfaces;
 using BankingApp.API.Services.Implementations;
@@ -7,7 +8,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+    options.Filters.Add<GlobalExceptionHandler>());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

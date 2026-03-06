@@ -1,4 +1,6 @@
 ﻿using BankingApp.API.Entities;
+using BankingApp.API.Exceptions;
+using BankingApp.API.Exceptions.Custom;
 using BankingApp.API.Repositories.Interfaces;
 using BankingApp.API.Services.Interfaces;
 
@@ -14,6 +16,13 @@ namespace BankingApp.API.Services.Implementations
         }
 
         public async Task<List<Loan>> GetByUserIdAsync(int userId)
-            => await _loanRepository.GetByUserIdAsync(userId);
+        {
+            var loans = await _loanRepository.GetByUserIdAsync(userId);
+
+            if (loans == null || !loans.Any())
+                throw new NotFoundException(ErrorMessages.LoanNotFound);
+
+            return loans;
+        }
     }
 }

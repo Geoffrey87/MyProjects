@@ -1,4 +1,6 @@
 ﻿using BankingApp.API.Entities;
+using BankingApp.API.Exceptions;
+using BankingApp.API.Exceptions.Custom;
 using BankingApp.API.Repositories.Interfaces;
 using BankingApp.API.Services.Interfaces;
 
@@ -14,12 +16,34 @@ namespace BankingApp.API.Services.Implementations
         }
 
         public async Task<User?> GetByEmailAsync(string email)
-            => await _userRepository.GetByEmailAsync(email);
+        {
+            if (string.IsNullOrEmpty(email))
+                throw new BadRequestException(ErrorMessages.InvalidCredentials);
+
+            return await _userRepository.GetByEmailAsync(email)
+                ?? throw new NotFoundException(ErrorMessages.UserNotFound);
+        }
 
         public async Task<bool> ExistsByEmailAsync(string email)
-            => await _userRepository.ExistsByEmailAsync(email);
+        {
+            if (string.IsNullOrEmpty(email))
+                throw new BadRequestException(ErrorMessages.InvalidCredentials);
+
+            if (await _userRepository.ExistsByEmailAsync(email))
+                throw new ConflictException(ErrorMessages.UserEmailAlreadyExists);
+
+            return false;
+        }
 
         public async Task<bool> ExistsByNIFAsync(string nif)
-            => await _userRepository.ExistsByNIFAsync(nif);
+        {
+            if (string.IsNullOrEmpty(nif))
+                throw new BadRequestException(ErrorMessages.InvalidCredentials);
+
+            if (await _userRepository.ExistsByNIFAsync(nif))
+                throw new ConflictException(ErrorMessages.UserNIFAlreadyExists);
+
+            return false;
+        }
     }
 }

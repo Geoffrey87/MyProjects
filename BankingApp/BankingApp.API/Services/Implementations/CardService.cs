@@ -1,4 +1,6 @@
 ﻿using BankingApp.API.Entities;
+using BankingApp.API.Exceptions;
+using BankingApp.API.Exceptions.Custom;
 using BankingApp.API.Repositories.Interfaces;
 using BankingApp.API.Services.Interfaces;
 
@@ -17,6 +19,12 @@ namespace BankingApp.API.Services.Implementations
             => await _cardRepository.GetByAccountIdAsync(accountId);
 
         public async Task<Card?> GetByCardNumberAsync(string cardNumber)
-            => await _cardRepository.GetByCardNumberAsync(cardNumber);
+        {
+            if (string.IsNullOrEmpty(cardNumber))
+                throw new BadRequestException(ErrorMessages.InvalidAmount);
+
+            return await _cardRepository.GetByCardNumberAsync(cardNumber)
+                ?? throw new NotFoundException(ErrorMessages.CardNotFound);
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using BankingApp.API.Entities;
+using BankingApp.API.Exceptions;
+using BankingApp.API.Exceptions.Custom;
 using BankingApp.API.Repositories.Interfaces;
 using BankingApp.API.Services.Interfaces;
 
@@ -14,9 +16,23 @@ namespace BankingApp.API.Services.Implementations
         }
 
         public async Task<List<Notification>> GetByUserIdAsync(int userId)
-            => await _notificationRepository.GetByUserIdAsync(userId);
+        {
+            var notifications = await _notificationRepository.GetByUserIdAsync(userId);
+
+            if (notifications == null || !notifications.Any())
+                throw new NotFoundException(ErrorMessages.NotificationNotFound);
+
+            return notifications;
+        }
 
         public async Task<List<Notification>> GetUnreadByUserIdAsync(int userId)
-            => await _notificationRepository.GetUnreadByUserIdAsync(userId);
+        {
+            var notifications = await _notificationRepository.GetUnreadByUserIdAsync(userId);
+
+            if (notifications == null || !notifications.Any())
+                throw new NotFoundException(ErrorMessages.NotificationNotFound);
+
+            return notifications;
+        }
     }
 }
