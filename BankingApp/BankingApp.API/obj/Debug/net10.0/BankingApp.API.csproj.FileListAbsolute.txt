@@ -45,7 +45,6 @@ C:\Projects\MyProjects\BankingApp\BankingApp.API\bin\Debug\net10.0\BankingApp.AP
 C:\Projects\MyProjects\BankingApp\BankingApp.API\bin\Debug\net10.0\BankingApp.API.pdb
 C:\Projects\MyProjects\BankingApp\BankingApp.API\bin\Debug\net10.0\BCrypt.Net-Next.dll
 C:\Projects\MyProjects\BankingApp\BankingApp.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Projects\MyProjects\BankingApp\BankingApp.API\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Projects\MyProjects\BankingApp\BankingApp.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
 C:\Projects\MyProjects\BankingApp\BankingApp.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Projects\MyProjects\BankingApp\BankingApp.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.InMemory.dll
