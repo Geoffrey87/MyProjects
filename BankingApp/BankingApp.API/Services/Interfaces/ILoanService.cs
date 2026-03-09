@@ -11,5 +11,7 @@ namespace BankingApp.API.Services.Interfaces
         Task<LoanResponseDto> CreateAsync(LoanRequestDto dto);
         Task<LoanResponseDto> UpdateAsync(int id, LoanRequestDto dto);
         Task DeleteAsync(int id);
+        Task ApproveLoanAsync(int loanId);
+        Task RejectLoanAsync(int loanId);
     }
 }

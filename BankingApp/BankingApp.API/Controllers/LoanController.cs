@@ -61,5 +61,27 @@ namespace BankingApp.API.Controllers
             await _loanService.DeleteAsync(id);
             return NoContent();
         }
+
+        /// <summary>
+        /// Approve loan — Admin only
+        /// </summary>
+        [HttpPatch("{id}/approve")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Approve(int id)
+        {
+            await _loanService.ApproveLoanAsync(id);
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Reject loan — Admin only
+        /// </summary>
+        [HttpPatch("{id}/reject")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Reject(int id)
+        {
+            await _loanService.RejectLoanAsync(id);
+            return NoContent();
+        }
     }
 }

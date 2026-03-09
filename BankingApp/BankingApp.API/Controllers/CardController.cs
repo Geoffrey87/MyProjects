@@ -69,5 +69,15 @@ namespace BankingApp.API.Controllers
             await _cardService.DeleteAsync(id);
             return NoContent();
         }
+
+        /// <summary>
+        /// Activate/deactivate card
+        /// </summary>
+        [HttpPatch("{id}/toggle")]
+        public async Task<ActionResult> Toggle(int id)
+        {
+            await _cardService.ToggleCardAsync(id);
+            return NoContent();
+        }
     }
 }

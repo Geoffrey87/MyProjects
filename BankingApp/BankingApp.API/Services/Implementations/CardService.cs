@@ -71,5 +71,13 @@ namespace BankingApp.API.Services.Implementations
                 ?? throw new NotFoundException(ErrorMessages.CardNotFound);
             await _cardRepository.DeleteAsync(card.Id);
         }
+        public async Task ToggleCardAsync(int cardId)
+        {
+            var card = await _cardRepository.GetByIdAsync(cardId)
+                ?? throw new NotFoundException(ErrorMessages.CardNotFound);
+
+            card.IsActive = !card.IsActive;
+            await _cardRepository.UpdateAsync(card);
+        }
     }
 }

@@ -11,5 +11,8 @@ namespace BankingApp.API.Repositories.Implementations
 
         public async Task<List<Loan>> GetByUserIdAsync(int userId)
             => await _context.Loans.Where(l => l.UserId == userId).ToListAsync();
+
+        public async Task<LoanStatus?> GetStatusByNameAsync(string name)
+    => await _context.LoanStatuses.FirstOrDefaultAsync(l => l.Name == name);
     }
 }
