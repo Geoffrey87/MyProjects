@@ -108,4 +108,11 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
+// Data Seeding
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    await DataSeeder.SeedAsync(context);
+}
+
 app.Run();

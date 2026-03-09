@@ -38,6 +38,8 @@ namespace BankingApp.API.Services.Implementations
             _configuration = configuration;
         }
 
+ 
+
         public async Task<AuthResponseDto> RegisterAsync(UserRequestDto dto)
         {
             // Verifica se o email já existe
@@ -53,6 +55,8 @@ namespace BankingApp.API.Services.Implementations
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
             await _userRepository.AddAsync(user);
 
+            var accountType = await _accountRepository.GetCheckingAccountTypeAsync();
+
             // Cria conta bancária automaticamente
             var account = new Account
             {
@@ -61,6 +65,7 @@ namespace BankingApp.API.Services.Implementations
                 IBAN = GenerateIBAN(),
                 Balance = 10000,
                 Currency = "EUR",
+                AccountTypeId = accountType!.Id,
                 IsActive = true
             };
             await _accountRepository.AddAsync(account);

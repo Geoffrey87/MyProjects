@@ -10,12 +10,18 @@ namespace BankingApp.API.Repositories.Implementations
         public AccountRepository(AppDbContext context) : base(context) { }
 
         public async Task<List<Account>> GetByUserIdAsync(int userId)
-            => await _context.Accounts.Where(a => a.UserId == userId).ToListAsync();
+    => await _context.Accounts
+        .Include(a => a.AccountType)
+        .Where(a => a.UserId == userId)
+        .ToListAsync();
 
         public async Task<Account?> GetByIBANAsync(string iban)
             => await _context.Accounts.FirstOrDefaultAsync(a => a.IBAN == iban);
 
         public async Task<bool> ExistsByIBANAsync(string iban)
             => await _context.Accounts.AnyAsync(a => a.IBAN == iban);
+
+        public async Task<AccountType?> GetCheckingAccountTypeAsync()
+    => await _context.AccountTypes.FirstOrDefaultAsync(a => a.Name == "Checking");
     }
 }
