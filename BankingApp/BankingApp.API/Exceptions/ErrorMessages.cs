@@ -35,5 +35,8 @@
         // AuditLog
         public const string AuditLogNotFound = "Audit log not found";
         public const string InvalidAuditLog = "Action and entity are required";
+
+        // Service
+        public const string ServiceNotFound = "Service not found";
     }
 }

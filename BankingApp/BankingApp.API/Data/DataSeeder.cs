@@ -65,6 +65,20 @@ namespace BankingApp.API.Data
                 await context.Users.AddAsync(admin);
                 await context.SaveChangesAsync();
             }
+            // Services
+            if (!await context.Services.AnyAsync())
+            {
+                await context.Services.AddRangeAsync(new List<Service>
+    {
+        new Service { Name = "Streaming Tv", Description = "Streaming service", Amount = 12.99m, IsFixedAmount = true, Category = "Entertainment" },
+        new Service { Name = "Music", Description = "Music streaming", Amount = 9.99m, IsFixedAmount = true, Category = "Entertainment" },
+        new Service { Name = "Internet", Description = "Internet service", Amount = 39.99m, IsFixedAmount = true, Category = "Utilities" },
+        new Service { Name = "Eletricidade", Description = "Electricity bill", Amount = 0, IsFixedAmount = false, Category = "Utilities" },
+        new Service { Name = "Água", Description = "Water bill", Amount = 0, IsFixedAmount = false, Category = "Utilities" },
+        new Service { Name = "Renda", Description = "Monthly rent", Amount = 0, IsFixedAmount = false, Category = "Housing" }
+    });
+                await context.SaveChangesAsync();
+            }
         }
     }
 }

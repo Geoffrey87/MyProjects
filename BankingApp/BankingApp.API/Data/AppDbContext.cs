@@ -19,6 +19,7 @@ namespace BankingApp.API.Data
         public DbSet<AccountType> AccountTypes { get; set; }
         public DbSet<LoanStatus> LoanStatuses { get; set; }
         public DbSet<NotificationType> NotificationTypes { get; set; }
+        public DbSet<Service> Services { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
