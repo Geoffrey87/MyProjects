@@ -1,3 +1,4 @@
+using AutoMapper;
 using BankingApp.API.Data;
 using BankingApp.API.Exceptions.Handlers;
 using BankingApp.API.Repositories.Implementations;
@@ -36,6 +37,10 @@ builder.Services.AddScoped<ILoanService, LoanService>();
 builder.Services.AddScoped<IBeneficiaryService, BeneficiaryService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IAuditLogService, AuditLogService>();
+
+// AutoMapper
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+;
 
 var app = builder.Build();
 

@@ -84,3 +84,5 @@ C:\Projects\MyProjects\BankingApp\BankingApp.API\obj\Debug\net10.0\refint\Bankin
 C:\Projects\MyProjects\BankingApp\BankingApp.API\obj\Debug\net10.0\BankingApp.API.pdb
 C:\Projects\MyProjects\BankingApp\BankingApp.API\obj\Debug\net10.0\BankingApp.API.genruntimeconfig.cache
 C:\Projects\MyProjects\BankingApp\BankingApp.API\obj\Debug\net10.0\ref\BankingApp.API.dll
+C:\Projects\MyProjects\BankingApp\BankingApp.API\bin\Debug\net10.0\AutoMapper.dll
+C:\Projects\MyProjects\BankingApp\BankingApp.API\bin\Debug\net10.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
