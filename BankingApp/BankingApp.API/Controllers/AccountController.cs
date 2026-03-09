@@ -1,12 +1,14 @@
 ﻿using BankingApp.API.DTOs.RequestDtos;
 using BankingApp.API.DTOs.ResponseDtos;
 using BankingApp.API.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankingApp.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class AccountController : ControllerBase
     {
         private readonly IAccountService _accountService;
@@ -38,9 +40,10 @@ namespace BankingApp.API.Controllers
             => Ok(await _accountService.GetBalanceAsync(id));
 
         /// <summary>
-        /// Create new account
+        /// Create new account — Admin only
         /// </summary>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<AccountResponseDto>> Create([FromBody] AccountRequestDto dto)
         {
             var account = await _accountService.CreateAsync(dto);
@@ -68,16 +71,18 @@ namespace BankingApp.API.Controllers
         }
 
         /// <summary>
-        /// Update account
+        /// Update account — Admin only
         /// </summary>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<AccountResponseDto>> Update(int id, [FromBody] AccountRequestDto dto)
             => Ok(await _accountService.UpdateAsync(id, dto));
 
         /// <summary>
-        /// Delete account
+        /// Delete account — Admin only
         /// </summary>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int id)
         {
             await _accountService.DeleteAsync(id);

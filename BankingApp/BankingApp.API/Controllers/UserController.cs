@@ -2,12 +2,14 @@
 using BankingApp.API.DTOs.ResponseDtos;
 using BankingApp.API.DTOs.User;
 using BankingApp.API.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankingApp.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -18,9 +20,10 @@ namespace BankingApp.API.Controllers
         }
 
         /// <summary>
-        /// Get all users
+        /// Get all users — Admin only
         /// </summary>
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<UserResponseDto>>> GetAll()
             => Ok(await _userService.GetAllAsync());
 
@@ -32,16 +35,18 @@ namespace BankingApp.API.Controllers
             => Ok(await _userService.GetByIdAsync(id));
 
         /// <summary>
-        /// Get user by email
+        /// Get user by email — Admin only
         /// </summary>
         [HttpGet("email/{email}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<UserResponseDto>> GetByEmail(string email)
             => Ok(await _userService.GetByEmailAsync(email));
 
         /// <summary>
-        /// Create new user
+        /// Create new user — Admin only
         /// </summary>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<UserResponseDto>> Create([FromBody] UserRequestDto dto)
         {
             var user = await _userService.CreateAsync(dto);
@@ -56,9 +61,10 @@ namespace BankingApp.API.Controllers
             => Ok(await _userService.UpdateAsync(id, dto));
 
         /// <summary>
-        /// Delete user
+        /// Delete user — Admin only
         /// </summary>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int id)
         {
             await _userService.DeleteAsync(id);

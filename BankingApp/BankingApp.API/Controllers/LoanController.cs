@@ -1,12 +1,14 @@
 ﻿using BankingApp.API.DTOs.RequestDtos;
 using BankingApp.API.DTOs.ResponseDtos;
 using BankingApp.API.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankingApp.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class LoanController : ControllerBase
     {
         private readonly ILoanService _loanService;
@@ -31,9 +33,10 @@ namespace BankingApp.API.Controllers
             => Ok(await _loanService.GetByIdAsync(id));
 
         /// <summary>
-        /// Create new loan
+        /// Create new loan — Admin only
         /// </summary>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<LoanResponseDto>> Create([FromBody] LoanRequestDto dto)
         {
             var loan = await _loanService.CreateAsync(dto);
@@ -41,16 +44,18 @@ namespace BankingApp.API.Controllers
         }
 
         /// <summary>
-        /// Update loan
+        /// Update loan — Admin only
         /// </summary>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<LoanResponseDto>> Update(int id, [FromBody] LoanRequestDto dto)
             => Ok(await _loanService.UpdateAsync(id, dto));
 
         /// <summary>
-        /// Delete loan
+        /// Delete loan — Admin only
         /// </summary>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int id)
         {
             await _loanService.DeleteAsync(id);

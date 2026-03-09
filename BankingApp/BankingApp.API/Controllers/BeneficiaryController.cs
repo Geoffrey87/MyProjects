@@ -1,12 +1,14 @@
 ﻿using BankingApp.API.DTOs.RequestDtos;
 using BankingApp.API.DTOs.ResponseDtos;
 using BankingApp.API.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankingApp.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class BeneficiaryController : ControllerBase
     {
         private readonly IBeneficiaryService _beneficiaryService;

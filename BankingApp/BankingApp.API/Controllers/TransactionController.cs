@@ -1,12 +1,14 @@
 ﻿using BankingApp.API.DTOs.RequestDtos;
 using BankingApp.API.DTOs.ResponseDtos;
 using BankingApp.API.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankingApp.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class TransactionController : ControllerBase
     {
         private readonly ITransactionService _transactionService;
@@ -64,9 +66,10 @@ namespace BankingApp.API.Controllers
         }
 
         /// <summary>
-        /// Delete transaction
+        /// Delete transaction — Admin only
         /// </summary>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int id)
         {
             await _transactionService.DeleteAsync(id);

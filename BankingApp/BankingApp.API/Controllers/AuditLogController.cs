@@ -1,11 +1,13 @@
 ﻿using BankingApp.API.DTOs.ResponseDtos;
 using BankingApp.API.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankingApp.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin")]
     public class AuditLogController : ControllerBase
     {
         private readonly IAuditLogService _auditLogService;
@@ -16,21 +18,21 @@ namespace BankingApp.API.Controllers
         }
 
         /// <summary>
-        /// Get all audit logs by user ID
+        /// Get all audit logs by user ID — Admin only
         /// </summary>
         [HttpGet("user/{userId}")]
         public async Task<ActionResult<List<AuditLogResponseDto>>> GetByUserId(int userId)
             => Ok(await _auditLogService.GetByUserIdAsync(userId));
 
         /// <summary>
-        /// Get audit log by ID
+        /// Get audit log by ID — Admin only
         /// </summary>
         [HttpGet("{id}")]
         public async Task<ActionResult<AuditLogResponseDto>> GetById(int id)
             => Ok(await _auditLogService.GetByIdAsync(id));
 
         /// <summary>
-        /// Delete audit log
+        /// Delete audit log — Admin only
         /// </summary>
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
