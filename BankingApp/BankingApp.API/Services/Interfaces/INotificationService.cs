@@ -1,10 +1,17 @@
-﻿using BankingApp.API.Entities;
+﻿using BankingApp.API.DTOs.RequestDtos;
+using BankingApp.API.DTOs.ResponseDtos;
 
 namespace BankingApp.API.Services.Interfaces
 {
-    public interface INotificationService : IBaseService<Notification>
+    public interface INotificationService
     {
-        Task<List<Notification>> GetByUserIdAsync(int userId);
-        Task<List<Notification>> GetUnreadByUserIdAsync(int userId);
+        Task<List<NotificationResponseDto>> GetAllAsync();
+        Task<NotificationResponseDto> GetByIdAsync(int id);
+        Task<List<NotificationResponseDto>> GetByUserIdAsync(int userId);
+        Task<List<NotificationResponseDto>> GetUnreadByUserIdAsync(int userId);
+        Task<NotificationResponseDto> CreateAsync(NotificationRequestDto dto);
+        Task<NotificationResponseDto> UpdateAsync(int id, NotificationRequestDto dto);
+        Task MarkAsReadAsync(int id);
+        Task DeleteAsync(int id);
     }
 }

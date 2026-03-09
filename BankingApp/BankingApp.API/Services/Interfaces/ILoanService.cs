@@ -1,9 +1,15 @@
-﻿using BankingApp.API.Entities;
+﻿using BankingApp.API.DTOs.RequestDtos;
+using BankingApp.API.DTOs.ResponseDtos;
 
 namespace BankingApp.API.Services.Interfaces
 {
-    public interface ILoanService : IBaseService<Loan>
+    public interface ILoanService
     {
-        Task<List<Loan>> GetByUserIdAsync(int userId);
+        Task<List<LoanResponseDto>> GetAllAsync();
+        Task<LoanResponseDto> GetByIdAsync(int id);
+        Task<List<LoanResponseDto>> GetByUserIdAsync(int userId);
+        Task<LoanResponseDto> CreateAsync(LoanRequestDto dto);
+        Task<LoanResponseDto> UpdateAsync(int id, LoanRequestDto dto);
+        Task DeleteAsync(int id);
     }
 }
