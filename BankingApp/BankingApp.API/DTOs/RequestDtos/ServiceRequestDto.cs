@@ -1,11 +1,10 @@
-﻿namespace BankingApp.API.DTOs.ResponseDtos
+﻿namespace BankingApp.API.DTOs.RequestDtos
 {
-    public class ServiceResponseDto
+    public class ServiceRequestDto
     {
-        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public decimal Amount { get; set; }
         public string Category { get; set; } = string.Empty;
+        public decimal Amount { get; set; }
     }
 }

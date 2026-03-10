@@ -2,7 +2,7 @@
 
 namespace BankingApp.API.Services.Interfaces
 {
-    public interface IServiceService
+    public interface IServiceServiceRepository
     {
         Task<List<ServiceResponseDto>> GetAllAsync();
         Task<List<ServiceResponseDto>> GetByCategoryAsync(string category);

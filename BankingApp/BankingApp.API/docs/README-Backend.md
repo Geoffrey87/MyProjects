@@ -434,3 +434,4 @@ Where `P` = principal amount, `r` = monthly interest rate, `n` = term in months.
 ---
 
 
+dot
