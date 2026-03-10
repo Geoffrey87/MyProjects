@@ -1,1 +1,92 @@
-<p>account-list works!</p>
+<div class="page">
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Accounts</h1>
+      <p class="page-subtitle">Manage and view all your bank accounts</p>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  @if (loading()) {
+    <div class="loading-wrapper">
+      <div class="spinner"></div>
+      <p>Loading accounts...</p>
+    </div>
+  } @else {
+    <!-- Total Balance Banner -->
+    <div class="balance-banner">
+      <div>
+        <p class="balance-label">Total Balance Across All Accounts</p>
+        <p class="balance-value">{{ formatCurrency(totalBalance) }}</p>
+      </div>
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+    </div>
+
+    <!-- Accounts Grid -->
+    @if (accounts().length === 0) {
+      <div class="empty-state">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+          />
+        </svg>
+        <p>No accounts found.</p>
+      </div>
+    } @else {
+      <div class="accounts-grid">
+        @for (account of accounts(); track account.id) {
+          <a [routerLink]="['/accounts', account.id]" class="account-card">
+            <div class="account-card-header">
+              <div class="account-type-badge">{{ account.accountType }}</div>
+              <span [class]="account.isActive ? 'status-active' : 'status-inactive'">
+                {{ account.isActive ? 'Active' : 'Inactive' }}
+              </span>
+            </div>
+
+            <div class="account-balance">
+              {{ formatCurrency(account.balance) }}
+            </div>
+
+            <div class="account-details">
+              <div class="account-detail-row">
+                <span class="detail-label">IBAN</span>
+                <span class="detail-value">{{ account.iban }}</span>
+              </div>
+              <div class="account-detail-row">
+                <span class="detail-label">Account No.</span>
+                <span class="detail-value">{{ account.accountNumber }}</span>
+              </div>
+              <div class="account-detail-row">
+                <span class="detail-label">Currency</span>
+                <span class="detail-value">{{ account.currency }}</span>
+              </div>
+            </div>
+
+            <div class="account-card-footer">
+              <span>View transactions</span>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </div>
+          </a>
+        }
+      </div>
+    }
+  }
+</div>
