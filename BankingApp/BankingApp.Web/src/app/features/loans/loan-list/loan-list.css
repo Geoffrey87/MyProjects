@@ -1,0 +1,199 @@
+.page {
+  padding: 2rem;
+  max-width: 1200px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1b3a5c;
+}
+
+.page-subtitle {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  color: #6b7280;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid #e5e7eb;
+  border-top-color: #1b3a5c;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem;
+  color: #9ca3af;
+}
+
+.empty-state svg {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem;
+  opacity: 0.4;
+}
+
+.loans-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.loan-card {
+  background: white;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.loan-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.loan-amount {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1b3a5c;
+}
+
+.loan-subtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.status-active {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.status-pending {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.status-completed {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+.status-rejected {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.loan-details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+}
+
+.loan-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-label {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.detail-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.progress-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.progress-percent {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1b3a5c;
+}
+
+.progress-bar {
+  height: 0.5rem;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1b3a5c, #4a90a4);
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}

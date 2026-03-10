@@ -1,1 +1,74 @@
-<p>loan-list works!</p>
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Loans</h1>
+      <p class="page-subtitle">View and manage your bank loans</p>
+    </div>
+  </div>
+
+  @if (loading()) {
+    <div class="loading-wrapper">
+      <div class="spinner"></div>
+      <p>Loading loans...</p>
+    </div>
+  } @else if (loans().length === 0) {
+    <div class="empty-state">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+      <p>No loans found.</p>
+    </div>
+  } @else {
+    <div class="loans-list">
+      @for (loan of loans(); track loan.id) {
+        <div class="loan-card">
+          <div class="loan-header">
+            <div class="loan-header-left">
+              <p class="loan-amount">{{ formatCurrency(loan.amount) }}</p>
+              <p class="loan-subtitle">
+                {{ loan.termMonths }} months · {{ loan.interestRate }}% interest rate
+              </p>
+            </div>
+            <span [class]="getStatusClass(loan.status)">{{ loan.status }}</span>
+          </div>
+
+          <div class="loan-details">
+            <div class="loan-detail">
+              <p class="detail-label">Monthly Payment</p>
+              <p class="detail-value">{{ formatCurrency(loan.monthlyPayment) }}</p>
+            </div>
+            <div class="loan-detail">
+              <p class="detail-label">Remaining Balance</p>
+              <p class="detail-value">{{ formatCurrency(loan.remainingBalance) }}</p>
+            </div>
+            <div class="loan-detail">
+              <p class="detail-label">Start Date</p>
+              <p class="detail-value">{{ formatDate(loan.startDate) }}</p>
+            </div>
+            <div class="loan-detail">
+              <p class="detail-label">End Date</p>
+              <p class="detail-value">{{ formatDate(loan.endDate) }}</p>
+            </div>
+          </div>
+
+          @if (loan.status === 'Active') {
+            <div class="progress-section">
+              <div class="progress-header">
+                <span class="progress-label">Repayment Progress</span>
+                <span class="progress-percent">{{ getProgress(loan) }}%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="getProgress(loan)"></div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>
