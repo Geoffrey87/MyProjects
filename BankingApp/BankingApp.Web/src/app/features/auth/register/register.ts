@@ -22,11 +22,14 @@ export class RegisterComponent {
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-    phoneNumber: ['', Validators.required],
-    nif: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
-    address: ['', Validators.required],
-    dateOfBirth: ['', Validators.required],
+    password: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9!@#$%^&*])/),
+      ],
+    ],
   });
 
   onSubmit(): void {
@@ -38,7 +41,13 @@ export class RegisterComponent {
     this.auth.register(this.form.value as any).subscribe({
       next: () => this.router.navigate(['/dashboard']),
       error: (err) => {
-        this.errorMessage = err.error?.message ?? 'Something went wrong. Please try again.';
+        if (err.error?.errors) {
+          // Validation errors from backend
+          const errors = Object.values(err.error.errors).flat();
+          this.errorMessage = (errors as string[]).join(' ');
+        } else {
+          this.errorMessage = err.error?.message ?? 'Something went wrong. Please try again.';
+        }
         this.loading = false;
       },
     });

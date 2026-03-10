@@ -1,35 +1,29 @@
-<div class="min-h-screen bg-slate-50 flex items-center justify-center px-4 py-12">
-  <div class="w-full max-w-lg">
+<div class="register-page">
+  <div class="register-container">
     <!-- Logo -->
-    <div class="text-center mb-8">
-      <h1 class="text-4xl font-bold text-[#1B3A5C]">
-        Banking<span class="text-[#4A90A4]">App</span>
-      </h1>
-      <p class="text-gray-500 mt-2 text-sm">Create your banking account</p>
+    <div class="register-logo">
+      <h1>Banking<span>App</span></h1>
+      <p>Create your banking account</p>
     </div>
 
     <!-- Card -->
-    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-      <h2 class="text-xl font-semibold text-[#1B3A5C] mb-6">Create Account</h2>
+    <div class="register-card">
+      <h2>Create Account</h2>
 
-      <!-- Error message -->
       @if (errorMessage) {
-        <div class="error-banner">
-          {{ errorMessage }}
-        </div>
+        <div class="error-banner">{{ errorMessage }}</div>
       }
 
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-5">
-        <!-- First Name + Last Name -->
-        <div class="grid grid-cols-2 gap-4">
-          <div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group">
             <label class="form-label">First Name</label>
             <input type="text" formControlName="firstName" placeholder="John" class="form-input" />
             @if (form.get('firstName')?.invalid && form.get('firstName')?.touched) {
               <p class="form-error">First name is required</p>
             }
           </div>
-          <div>
+          <div class="form-group">
             <label class="form-label">Last Name</label>
             <input type="text" formControlName="lastName" placeholder="Doe" class="form-input" />
             @if (form.get('lastName')?.invalid && form.get('lastName')?.touched) {
@@ -38,8 +32,7 @@
           </div>
         </div>
 
-        <!-- Email -->
-        <div>
+        <div class="form-group">
           <label class="form-label">Email</label>
           <input
             type="email"
@@ -52,8 +45,7 @@
           }
         </div>
 
-        <!-- Password -->
-        <div>
+        <div class="form-group">
           <label class="form-label">Password</label>
           <input
             type="password"
@@ -62,67 +54,22 @@
             class="form-input"
           />
           @if (form.get('password')?.invalid && form.get('password')?.touched) {
-            <p class="form-error">Password must be at least 6 characters</p>
+            <p class="form-error">
+              Password must be at least 8 characters, include one uppercase letter and one number or
+              symbol
+            </p>
           }
         </div>
 
-        <!-- Phone + NIF -->
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <label class="form-label">Phone Number</label>
-            <input
-              type="text"
-              formControlName="phoneNumber"
-              placeholder="+351 912 345 678"
-              class="form-input"
-            />
-            @if (form.get('phoneNumber')?.invalid && form.get('phoneNumber')?.touched) {
-              <p class="form-error">Phone number is required</p>
-            }
-          </div>
-          <div>
-            <label class="form-label">NIF</label>
-            <input type="text" formControlName="nif" placeholder="123456789" class="form-input" />
-            @if (form.get('nif')?.invalid && form.get('nif')?.touched) {
-              <p class="form-error">NIF must be 9 digits</p>
-            }
-          </div>
-        </div>
-
-        <!-- Address -->
-        <div>
-          <label class="form-label">Address</label>
-          <input
-            type="text"
-            formControlName="address"
-            placeholder="123 Main Street, Lisbon"
-            class="form-input"
-          />
-          @if (form.get('address')?.invalid && form.get('address')?.touched) {
-            <p class="form-error">Address is required</p>
-          }
-        </div>
-
-        <!-- Date of Birth -->
-        <div>
-          <label class="form-label">Date of Birth</label>
-          <input type="date" formControlName="dateOfBirth" class="form-input" />
-          @if (form.get('dateOfBirth')?.invalid && form.get('dateOfBirth')?.touched) {
-            <p class="form-error">Date of birth is required</p>
-          }
-        </div>
-
-        <!-- Submit -->
-        <button type="submit" [disabled]="form.invalid || loading" class="btn-primary w-full mt-2">
+        <button type="submit" [disabled]="form.invalid || loading" class="btn-submit">
           {{ loading ? 'Creating account...' : 'Create Account' }}
         </button>
       </form>
 
-      <!-- Login link -->
-      <p class="text-center text-sm text-gray-500 mt-6">
+      <div class="register-footer">
         Already have an account?
-        <a routerLink="/login" class="text-[#4A90A4] font-medium hover:underline">Sign In</a>
-      </p>
+        <a routerLink="/login">Sign In</a>
+      </div>
     </div>
   </div>
 </div>

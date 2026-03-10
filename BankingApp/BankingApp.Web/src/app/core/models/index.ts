@@ -179,13 +179,9 @@ export interface BankingService {
   id: number;
   name: string;
   category: string;
-  fixedAmount: number | null;
+  amount: number;
+  isFixedAmount: boolean;
   description: string;
-}
-
-export interface PayServiceRequest {
-  accountId: number;
-  amount?: number;
 }
 
 // ─── Audit Log ────────────────────────────────────────────────────────────────
