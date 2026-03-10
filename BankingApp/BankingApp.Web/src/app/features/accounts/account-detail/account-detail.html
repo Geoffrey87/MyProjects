@@ -1,1 +1,123 @@
-<p>account-detail works!</p>
+<div class="page">
+  <!-- Back button -->
+  <a routerLink="/accounts" class="back-btn">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+    Back to Accounts
+  </a>
+
+  @if (loading()) {
+    <div class="loading-wrapper">
+      <div class="spinner"></div>
+      <p>Loading account...</p>
+    </div>
+  } @else if (account()) {
+    <!-- Account Header -->
+    <div class="account-header">
+      <div class="account-header-left">
+        <div class="account-type-badge">{{ account()!.accountType }}</div>
+        <h1 class="account-balance">{{ formatCurrency(account()!.balance) }}</h1>
+        <p class="account-iban">{{ account()!.iban }}</p>
+      </div>
+      <div class="account-header-right">
+        <div class="account-meta-row">
+          <span class="meta-label">Account No.</span>
+          <span class="meta-value">{{ account()!.accountNumber }}</span>
+        </div>
+        <div class="account-meta-row">
+          <span class="meta-label">Currency</span>
+          <span class="meta-value">{{ account()!.currency }}</span>
+        </div>
+        <div class="account-meta-row">
+          <span class="meta-label">Status</span>
+          <span [class]="account()!.isActive ? 'status-active' : 'status-inactive'">
+            {{ account()!.isActive ? 'Active' : 'Inactive' }}
+          </span>
+        </div>
+        <div class="account-meta-row">
+          <span class="meta-label">Opened</span>
+          <span class="meta-value">{{ formatDate(account()!.createdAt) }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transactions -->
+    <div class="section-card">
+      <div class="section-header">
+        <h2 class="section-title">Transaction History</h2>
+        <span class="transaction-count">{{ transactions().length }} transactions</span>
+      </div>
+
+      @if (transactions().length === 0) {
+        <div class="empty-state">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+            />
+          </svg>
+          <p>No transactions found.</p>
+        </div>
+      } @else {
+        <div class="transactions-list">
+          @for (tx of transactions(); track tx.id) {
+            <div class="transaction-item">
+              <div class="tx-icon" [class]="'tx-icon-' + tx.transactionType.toLowerCase()">
+                @if (tx.transactionType === 'Deposit') {
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                } @else if (tx.transactionType === 'Withdrawal') {
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M20 12H4"
+                    />
+                  </svg>
+                } @else if (tx.transactionType === 'Transfer') {
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                    />
+                  </svg>
+                } @else {
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z"
+                    />
+                  </svg>
+                }
+              </div>
+              <div class="tx-info">
+                <p class="tx-description">{{ tx.description || tx.transactionType }}</p>
+                <p class="tx-date">{{ formatDate(tx.createdAt) }}</p>
+              </div>
+              <div class="tx-right">
+                <p [class]="isCredit(tx, account()!.id) ? 'tx-amount-credit' : 'tx-amount-debit'">
+                  {{ isCredit(tx, account()!.id) ? '+' : '-' }}{{ formatCurrency(tx.amount) }}
+                </p>
+                <span class="tx-status">{{ tx.status }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>
