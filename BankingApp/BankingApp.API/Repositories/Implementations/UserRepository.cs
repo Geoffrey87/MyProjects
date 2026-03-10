@@ -15,7 +15,5 @@ namespace BankingApp.API.Repositories.Implementations
         public async Task<bool> ExistsByEmailAsync(string email)
             => await _context.Users.AnyAsync(u => u.Email == email);
 
-        public async Task<bool> ExistsByNIFAsync(string nif)
-            => await _context.Users.AnyAsync(u => u.NIF == nif);
     }
 }

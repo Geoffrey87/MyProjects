@@ -47,7 +47,6 @@ namespace BankingApp.API.Services.Implementations
         public async Task<UserResponseDto> CreateAsync(UserRequestDto dto)
         {
             await ExistsByEmailAsync(dto.Email);
-            await ExistsByNIFAsync(dto.NIF);
 
             var user = _mapper.Map<User>(dto);
             await _userRepository.AddAsync(user);
@@ -79,11 +78,5 @@ namespace BankingApp.API.Services.Implementations
             return false;
         }
 
-        public async Task<bool> ExistsByNIFAsync(string nif)
-        {
-            if (await _userRepository.ExistsByNIFAsync(nif))
-                throw new ConflictException(ErrorMessages.UserNIFAlreadyExists);
-            return false;
-        }
     }
 }

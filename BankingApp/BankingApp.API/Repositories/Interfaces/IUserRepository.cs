@@ -6,6 +6,5 @@ namespace BankingApp.API.Repositories.Interfaces
     {
         Task<User?> GetByEmailAsync(string email);
         Task<bool> ExistsByEmailAsync(string email);
-        Task<bool> ExistsByNIFAsync(string nif);
     }
 }

@@ -46,10 +46,6 @@ namespace BankingApp.API.Services.Implementations
             if (await _userRepository.ExistsByEmailAsync(dto.Email))
                 throw new ConflictException(ErrorMessages.UserEmailAlreadyExists);
 
-            // Verifica se o NIF já existe
-            if (await _userRepository.ExistsByNIFAsync(dto.NIF))
-                throw new ConflictException(ErrorMessages.UserNIFAlreadyExists);
-
             // Cria o utilizador
             var user = _mapper.Map<User>(dto);
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);

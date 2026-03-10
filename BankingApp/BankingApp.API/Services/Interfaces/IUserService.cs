@@ -13,6 +13,5 @@ namespace BankingApp.API.Services.Interfaces
         Task<UserResponseDto> UpdateAsync(int id, UserRequestDto dto);
         Task DeleteAsync(int id);
         Task<bool> ExistsByEmailAsync(string email);
-        Task<bool> ExistsByNIFAsync(string nif);
     }
 }

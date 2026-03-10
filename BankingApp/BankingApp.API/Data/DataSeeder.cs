@@ -55,10 +55,6 @@ namespace BankingApp.API.Data
                     LastName = "BankingApp",
                     Email = "admin@bankingapp.com",
                     PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123!"),
-                    PhoneNumber = "900000000",
-                    NIF = "000000000",
-                    Address = "Admin Street, 1",
-                    DateOfBirth = new DateOnly(1990, 1, 1),
                     Role = UserRole.Admin,
                     IsActive = true
                 };
