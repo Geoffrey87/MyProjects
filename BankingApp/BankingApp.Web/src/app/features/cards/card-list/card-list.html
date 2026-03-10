@@ -1,1 +1,84 @@
-<p>card-list works!</p>
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Cards</h1>
+      <p class="page-subtitle">Manage your debit and credit cards</p>
+    </div>
+  </div>
+
+  @if (loading()) {
+    <div class="loading-wrapper">
+      <div class="spinner"></div>
+      <p>Loading cards...</p>
+    </div>
+  } @else if (cards().length === 0) {
+    <div class="empty-state">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+        />
+      </svg>
+      <p>No cards found.</p>
+    </div>
+  } @else {
+    <div class="cards-grid">
+      @for (card of cards(); track card.id) {
+        <div class="card-wrapper">
+          <!-- Visual Card -->
+          <div
+            [class]="card.isActive ? 'bank-card bank-card-active' : 'bank-card bank-card-inactive'"
+          >
+            <div class="card-top">
+              <span class="card-bank">BankingApp</span>
+              <span class="card-type">{{ card.cardType }}</span>
+            </div>
+            <div class="card-chip">
+              <div class="chip-lines">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+            <div class="card-number">{{ maskCardNumber(card.cardNumber) }}</div>
+            <div class="card-bottom">
+              <div>
+                <p class="card-label">CARD HOLDER</p>
+                <p class="card-value">{{ card.cardHolderName }}</p>
+              </div>
+              <div>
+                <p class="card-label">EXPIRES</p>
+                <p class="card-value">{{ formatDate(card.expiryDate) }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Actions -->
+          <div class="card-actions">
+            <div class="card-info">
+              <span [class]="card.isActive ? 'status-active' : 'status-inactive'">
+                {{ card.isActive ? 'Active' : 'Inactive' }}
+              </span>
+              <span class="daily-limit">Daily limit: {{ card.dailyLimit }}€</span>
+            </div>
+            <button
+              (click)="toggleCard(card)"
+              [disabled]="togglingId() === card.id"
+              [class]="card.isActive ? 'btn-deactivate' : 'btn-activate'"
+            >
+              {{
+                togglingId() === card.id
+                  ? 'Processing...'
+                  : card.isActive
+                    ? 'Deactivate'
+                    : 'Activate'
+              }}
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>
