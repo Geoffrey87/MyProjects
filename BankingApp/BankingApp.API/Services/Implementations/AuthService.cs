@@ -53,6 +53,9 @@ namespace BankingApp.API.Services.Implementations
 
             var accountType = await _accountRepository.GetCheckingAccountTypeAsync();
 
+            if (accountType == null)
+                throw new BadRequestException("AccountType 'Checking' not found. Seeder may not have run.");
+
             // Cria conta bancária automaticamente
             var account = new Account
             {
@@ -146,5 +149,6 @@ namespace BankingApp.API.Services.Implementations
                 ExpiresAt = expiresAt
             };
         }
+
     }
 }

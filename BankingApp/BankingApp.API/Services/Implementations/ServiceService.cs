@@ -15,17 +15,20 @@ namespace BankingApp.API.Services.Implementations
         private readonly IServiceRepository _serviceRepository;
         private readonly IAccountRepository _accountRepository;
         private readonly ITransactionRepository _transactionRepository;
+        private readonly INotificationRepository _notificationRepository;
         private readonly IMapper _mapper;
 
         public ServiceService(
             IServiceRepository serviceRepository,
             IAccountRepository accountRepository,
             ITransactionRepository transactionRepository,
+            INotificationRepository notificationRepository,
             IMapper mapper)
         {
             _serviceRepository = serviceRepository;
             _accountRepository = accountRepository;
             _transactionRepository = transactionRepository;
+            _notificationRepository = notificationRepository;
             _mapper = mapper;
         }
 
@@ -41,36 +44,6 @@ namespace BankingApp.API.Services.Implementations
             return _mapper.Map<List<ServiceResponseDto>>(services);
         }
 
-        public async Task PayServiceAsync(int serviceId, int accountId, decimal? customAmount)
-        {
-            var service = await _serviceRepository.GetByIdAsync(serviceId)
-                ?? throw new NotFoundException(ErrorMessages.ServiceNotFound);
-
-            var account = await _accountRepository.GetByIdAsync(accountId)
-                ?? throw new NotFoundException(ErrorMessages.AccountNotFound);
-
-            var amount = service.IsFixedAmount ? service.Amount : customAmount
-                ?? throw new BadRequestException(ErrorMessages.InvalidAmount);
-
-            if (amount <= 0)
-                throw new BadRequestException(ErrorMessages.InvalidAmount);
-
-            if (account.Balance < amount)
-                throw new BadRequestException(ErrorMessages.InsufficientFunds);
-
-            account.Balance -= amount;
-            await _accountRepository.UpdateAsync(account);
-
-            await _transactionRepository.AddAsync(new Transaction
-            {
-                FromAccountId = accountId,
-                Amount = amount,
-                Currency = account.Currency,
-                TransactionType = TransactionType.Payment,
-                Status = TransactionStatus.Completed,
-                Description = $"Payment: {service.Name}"
-            });
-        }
         public async Task<ServiceResponseDto> GetByIdAsync(int id)
         {
             var service = await _serviceRepository.GetByIdAsync(id)
@@ -127,6 +100,20 @@ namespace BankingApp.API.Services.Implementations
                 Status = TransactionStatus.Completed,
                 Description = $"Payment: {service.Name}"
             });
+
+            // Notifica o utilizador
+            var notificationType = await _notificationRepository.GetTypeByNameAsync("Transaction");
+            if (notificationType != null)
+            {
+                await _notificationRepository.AddAsync(new Notification
+                {
+                    UserId = account.UserId,
+                    Title = "Payment Completed",
+                    Message = $"Payment of {amount}€ to {service.Name} completed successfully.",
+                    NotificationTypeId = notificationType.Id,
+                    IsRead = false
+                });
+            }
         }
     }
 }

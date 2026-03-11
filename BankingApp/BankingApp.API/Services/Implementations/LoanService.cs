@@ -16,17 +16,23 @@ namespace BankingApp.API.Services.Implementations
         private readonly ILoanRepository _loanRepository;
         private readonly IAccountRepository _accountRepository;
         private readonly ITransactionRepository _transactionRepository;
+        private readonly INotificationRepository _notificationRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
 
         public LoanService(
             ILoanRepository loanRepository,
             IAccountRepository accountRepository,
             ITransactionRepository transactionRepository,
+            INotificationRepository notificationRepository,
+            IUserRepository userRepository,
             IMapper mapper)
         {
             _loanRepository = loanRepository;
             _accountRepository = accountRepository;
             _transactionRepository = transactionRepository;
+            _notificationRepository = notificationRepository;
+            _userRepository = userRepository;
             _mapper = mapper;
         }
 
@@ -54,9 +60,30 @@ namespace BankingApp.API.Services.Implementations
         public async Task<LoanResponseDto> CreateAsync(LoanRequestDto dto)
         {
             var loan = _mapper.Map<Loan>(dto);
-            loan.RemainingBalance = dto.Amount;
-            loan.MonthlyPayment = CalculateMonthlyPayment(dto.Amount, dto.InterestRate, dto.TermMonths);
             await _loanRepository.AddAsync(loan);
+
+            // Busca o utilizador para o nome
+            var account = await _accountRepository.GetByIdAsync(dto.AccountId)
+                ?? throw new NotFoundException(ErrorMessages.AccountNotFound);
+            var user = await _userRepository.GetByIdAsync(account.UserId)
+                ?? throw new NotFoundException(ErrorMessages.UserNotFound);
+
+            // Notifica todos os Admins
+            var notificationType = await _notificationRepository.GetTypeByNameAsync("Loan");
+            var adminIds = await _notificationRepository.GetAdminUserIdsAsync();
+
+            foreach (var adminId in adminIds)
+            {
+                await _notificationRepository.AddAsync(new Notification
+                {
+                    UserId = adminId,
+                    Title = "New Loan Request",
+                    Message = $"{user.FirstName} {user.LastName} requested a loan of {dto.Amount}€",
+                    NotificationTypeId = notificationType!.Id,
+                    IsRead = false
+                });
+            }
+
             return _mapper.Map<LoanResponseDto>(loan);
         }
 
@@ -119,6 +146,16 @@ namespace BankingApp.API.Services.Implementations
                 Status = TransactionStatus.Completed,
                 Description = $"Loan approved: {loan.Amount}€"
             });
+            
+            var notificationType = await _notificationRepository.GetTypeByNameAsync("Loan");
+            await _notificationRepository.AddAsync(new Notification
+            {
+                UserId = account.UserId,
+                Title = "Loan Approved",
+                Message = $"Your loan of {loan.Amount}€ has been approved!",
+                NotificationTypeId = notificationType!.Id,
+                IsRead = false
+            });
         }
 
         public async Task RejectLoanAsync(int loanId)
@@ -128,8 +165,21 @@ namespace BankingApp.API.Services.Implementations
 
             var rejectedStatus = await _loanRepository.GetStatusByNameAsync("Rejected");
             loan.LoanStatusId = rejectedStatus!.Id;
-
             await _loanRepository.UpdateAsync(loan);
+
+            // Busca a conta para obter o UserId
+            var account = await _accountRepository.GetByIdAsync(loan.AccountId)
+                ?? throw new NotFoundException(ErrorMessages.AccountNotFound);
+
+            var notificationType = await _notificationRepository.GetTypeByNameAsync("Loan");
+            await _notificationRepository.AddAsync(new Notification
+            {
+                UserId = account.UserId,  // ← account carregado
+                Title = "Loan Rejected",
+                Message = $"Your loan request of {loan.Amount}€ has been rejected.",
+                NotificationTypeId = notificationType!.Id,
+                IsRead = false
+            });
         }
     }
 }

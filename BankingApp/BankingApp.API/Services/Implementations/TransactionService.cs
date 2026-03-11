@@ -14,15 +14,21 @@ namespace BankingApp.API.Services.Implementations
     {
         private readonly ITransactionRepository _transactionRepository;
         private readonly IAccountService _accountService;
+        private readonly IAccountRepository _accountRepository;
+        private readonly INotificationRepository _notificationRepository;
         private readonly IMapper _mapper;
 
         public TransactionService(
             ITransactionRepository transactionRepository,
             IAccountService accountService,
+            IAccountRepository accountRepository,
+            INotificationRepository notificationRepository,
             IMapper mapper)
         {
             _transactionRepository = transactionRepository;
             _accountService = accountService;
+            _accountRepository = accountRepository;
+            _notificationRepository = notificationRepository;
             _mapper = mapper;
         }
 
@@ -74,9 +80,41 @@ namespace BankingApp.API.Services.Implementations
                 FromAccountId = fromAccountId,
                 ToAccountId = toAccountId,
                 Amount = amount,
+                Currency = "EUR",
                 TransactionType = TransactionType.Transfer,
                 Status = TransactionStatus.Completed
             });
+
+            // Notifica o utilizador que enviou
+            var fromAccount = await _accountRepository.GetByIdAsync(fromAccountId);
+            var notificationType = await _notificationRepository.GetTypeByNameAsync("Transaction");
+
+            if (fromAccount != null && notificationType != null)
+            {
+                await _notificationRepository.AddAsync(new Notification
+                {
+                    UserId = fromAccount.UserId,
+                    Title = "Transfer Completed",
+                    Message = $"Transfer of {amount}€ completed successfully.",
+                    NotificationTypeId = notificationType.Id,
+                    IsRead = false
+                });
+            }
+
+            // Notifica o utilizador que recebeu
+            var toAccount = await _accountRepository.GetByIdAsync(toAccountId);
+
+            if (toAccount != null && notificationType != null)
+            {
+                await _notificationRepository.AddAsync(new Notification
+                {
+                    UserId = toAccount.UserId,
+                    Title = "Transfer Received",
+                    Message = $"You received a transfer of {amount}€.",
+                    NotificationTypeId = notificationType.Id,
+                    IsRead = false
+                });
+            }
         }
 
         public async Task DeleteAsync(int id)

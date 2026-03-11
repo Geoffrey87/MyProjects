@@ -6,5 +6,7 @@ namespace BankingApp.API.Repositories.Interfaces
     {
         Task<List<Notification>> GetByUserIdAsync(int userId);
         Task<List<Notification>> GetUnreadByUserIdAsync(int userId);
+        Task<NotificationType?> GetTypeByNameAsync(string name);
+        Task<List<int>> GetAdminUserIdsAsync();
     }
 }
