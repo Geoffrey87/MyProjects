@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { AuthResponse, LoginRequest, RegisterRequest } from '../models';
+import { CLAIMS } from '../constants/claims.constants';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -39,6 +40,17 @@ export class AuthService {
     return this.http
       .post<AuthResponse>(`${environment.apiUrl}/auth/register`, request)
       .pipe(tap((res) => this.storeSession(res)));
+  }
+
+  getUserId(): number {
+    const token = sessionStorage.getItem('banking_token');
+    if (!token) return 0;
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return Number(payload[CLAIMS.NAMEID] ?? 0);
+    } catch {
+      return 0;
+    }
   }
 
   logout(): void {

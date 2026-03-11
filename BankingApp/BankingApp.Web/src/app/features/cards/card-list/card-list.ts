@@ -24,7 +24,7 @@ export class CardList implements OnInit {
     const user = this.auth.currentUser();
     if (!user) return;
 
-    const userId = Number((user as any).id ?? (user as any).nameid ?? 1);
+    const userId = this.auth.getUserId();
 
     this.accountService.getByUser(userId).subscribe({
       next: (accounts) => {
