@@ -136,8 +136,8 @@ export interface Loan {
   termMonths: number;
   monthlyPayment: number;
   remainingBalance: number;
-  status: string;
-  startDate: string | null;
+  loanStatus: string;
+  startDate: string;
   endDate: string | null;
   createdAt: string;
 }
@@ -178,10 +178,9 @@ export interface Notification {
 export interface BankingService {
   id: number;
   name: string;
-  category: string;
-  amount: number;
-  isFixedAmount: boolean;
   description: string;
+  amount: number;
+  category: string;
 }
 
 // ─── Audit Log ────────────────────────────────────────────────────────────────

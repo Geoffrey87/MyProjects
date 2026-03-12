@@ -1,1 +1,125 @@
-<p>loan-approval works!</p>
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Loan Approvals</h1>
+      <p class="page-subtitle">Review and manage loan requests</p>
+    </div>
+    @if (pendingLoans.length > 0) {
+      <div class="pending-badge">{{ pendingLoans.length }} pending</div>
+    }
+  </div>
+
+  @if (loading()) {
+    <div class="loading-wrapper">
+      <div class="spinner"></div>
+      <p>Loading loans...</p>
+    </div>
+  } @else {
+    <!-- Pending Loans -->
+    @if (pendingLoans.length === 0) {
+      <div class="empty-state">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <p>No pending loan requests.</p>
+      </div>
+    } @else {
+      <h2 class="section-title">Pending Requests</h2>
+      <div class="loans-list">
+        @for (loan of pendingLoans; track loan.id) {
+          <div class="loan-card pending">
+            <div class="loan-header">
+              <div class="loan-header-left">
+                <p class="loan-amount">{{ formatCurrency(loan.amount) }}</p>
+                <p class="loan-subtitle">
+                  {{ loan.termMonths }} months · {{ loan.interestRate }}% interest rate
+                </p>
+              </div>
+              <span class="status-pending">Pending</span>
+            </div>
+
+            <div class="loan-details">
+              <div class="loan-detail">
+                <p class="detail-label">Monthly Payment</p>
+                <p class="detail-value">{{ formatCurrency(loan.monthlyPayment) }}</p>
+              </div>
+              <div class="loan-detail">
+                <p class="detail-label">Term</p>
+                <p class="detail-value">{{ loan.termMonths }} months</p>
+              </div>
+              <div class="loan-detail">
+                <p class="detail-label">Interest Rate</p>
+                <p class="detail-value">{{ loan.interestRate }}%</p>
+              </div>
+              <div class="loan-detail">
+                <p class="detail-label">Requested On</p>
+                <p class="detail-value">{{ formatDate(loan.startDate) }}</p>
+              </div>
+            </div>
+
+            <div class="loan-actions">
+              <button
+                (click)="reject(loan.id)"
+                [disabled]="processingId() === loan.id"
+                class="btn-reject"
+              >
+                {{ processingId() === loan.id ? 'Processing...' : 'Reject' }}
+              </button>
+              <button
+                (click)="approve(loan.id)"
+                [disabled]="processingId() === loan.id"
+                class="btn-approve"
+              >
+                {{ processingId() === loan.id ? 'Processing...' : 'Approve' }}
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Processed Loans -->
+    @if (processedLoans.length > 0) {
+      <h2 class="section-title" style="margin-top: 2rem">Processed Requests</h2>
+      <div class="loans-list">
+        @for (loan of processedLoans; track loan.id) {
+          <div class="loan-card">
+            <div class="loan-header">
+              <div class="loan-header-left">
+                <p class="loan-amount">{{ formatCurrency(loan.amount) }}</p>
+                <p class="loan-subtitle">
+                  {{ loan.termMonths }} months · {{ loan.interestRate }}% interest rate
+                </p>
+              </div>
+              <span [class]="getStatusClass(loan.loanStatus)">{{ loan.loanStatus }}</span>
+            </div>
+
+            <div class="loan-details">
+              <div class="loan-detail">
+                <p class="detail-label">Monthly Payment</p>
+                <p class="detail-value">{{ formatCurrency(loan.monthlyPayment) }}</p>
+              </div>
+              <div class="loan-detail">
+                <p class="detail-label">Remaining Balance</p>
+                <p class="detail-value">{{ formatCurrency(loan.remainingBalance) }}</p>
+              </div>
+              <div class="loan-detail">
+                <p class="detail-label">Start Date</p>
+                <p class="detail-value">{{ formatDate(loan.startDate) }}</p>
+              </div>
+              <div class="loan-detail">
+                <p class="detail-label">End Date</p>
+                <p class="detail-value">{{ formatDate(loan.endDate) }}</p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  }
+</div>

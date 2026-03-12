@@ -17,6 +17,14 @@ export class LoanService {
     return this.http.get<Loan>(`${this.base}/${id}`);
   }
 
+  getAll(): Observable<Loan[]> {
+    return this.http.get<Loan[]>(this.base);
+  }
+
+  create(req: { accountId: number; amount: number; termMonths: number }): Observable<Loan> {
+    return this.http.post<Loan>(this.base, req);
+  }
+
   approve(id: number): Observable<Loan> {
     return this.http.patch<Loan>(`${this.base}/${id}/approve`, {});
   }

@@ -19,4 +19,12 @@ export class ServicePaymentService {
       {},
     );
   }
+
+  create(data: {
+    name: string;
+    description: string;
+    category: string;
+  }): Observable<BankingService> {
+    return this.http.post<BankingService>(this.base, data);
+  }
 }

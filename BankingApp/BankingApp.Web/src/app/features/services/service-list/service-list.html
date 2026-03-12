@@ -4,6 +4,12 @@
       <h1 class="page-title">Services</h1>
       <p class="page-subtitle">Pay your bills and subscriptions</p>
     </div>
+    <button (click)="showAddModal.set(true)" class="btn-add">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+      </svg>
+      Add Service
+    </button>
   </div>
 
   <!-- Success Message -->
@@ -33,13 +39,60 @@
       </select>
     </div>
   }
+  <!-- Add Service Modal -->
+  @if (showAddModal()) {
+    <div class="modal-overlay">
+      <div class="modal">
+        <h3 class="modal-title">Add New Service</h3>
 
+        <div class="modal-input-group">
+          <label class="modal-label">Name</label>
+          <input
+            type="text"
+            [(ngModel)]="newService.name"
+            class="modal-input"
+            placeholder="e.g. Netflix"
+          />
+        </div>
+        <div class="modal-input-group">
+          <label class="modal-label">Description</label>
+          <input
+            type="text"
+            [(ngModel)]="newService.description"
+            class="modal-input"
+            placeholder="e.g. Streaming service"
+          />
+        </div>
+        <div class="modal-input-group">
+          <label class="modal-label">Category</label>
+          <select [(ngModel)]="newService.category" class="modal-input">
+            <option value="Entertainment">Entertainment</option>
+            <option value="Utilities">Utilities</option>
+            <option value="Housing">Housing</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        @if (addErrorMessage()) {
+          <div class="alert-error">{{ addErrorMessage() }}</div>
+        }
+
+        <div class="modal-actions">
+          <button (click)="cancelAdd()" class="btn-cancel">Cancel</button>
+          <button (click)="addService()" [disabled]="adding()" class="btn-confirm">
+            {{ adding() ? 'Adding...' : 'Add Service' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  }
   @if (loading()) {
     <div class="loading-wrapper">
       <div class="spinner"></div>
       <p>Loading services...</p>
     </div>
   } @else {
+    <!-- Payment Modal -->
     <!-- Payment Modal -->
     @if (selectedService()) {
       <div class="modal-overlay">
@@ -48,24 +101,18 @@
           <p class="modal-service">{{ selectedService()!.name }}</p>
           <p class="modal-description">{{ selectedService()!.description }}</p>
 
-          @if (selectedService()!.isFixedAmount) {
-            <div class="modal-amount">
-              {{ formatCurrency(selectedService()!.amount) }}
-            </div>
-          } @else {
-            <div class="modal-input-group">
-              <label class="modal-label">Amount (€)</label>
-              <input
-                type="number"
-                [value]="customAmount()"
-                (input)="customAmount.set(+$any($event.target).value)"
-                min="0.01"
-                step="0.01"
-                class="modal-input"
-                placeholder="0.00"
-              />
-            </div>
-          }
+          <div class="modal-input-group">
+            <label class="modal-label">Amount (€)</label>
+            <input
+              type="number"
+              [value]="customAmount()"
+              (input)="customAmount.set(+$any($event.target).value)"
+              min="0.01"
+              step="0.01"
+              class="modal-input"
+              placeholder="0.00"
+            />
+          </div>
 
           @if (errorMessage()) {
             <div class="alert-error">{{ errorMessage() }}</div>
@@ -75,7 +122,7 @@
             <button (click)="cancelPayment()" class="btn-cancel">Cancel</button>
             <button
               (click)="confirmPayment()"
-              [disabled]="paying() || (!selectedService()!.isFixedAmount && customAmount() <= 0)"
+              [disabled]="paying() || customAmount() <= 0"
               class="btn-confirm"
             >
               {{ paying() ? 'Processing...' : 'Confirm Payment' }}
@@ -129,9 +176,7 @@
                 }
               </div>
               <p class="service-name">{{ service.name }}</p>
-              <p class="service-amount">
-                {{ service.isFixedAmount ? formatCurrency(service.amount) : 'Enter amount' }}
-              </p>
+              <p class="service-amount">Enter amount</p>
             </button>
           }
         </div>

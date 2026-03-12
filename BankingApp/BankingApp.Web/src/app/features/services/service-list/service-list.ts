@@ -63,11 +63,7 @@ export class ServiceList implements OnInit {
     this.selectedService.set(service);
     this.successMessage.set('');
     this.errorMessage.set('');
-    if (service.isFixedAmount) {
-      this.customAmount.set(service.amount);
-    } else {
-      this.customAmount.set(0);
-    }
+    this.customAmount.set(0);
   }
 
   cancelPayment(): void {
@@ -103,5 +99,35 @@ export class ServiceList implements OnInit {
       style: 'currency',
       currency: 'EUR',
     }).format(value);
+  }
+  showAddModal = signal(false);
+  adding = signal(false);
+  addErrorMessage = signal('');
+  newService = { name: '', description: '', category: 'Entertainment' };
+
+  cancelAdd(): void {
+    this.showAddModal.set(false);
+    this.newService = { name: '', description: '', category: 'Entertainment' };
+    this.addErrorMessage.set('');
+  }
+
+  addService(): void {
+    if (!this.newService.name) {
+      this.addErrorMessage.set('Name is required.');
+      return;
+    }
+
+    this.adding.set(true);
+    this.servicePaymentService.create(this.newService).subscribe({
+      next: (service) => {
+        this.services.update((s) => [...s, service]);
+        this.cancelAdd();
+        this.adding.set(false);
+      },
+      error: () => {
+        this.addErrorMessage.set('Failed to add service.');
+        this.adding.set(false);
+      },
+    });
   }
 }

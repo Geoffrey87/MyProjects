@@ -4,7 +4,100 @@
       <h1 class="page-title">Loans</h1>
       <p class="page-subtitle">View and manage your bank loans</p>
     </div>
+    <button (click)="openRequestModal()" class="btn-request">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+      </svg>
+      Request Loan
+    </button>
   </div>
+
+  @if (requestSuccess()) {
+    <div class="alert-success">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+      {{ requestSuccess() }}
+    </div>
+  }
+
+  <!-- Request Loan Modal -->
+  @if (showRequestModal()) {
+    <div class="modal-overlay">
+      <div class="modal">
+        <h3 class="modal-title">Request a Loan</h3>
+
+        <div class="info-banner">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          Fixed interest rate of <strong>5% per year</strong>. Approval required by admin.
+        </div>
+
+        <div class="modal-input-group">
+          <label class="modal-label">Account</label>
+          <select [(ngModel)]="newLoan.accountId" class="modal-input">
+            @for (account of accounts(); track account.id) {
+              <option [value]="account.id">{{ account.accountType }} — {{ account.iban }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="modal-input-group">
+          <label class="modal-label">Amount (€)</label>
+          <input
+            type="number"
+            [(ngModel)]="newLoan.amount"
+            min="100"
+            step="100"
+            class="modal-input"
+            placeholder="e.g. 5000"
+          />
+        </div>
+
+        <div class="modal-input-group">
+          <label class="modal-label">Term (months)</label>
+          <select [(ngModel)]="newLoan.termMonths" class="modal-input">
+            <option [value]="6">6 months</option>
+            <option [value]="12">12 months</option>
+            <option [value]="24">24 months</option>
+            <option [value]="36">36 months</option>
+            <option [value]="48">48 months</option>
+            <option [value]="60">60 months</option>
+          </select>
+        </div>
+
+        @if (newLoan.amount > 0) {
+          <div class="loan-preview">
+            <p>Estimated monthly payment:</p>
+            <p class="preview-amount">
+              {{ formatCurrency(calculateMonthlyPayment(newLoan.amount, newLoan.termMonths)) }}
+            </p>
+          </div>
+        }
+
+        @if (requestError()) {
+          <div class="alert-error">{{ requestError() }}</div>
+        }
+
+        <div class="modal-actions">
+          <button (click)="cancelRequest()" class="btn-cancel">Cancel</button>
+          <button
+            (click)="submitRequest()"
+            [disabled]="requesting() || newLoan.amount <= 0"
+            class="btn-confirm"
+          >
+            {{ requesting() ? 'Submitting...' : 'Submit Request' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  }
 
   @if (loading()) {
     <div class="loading-wrapper">
@@ -34,7 +127,7 @@
                 {{ loan.termMonths }} months · {{ loan.interestRate }}% interest rate
               </p>
             </div>
-            <span [class]="getStatusClass(loan.status)">{{ loan.status }}</span>
+            <span [class]="getStatusClass(loan.loanStatus)">{{ loan.loanStatus }}</span>
           </div>
 
           <div class="loan-details">
@@ -56,7 +149,7 @@
             </div>
           </div>
 
-          @if (loan.status === 'Active') {
+          @if (loan.loanStatus === 'Active') {
             <div class="progress-section">
               <div class="progress-header">
                 <span class="progress-label">Repayment Progress</span>
