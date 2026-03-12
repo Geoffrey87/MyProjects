@@ -38,5 +38,9 @@
 
         // Service
         public const string ServiceNotFound = "Service not found";
+
+        // Card
+        public const string CardNotPending = "Card is not in pending status.";
+        public const string CardNotActive = "Cannot toggle a pending or rejected card.";
     }
 }

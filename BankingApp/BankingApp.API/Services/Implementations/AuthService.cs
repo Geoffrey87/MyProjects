@@ -62,7 +62,7 @@ namespace BankingApp.API.Services.Implementations
                 UserId = user.Id,
                 AccountNumber = GenerateAccountNumber(),
                 IBAN = GenerateIBAN(),
-                Balance = 10000,
+                Balance = 100,
                 Currency = "EUR",
                 AccountTypeId = accountType!.Id,
                 IsActive = true
@@ -73,7 +73,7 @@ namespace BankingApp.API.Services.Implementations
             await _transactionRepository.AddAsync(new Transaction
             {
                 ToAccountId = account.Id,
-                Amount = 10000,
+                Amount = 100,
                 Currency = "EUR",
                 TransactionType = TransactionType.Deposit,
                 Status = TransactionStatus.Completed,

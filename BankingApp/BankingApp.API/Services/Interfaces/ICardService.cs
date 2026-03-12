@@ -10,6 +10,10 @@ namespace BankingApp.API.Services.Interfaces
         Task<List<CardResponseDto>> GetByAccountIdAsync(int accountId);
         Task<CardResponseDto> GetByCardNumberAsync(string cardNumber);
         Task<CardResponseDto> CreateAsync(CardRequestDto dto);
+        Task<CardResponseDto> CreateAutomaticDebitCardAsync(int accountId, string cardHolderName);
+        Task<CardResponseDto> RequestCardAsync(CardRequestByClientDto dto);
+        Task<CardResponseDto> ApproveCardAsync(int cardId);
+        Task<CardResponseDto> RejectCardAsync(int cardId);
         Task<CardResponseDto> UpdateAsync(int id, CardRequestDto dto);
         Task DeleteAsync(int id);
         Task ToggleCardAsync(int cardId);

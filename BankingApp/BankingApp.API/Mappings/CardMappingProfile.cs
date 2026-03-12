@@ -18,7 +18,8 @@ namespace BankingApp.API.Mappings
             /// DomainToDto: Card -> CardResponseDto
             /// </summary>
             CreateMap<Card, CardResponseDto>()
-                .ForMember(dest => dest.CardType, opt => opt.MapFrom(src => src.CardType.ToString()));
+                .ForMember(dest => dest.CardType, opt => opt.MapFrom(src => src.CardType.ToString()))
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString())); 
         }
     }
 }

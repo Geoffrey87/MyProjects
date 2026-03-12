@@ -52,6 +52,32 @@ namespace BankingApp.API.Controllers
         }
 
         /// <summary>
+        /// Client requests a new card — fica Pending até Admin aprovar
+        /// </summary>
+        [HttpPost("request")]
+        public async Task<ActionResult<CardResponseDto>> RequestCard([FromBody] CardRequestByClientDto dto)
+        {
+            var card = await _cardService.RequestCardAsync(dto);
+            return CreatedAtAction(nameof(GetById), new { id = card.Id }, card);
+        }
+
+        /// <summary>
+        /// Approve pending card — Admin only
+        /// </summary>
+        [HttpPatch("{id}/approve")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<CardResponseDto>> Approve(int id)
+            => Ok(await _cardService.ApproveCardAsync(id));
+
+        /// <summary>
+        /// Reject pending card — Admin only
+        /// </summary>
+        [HttpPatch("{id}/reject")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<CardResponseDto>> Reject(int id)
+            => Ok(await _cardService.RejectCardAsync(id));
+
+        /// <summary>
         /// Update card — Admin only
         /// </summary>
         [HttpPut("{id}")]
@@ -71,7 +97,7 @@ namespace BankingApp.API.Controllers
         }
 
         /// <summary>
-        /// Activate/deactivate card
+        /// Activate/deactivate card — toggle IsActive
         /// </summary>
         [HttpPatch("{id}/toggle")]
         public async Task<ActionResult> Toggle(int id)

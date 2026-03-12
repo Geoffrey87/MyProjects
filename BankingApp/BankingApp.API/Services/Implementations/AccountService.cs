@@ -13,11 +13,38 @@ namespace BankingApp.API.Services.Implementations
     {
         private readonly IAccountRepository _accountRepository;
         private readonly IMapper _mapper;
+        private readonly ICardService _cardService;   
+        private readonly IUserRepository _userRepository;
 
-        public AccountService(IAccountRepository accountRepository, IMapper mapper)
+        public AccountService(
+         IAccountRepository accountRepository,
+         ICardService cardService,
+         IUserRepository userRepository,
+         IMapper mapper)
         {
             _accountRepository = accountRepository;
+            _cardService = cardService;
+            _userRepository = userRepository;
             _mapper = mapper;
+        }
+
+        public async Task<AccountResponseDto> CreateAsync(AccountRequestDto dto)
+        {
+            await ExistsByIBANAsync(dto.Currency);
+            var account = _mapper.Map<Account>(dto);
+            await _accountRepository.AddAsync(account);
+
+            // Buscar o utilizador para o nome no cartão
+            var user = await _userRepository.GetByIdAsync(dto.UserId)
+                ?? throw new NotFoundException(ErrorMessages.UserNotFound);
+
+            // Gerar cartão de débito automaticamente
+            await _cardService.CreateAutomaticDebitCardAsync(
+                account.Id,
+                $"{user.FirstName} {user.LastName}"
+            );
+
+            return _mapper.Map<AccountResponseDto>(account);
         }
 
         public async Task<List<AccountResponseDto>> GetAllAsync()
@@ -46,13 +73,6 @@ namespace BankingApp.API.Services.Implementations
             return _mapper.Map<AccountResponseDto>(account);
         }
 
-        public async Task<AccountResponseDto> CreateAsync(AccountRequestDto dto)
-        {
-            await ExistsByIBANAsync(dto.Currency);
-            var account = _mapper.Map<Account>(dto);
-            await _accountRepository.AddAsync(account);
-            return _mapper.Map<AccountResponseDto>(account);
-        }
 
         public async Task<AccountResponseDto> UpdateAsync(int id, AccountRequestDto dto)
         {

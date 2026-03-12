@@ -14,6 +14,7 @@ namespace BankingApp.API.Entities
         public DateOnly ExpiryDate { get; set; }
         public bool IsActive { get; set; } = true;
         public decimal DailyLimit { get; set; } = 1000;
+        public CardStatus Status { get; set; } = CardStatus.Active;
 
         // Foreign Key
         public int AccountId { get; set; }

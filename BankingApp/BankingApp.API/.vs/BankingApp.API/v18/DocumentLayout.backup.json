@@ -3,12 +3,96 @@
   "WorkspaceRootPath": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\interfaces\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:repositories\\interfaces\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\controllers\\cardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:controllers\\cardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\mappings\\cardmappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:mappings\\cardmappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\dtos\\responsedtos\\cardresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\responsedtos\\cardresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\implementations\\cardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\cardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\interfaces\\icardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\interfaces\\icardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\exceptions\\errormessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:exceptions\\errormessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\exceptions\\handlers\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:exceptions\\handlers\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\dtos\\requestdtos\\cardrequestbyclientdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\requestdtos\\cardrequestbyclientdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\dtos\\requestdtos\\beneficiaryrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\requestdtos\\beneficiaryrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\enums\\cardstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:enums\\cardstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\implementations\\auditlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\auditlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\dtos\\requestdtos\\cardrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\requestdtos\\cardrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\interfaces\\icardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:repositories\\interfaces\\icardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\interfaces\\iloanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -79,10 +163,6 @@
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\implementations\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -105,14 +185,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\interfaces\\inotificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:repositories\\interfaces\\inotificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\implementations\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -151,10 +223,6 @@
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\responsedtos\\serviceresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\enums\\cardtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:enums\\cardtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -181,22 +249,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\interfaces\\iloanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\interfaces\\iloanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\controllers\\cardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:controllers\\cardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\implementations\\cardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\cardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\interfaces\\icardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\interfaces\\icardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\exceptions\\errormessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:exceptions\\errormessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\implementations\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -255,10 +307,6 @@
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\beneficiaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\implementations\\auditlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\auditlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\interfaces\\iauditlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\interfaces\\iauditlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -277,10 +325,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\mappings\\beneficiarymappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:mappings\\beneficiarymappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\mappings\\cardmappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:mappings\\cardmappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\mappings\\transactionmappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -311,18 +355,6 @@
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\responsedtos\\beneficiaryresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\dtos\\requestdtos\\beneficiaryrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\requestdtos\\beneficiaryrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\dtos\\responsedtos\\cardresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\responsedtos\\cardresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\dtos\\requestdtos\\cardrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\requestdtos\\cardrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\dtos\\responsedtos\\transactionresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\responsedtos\\transactionresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -337,10 +369,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\dtos\\responsedtos\\userresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\responsedtos\\userresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\exceptions\\handlers\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:exceptions\\handlers\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\exceptions\\custom\\unauthorizedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -383,10 +411,6 @@
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:repositories\\implementations\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\interfaces\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:repositories\\interfaces\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\interfaces\\iauditlogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:repositories\\interfaces\\iauditlogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -397,14 +421,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\interfaces\\itransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:repositories\\interfaces\\itransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\interfaces\\icardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:repositories\\interfaces\\icardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -435,14 +451,6 @@
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\beneficiary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\entities\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:entities\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -467,32 +475,305 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "LoanMappingProfile.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\LoanMappingProfile.cs",
-              "RelativeDocumentMoniker": "Mappings\\LoanMappingProfile.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\LoanMappingProfile.cs",
-              "RelativeToolTip": "Mappings\\LoanMappingProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Title": "AccountService.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AccountService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\AccountService.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AccountService.cs",
+              "RelativeToolTip": "Services\\Implementations\\AccountService.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAwwHcAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T09:39:56.71Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoanRepository.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\LoanRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Implementations\\LoanRepository.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\LoanRepository.cs",
-              "RelativeToolTip": "Repositories\\Implementations\\LoanRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T12:35:36.377Z",
+              "WhenOpened": "2026-03-06T15:06:36.679Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "CardController.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\CardController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CardController.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\CardController.cs",
+              "RelativeToolTip": "Controllers\\CardController.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAuwBQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T10:21:09.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuditLog.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AuditLog.cs",
+              "RelativeDocumentMoniker": "Entities\\AuditLog.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AuditLog.cs",
+              "RelativeToolTip": "Entities\\AuditLog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T16:48:47.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "Repositories\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T12:19:20.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IBaseRepository.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IBaseRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interfaces\\IBaseRepository.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IBaseRepository.cs",
+              "RelativeToolTip": "Repositories\\Interfaces\\IBaseRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T12:17:22.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CardMappingProfile.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\CardMappingProfile.cs",
+              "RelativeDocumentMoniker": "Mappings\\CardMappingProfile.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\CardMappingProfile.cs",
+              "RelativeToolTip": "Mappings\\CardMappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T09:39:43.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CardResponseDto.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\CardResponseDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\ResponseDtos\\CardResponseDto.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\CardResponseDto.cs",
+              "RelativeToolTip": "DTOs\\ResponseDtos\\CardResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T16:09:30.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CardService.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\CardService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\CardService.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\CardService.cs",
+              "RelativeToolTip": "Services\\Implementations\\CardService.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAuwKQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T15:07:26.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ICardService.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\ICardService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\ICardService.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\ICardService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\ICardService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T15:03:53.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ErrorMessages.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\ErrorMessages.cs",
+              "RelativeDocumentMoniker": "Exceptions\\ErrorMessages.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\ErrorMessages.cs",
+              "RelativeToolTip": "Exceptions\\ErrorMessages.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACsAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T15:29:44.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GlobalExceptionHandler.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\Handlers\\GlobalExceptionHandler.cs",
+              "RelativeDocumentMoniker": "Exceptions\\Handlers\\GlobalExceptionHandler.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\Handlers\\GlobalExceptionHandler.cs",
+              "RelativeToolTip": "Exceptions\\Handlers\\GlobalExceptionHandler.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T15:27:03.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAIEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T12:56:00.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CardRequestByClientDto.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\CardRequestByClientDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\RequestDtos\\CardRequestByClientDto.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\CardRequestByClientDto.cs",
+              "RelativeToolTip": "DTOs\\RequestDtos\\CardRequestByClientDto.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T09:54:06.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BeneficiaryRequestDto.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\BeneficiaryRequestDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\RequestDtos\\BeneficiaryRequestDto.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\BeneficiaryRequestDto.cs",
+              "RelativeToolTip": "DTOs\\RequestDtos\\BeneficiaryRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T16:10:32.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CardStatus.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\CardStatus.cs",
+              "RelativeDocumentMoniker": "Enums\\CardStatus.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\CardStatus.cs",
+              "RelativeToolTip": "Enums\\CardStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T09:53:21.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\AuthService.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AuthService.cs",
+              "RelativeToolTip": "Services\\Implementations\\AuthService.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAmwEsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T10:42:46.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AuditLogService.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AuditLogService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\AuditLogService.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AuditLogService.cs",
+              "RelativeToolTip": "Services\\Implementations\\AuditLogService.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwEEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T15:08:34.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Card.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Card.cs",
+              "RelativeDocumentMoniker": "Entities\\Card.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Card.cs",
+              "RelativeToolTip": "Entities\\Card.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T16:43:31.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T10:56:08.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Common\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "Common\\BaseEntity.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Common\\BaseEntity.cs",
+              "RelativeToolTip": "Common\\BaseEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T16:29:44.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DataSeeder.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Data\\DataSeeder.cs",
+              "RelativeDocumentMoniker": "Data\\DataSeeder.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Data\\DataSeeder.cs",
+              "RelativeToolTip": "Data\\DataSeeder.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAgwD8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T12:03:02.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CardRequestDto.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\CardRequestDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\RequestDtos\\CardRequestDto.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\CardRequestDto.cs",
+              "RelativeToolTip": "DTOs\\RequestDtos\\CardRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T16:09:10.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ICardRepository.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\ICardRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interfaces\\ICardRepository.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\ICardRepository.cs",
+              "RelativeToolTip": "Repositories\\Interfaces\\ICardRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T12:22:12.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "ILoanRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\ILoanRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\ILoanRepository.cs",
@@ -500,38 +781,35 @@
               "RelativeToolTip": "Repositories\\Interfaces\\ILoanRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T12:22:45.877Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T12:22:45.877Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA3wBwAAAAuAAAAAAAAAA==",
+              "DocumentIndex": 24,
+              "Title": "LoanRepository.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\LoanRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implementations\\LoanRepository.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\LoanRepository.cs",
+              "RelativeToolTip": "Repositories\\Implementations\\LoanRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T10:56:08.085Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T12:35:36.377Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DataSeeder.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Data\\DataSeeder.cs",
-              "RelativeDocumentMoniker": "Data\\DataSeeder.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Data\\DataSeeder.cs",
-              "RelativeToolTip": "Data\\DataSeeder.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAgwDgAAABDAAAAAAAAAA==",
+              "DocumentIndex": 25,
+              "Title": "LoanMappingProfile.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\LoanMappingProfile.cs",
+              "RelativeDocumentMoniker": "Mappings\\LoanMappingProfile.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\LoanMappingProfile.cs",
+              "RelativeToolTip": "Mappings\\LoanMappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T12:03:02.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T09:39:56.71Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 26,
               "Title": "LoanResponseDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\LoanResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ResponseDtos\\LoanResponseDto.cs",
@@ -539,12 +817,11 @@
               "RelativeToolTip": "DTOs\\ResponseDtos\\LoanResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T16:10:10.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T16:10:10.069Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 27,
               "Title": "NotificationService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\NotificationService.cs",
               "RelativeDocumentMoniker": "Services\\Implementations\\NotificationService.cs",
@@ -552,12 +829,11 @@
               "RelativeToolTip": "Services\\Implementations\\NotificationService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:08:18.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T15:08:18.846Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 28,
               "Title": "LoanService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\LoanService.cs",
               "RelativeDocumentMoniker": "Services\\Implementations\\LoanService.cs",
@@ -565,12 +841,11 @@
               "RelativeToolTip": "Services\\Implementations\\LoanService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:07:41.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T15:07:41.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 29,
               "Title": "LoanController.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\LoanController.cs",
               "RelativeDocumentMoniker": "Controllers\\LoanController.cs",
@@ -578,12 +853,11 @@
               "RelativeToolTip": "Controllers\\LoanController.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAA5wCwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T10:21:40.731Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T10:21:40.731Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 30,
               "Title": "LoanRequestDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\LoanRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\RequestDtos\\LoanRequestDto.cs",
@@ -591,12 +865,11 @@
               "RelativeToolTip": "DTOs\\RequestDtos\\LoanRequestDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T16:09:55.084Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T16:09:55.084Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 31,
               "Title": "Loan.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Loan.cs",
               "RelativeDocumentMoniker": "Entities\\Loan.cs",
@@ -604,12 +877,11 @@
               "RelativeToolTip": "Entities\\Loan.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T16:46:03.299Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T16:46:03.299Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 32,
               "Title": "ServiceMappingProfile.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\ServiceMappingProfile.cs",
               "RelativeDocumentMoniker": "Mappings\\ServiceMappingProfile.cs",
@@ -617,12 +889,11 @@
               "RelativeToolTip": "Mappings\\ServiceMappingProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T14:34:59.423Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T14:34:59.423Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 33,
               "Title": "ServiceService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\ServiceService.cs",
               "RelativeDocumentMoniker": "Services\\Implementations\\ServiceService.cs",
@@ -630,12 +901,11 @@
               "RelativeToolTip": "Services\\Implementations\\ServiceService.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAgwDMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T14:35:20.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T14:35:20.674Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 34,
               "Title": "IServiceService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\IServiceService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IServiceService.cs",
@@ -643,12 +913,11 @@
               "RelativeToolTip": "Services\\Interfaces\\IServiceService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T15:58:03.696Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-10T15:58:03.696Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 35,
               "Title": "ServiceController.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\ServiceController.cs",
               "RelativeDocumentMoniker": "Controllers\\ServiceController.cs",
@@ -656,12 +925,11 @@
               "RelativeToolTip": "Controllers\\ServiceController.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAIwBEAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T14:36:41.526Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T14:36:41.526Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 36,
               "Title": "ServiceRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\ServiceRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\ServiceRepository.cs",
@@ -669,12 +937,11 @@
               "RelativeToolTip": "Repositories\\Implementations\\ServiceRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T14:32:58.617Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T14:32:58.617Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 37,
               "Title": "IServiceRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IServiceRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IServiceRepository.cs",
@@ -682,12 +949,11 @@
               "RelativeToolTip": "Repositories\\Interfaces\\IServiceRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T14:33:17.561Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T14:33:17.561Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 38,
               "Title": "Service.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Service.cs",
               "RelativeDocumentMoniker": "Entities\\Service.cs",
@@ -695,12 +961,11 @@
               "RelativeToolTip": "Entities\\Service.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T14:29:43.488Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T14:29:43.488Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 39,
               "Title": "IAccountService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\IAccountService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IAccountService.cs",
@@ -708,25 +973,11 @@
               "RelativeToolTip": "Services\\Interfaces\\IAccountService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:03:08.718Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T15:03:08.718Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AccountService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\AccountService.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AccountService.cs",
-              "RelativeToolTip": "Services\\Implementations\\AccountService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAHEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:06:36.679Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 40,
               "Title": "TransactionService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\TransactionService.cs",
               "RelativeDocumentMoniker": "Services\\Implementations\\TransactionService.cs",
@@ -734,12 +985,11 @@
               "RelativeToolTip": "Services\\Implementations\\TransactionService.cs",
               "ViewState": "AgIAAFkAAAAAAAAAAAAcwH4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:06:53.596Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T15:06:53.596Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 41,
               "Title": "INotificationService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\INotificationService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\INotificationService.cs",
@@ -747,12 +997,11 @@
               "RelativeToolTip": "Services\\Interfaces\\INotificationService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:04:59.763Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T15:04:59.763Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 42,
               "Title": "NotificationController.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\NotificationController.cs",
               "RelativeDocumentMoniker": "Controllers\\NotificationController.cs",
@@ -760,12 +1009,11 @@
               "RelativeToolTip": "Controllers\\NotificationController.cs",
               "ViewState": "AgIAAD4AAAAAAAAAAAAIwFEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T10:23:03.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T10:23:03.156Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 43,
               "Title": "TransactionController.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\TransactionController.cs",
               "RelativeDocumentMoniker": "Controllers\\TransactionController.cs",
@@ -773,12 +1021,11 @@
               "RelativeToolTip": "Controllers\\TransactionController.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAwwE4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T10:20:33.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T10:20:33.033Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 44,
               "Title": "NotificationRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\NotificationRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\NotificationRepository.cs",
@@ -790,7 +1037,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 45,
               "Title": "INotificationRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\INotificationRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\INotificationRepository.cs",
@@ -802,31 +1049,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AuthService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\AuthService.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AuthService.cs",
-              "RelativeToolTip": "Services\\Implementations\\AuthService.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAD4vzgAAABsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T10:42:46.241Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Interfaces\\IUserRepository.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IUserRepository.cs",
-              "RelativeToolTip": "Repositories\\Interfaces\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T12:19:20.716Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 46,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\UserRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\UserRepository.cs",
@@ -838,7 +1061,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 47,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\UserService.cs",
               "RelativeDocumentMoniker": "Services\\Implementations\\UserService.cs",
@@ -850,7 +1073,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 48,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\IUserService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IUserService.cs",
@@ -862,7 +1085,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 49,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
@@ -874,7 +1097,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 50,
               "Title": "UserRequestDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\UserRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\RequestDtos\\UserRequestDto.cs",
@@ -886,7 +1109,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 51,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\User.cs",
               "RelativeDocumentMoniker": "Entities\\User.cs",
@@ -898,7 +1121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 52,
               "Title": "IServiceServiceRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IServiceServiceRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IServiceServiceRepository.cs",
@@ -910,7 +1133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 53,
               "Title": "ServiceRequestDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\ServiceRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\RequestDtos\\ServiceRequestDto.cs",
@@ -922,7 +1145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 55,
               "Title": "CardType.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\CardType.cs",
               "RelativeDocumentMoniker": "Enums\\CardType.cs",
@@ -934,7 +1157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 56,
               "Title": "TransactionStatus.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\TransactionStatus.cs",
               "RelativeDocumentMoniker": "Enums\\TransactionStatus.cs",
@@ -946,19 +1169,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAG8AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T12:56:00.188Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 54,
               "Title": "ServiceResponseDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\ServiceResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ResponseDtos\\ServiceResponseDto.cs",
@@ -970,7 +1181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 57,
               "Title": "TransactionType.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\TransactionType.cs",
               "RelativeDocumentMoniker": "Enums\\TransactionType.cs",
@@ -982,7 +1193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 58,
               "Title": "UserRole.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Enums\\UserRole.cs",
               "RelativeDocumentMoniker": "Enums\\UserRole.cs",
@@ -994,7 +1205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 59,
               "Title": "README-Backend.md [Preview]",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\docs\\README-Backend.md",
               "RelativeDocumentMoniker": "docs\\README-Backend.md",
@@ -1006,7 +1217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 60,
               "Title": "README-Backend.md",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\docs\\README-Backend.md",
               "RelativeDocumentMoniker": "docs\\README-Backend.md",
@@ -1018,7 +1229,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 61,
               "Title": "ILoanService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\ILoanService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\ILoanService.cs",
@@ -1030,55 +1241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "CardController.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\CardController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CardController.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\CardController.cs",
-              "RelativeToolTip": "Controllers\\CardController.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAIwFAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T10:21:09.215Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "CardService.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\CardService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\CardService.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\CardService.cs",
-              "RelativeToolTip": "Services\\Implementations\\CardService.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAA0wEgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:07:26.227Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "ICardService.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\ICardService.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\ICardService.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\ICardService.cs",
-              "RelativeToolTip": "Services\\Interfaces\\ICardService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:03:53.013Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "ErrorMessages.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\ErrorMessages.cs",
-              "RelativeDocumentMoniker": "Exceptions\\ErrorMessages.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\ErrorMessages.cs",
-              "RelativeToolTip": "Exceptions\\ErrorMessages.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwCcAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:29:44.791Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 62,
               "Title": "AccountRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\AccountRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\AccountRepository.cs",
@@ -1090,7 +1253,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 63,
               "Title": "IAccountRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IAccountRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IAccountRepository.cs",
@@ -1102,7 +1265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 64,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\IAuthService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IAuthService.cs",
@@ -1114,7 +1277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 65,
               "Title": "AuditLogController.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\AuditLogController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuditLogController.cs",
@@ -1126,7 +1289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 66,
               "Title": "BeneficiaryController.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\BeneficiaryController.cs",
               "RelativeDocumentMoniker": "Controllers\\BeneficiaryController.cs",
@@ -1138,7 +1301,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 67,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
@@ -1150,7 +1313,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 69,
               "Title": "UserMappingProfile.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\UserMappingProfile.cs",
               "RelativeDocumentMoniker": "Mappings\\UserMappingProfile.cs",
@@ -1162,7 +1325,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 68,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
@@ -1174,7 +1337,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 70,
               "Title": "AuditLogMappingProfile.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\AuditLogMappingProfile.cs",
               "RelativeDocumentMoniker": "Mappings\\AuditLogMappingProfile.cs",
@@ -1186,7 +1349,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 71,
               "Title": "AccountMappingProfile.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\AccountMappingProfile.cs",
               "RelativeDocumentMoniker": "Mappings\\AccountMappingProfile.cs",
@@ -1198,7 +1361,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 72,
               "Title": "AuthResponseDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\AuthResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ResponseDtos\\AuthResponseDto.cs",
@@ -1210,7 +1373,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 73,
               "Title": "LoginRequestDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\LoginRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\RequestDtos\\LoginRequestDto.cs",
@@ -1222,7 +1385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 74,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -1234,7 +1397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 76,
               "Title": "IAuditLogService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\IAuditLogService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IAuditLogService.cs",
@@ -1246,19 +1409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "AuditLogService.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AuditLogService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\AuditLogService.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AuditLogService.cs",
-              "RelativeToolTip": "Services\\Implementations\\AuditLogService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:08:34.709Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 75,
               "Title": "BeneficiaryService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\BeneficiaryService.cs",
               "RelativeDocumentMoniker": "Services\\Implementations\\BeneficiaryService.cs",
@@ -1270,7 +1421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 77,
               "Title": "IBeneficiaryService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\IBeneficiaryService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IBeneficiaryService.cs",
@@ -1282,7 +1433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 78,
               "Title": "ITransactionService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\ITransactionService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\ITransactionService.cs",
@@ -1294,7 +1445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 79,
               "Title": "NotificationMappingProfile.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\NotificationMappingProfile.cs",
               "RelativeDocumentMoniker": "Mappings\\NotificationMappingProfile.cs",
@@ -1306,7 +1457,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 80,
               "Title": "BeneficiaryMappingProfile.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\BeneficiaryMappingProfile.cs",
               "RelativeDocumentMoniker": "Mappings\\BeneficiaryMappingProfile.cs",
@@ -1318,19 +1469,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
-              "Title": "CardMappingProfile.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\CardMappingProfile.cs",
-              "RelativeDocumentMoniker": "Mappings\\CardMappingProfile.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\CardMappingProfile.cs",
-              "RelativeToolTip": "Mappings\\CardMappingProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T09:39:43.043Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 81,
               "Title": "TransactionMappingProfile.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Mappings\\TransactionMappingProfile.cs",
               "RelativeDocumentMoniker": "Mappings\\TransactionMappingProfile.cs",
@@ -1342,7 +1481,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 83,
               "Title": "AuditLogResponseDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\AuditLogResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ResponseDtos\\AuditLogResponseDto.cs",
@@ -1354,7 +1493,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 84,
               "Title": "AuditLogRequestDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\AuditLogRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\RequestDtos\\AuditLogRequestDto.cs",
@@ -1366,7 +1505,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 82,
               "Title": "AccountResponseDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\AccountResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ResponseDtos\\AccountResponseDto.cs",
@@ -1378,7 +1517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 85,
               "Title": "NotificationResponseDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\NotificationResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ResponseDtos\\NotificationResponseDto.cs",
@@ -1390,7 +1529,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 86,
               "Title": "NotificationRequestDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\NotificationRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\RequestDtos\\NotificationRequestDto.cs",
@@ -1402,7 +1541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 87,
               "Title": "BeneficiaryResponseDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\BeneficiaryResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ResponseDtos\\BeneficiaryResponseDto.cs",
@@ -1414,43 +1553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
-              "Title": "BeneficiaryRequestDto.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\BeneficiaryRequestDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\RequestDtos\\BeneficiaryRequestDto.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\BeneficiaryRequestDto.cs",
-              "RelativeToolTip": "DTOs\\RequestDtos\\BeneficiaryRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T16:10:32.029Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 78,
-              "Title": "CardResponseDto.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\CardResponseDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\ResponseDtos\\CardResponseDto.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\CardResponseDto.cs",
-              "RelativeToolTip": "DTOs\\ResponseDtos\\CardResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T16:09:30.63Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 79,
-              "Title": "CardRequestDto.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\CardRequestDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\RequestDtos\\CardRequestDto.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\CardRequestDto.cs",
-              "RelativeToolTip": "DTOs\\RequestDtos\\CardRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T16:09:10.916Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 88,
               "Title": "TransactionResponseDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\TransactionResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ResponseDtos\\TransactionResponseDto.cs",
@@ -1462,7 +1565,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 89,
               "Title": "TransactionRequestDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\TransactionRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\RequestDtos\\TransactionRequestDto.cs",
@@ -1474,7 +1577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 90,
               "Title": "AccountRequestDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\AccountRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\RequestDtos\\AccountRequestDto.cs",
@@ -1486,7 +1589,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 91,
               "Title": "UserResponseDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\UserResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ResponseDtos\\UserResponseDto.cs",
@@ -1498,19 +1601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
-              "Title": "GlobalExceptionHandler.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\Handlers\\GlobalExceptionHandler.cs",
-              "RelativeDocumentMoniker": "Exceptions\\Handlers\\GlobalExceptionHandler.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\Handlers\\GlobalExceptionHandler.cs",
-              "RelativeToolTip": "Exceptions\\Handlers\\GlobalExceptionHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:27:03.848Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 92,
               "Title": "UnauthorizedException.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\Custom\\UnauthorizedException.cs",
               "RelativeDocumentMoniker": "Exceptions\\Custom\\UnauthorizedException.cs",
@@ -1522,7 +1613,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 93,
               "Title": "ForbiddenException.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\Custom\\ForbiddenException.cs",
               "RelativeDocumentMoniker": "Exceptions\\Custom\\ForbiddenException.cs",
@@ -1534,7 +1625,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 94,
               "Title": "BadRequestException.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\Custom\\BadRequestException.cs",
               "RelativeDocumentMoniker": "Exceptions\\Custom\\BadRequestException.cs",
@@ -1546,7 +1637,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
+              "DocumentIndex": 95,
               "Title": "ConflictException.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\Custom\\ConflictException.cs",
               "RelativeDocumentMoniker": "Exceptions\\Custom\\ConflictException.cs",
@@ -1558,7 +1649,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 96,
               "Title": "NotFoundException.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Exceptions\\Custom\\NotFoundException.cs",
               "RelativeDocumentMoniker": "Exceptions\\Custom\\NotFoundException.cs",
@@ -1570,7 +1661,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 90,
+              "DocumentIndex": 97,
               "Title": "AuditLogRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\AuditLogRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\AuditLogRepository.cs",
@@ -1582,7 +1673,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 98,
               "Title": "BeneficiaryRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\BeneficiaryRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\BeneficiaryRepository.cs",
@@ -1594,7 +1685,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 92,
+              "DocumentIndex": 99,
               "Title": "CardRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\CardRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\CardRepository.cs",
@@ -1606,7 +1697,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 93,
+              "DocumentIndex": 100,
               "Title": "TransactionRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\TransactionRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\TransactionRepository.cs",
@@ -1618,19 +1709,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 95,
-              "Title": "IBaseRepository.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IBaseRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Interfaces\\IBaseRepository.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IBaseRepository.cs",
-              "RelativeToolTip": "Repositories\\Interfaces\\IBaseRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T12:17:22.188Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 94,
+              "DocumentIndex": 101,
               "Title": "BaseRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\BaseRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\BaseRepository.cs",
@@ -1642,7 +1721,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 96,
+              "DocumentIndex": 102,
               "Title": "IAuditLogRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IAuditLogRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IAuditLogRepository.cs",
@@ -1654,7 +1733,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 97,
+              "DocumentIndex": 103,
               "Title": "IBeneficiaryRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\IBeneficiaryRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IBeneficiaryRepository.cs",
@@ -1666,19 +1745,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 99,
-              "Title": "ICardRepository.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\ICardRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Interfaces\\ICardRepository.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\ICardRepository.cs",
-              "RelativeToolTip": "Repositories\\Interfaces\\ICardRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T12:22:12.901Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 98,
+              "DocumentIndex": 104,
               "Title": "ITransactionRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\ITransactionRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\ITransactionRepository.cs",
@@ -1690,7 +1757,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 101,
+              "DocumentIndex": 105,
               "Title": "Account.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Account.cs",
               "RelativeDocumentMoniker": "Entities\\Account.cs",
@@ -1702,19 +1769,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 100,
-              "Title": "BaseEntity.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Common\\BaseEntity.cs",
-              "RelativeDocumentMoniker": "Common\\BaseEntity.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Common\\BaseEntity.cs",
-              "RelativeToolTip": "Common\\BaseEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T16:29:44.255Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 103,
+              "DocumentIndex": 107,
               "Title": "AccountType.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AccountType.cs",
               "RelativeDocumentMoniker": "Entities\\AccountType.cs",
@@ -1726,7 +1781,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 104,
+              "DocumentIndex": 108,
               "Title": "NotificationType.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\NotificationType.cs",
               "RelativeDocumentMoniker": "Entities\\NotificationType.cs",
@@ -1738,7 +1793,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 102,
+              "DocumentIndex": 106,
               "Title": "Notification.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Notification.cs",
               "RelativeDocumentMoniker": "Entities\\Notification.cs",
@@ -1750,7 +1805,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 105,
+              "DocumentIndex": 109,
               "Title": "LoanStatus.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\LoanStatus.cs",
               "RelativeDocumentMoniker": "Entities\\LoanStatus.cs",
@@ -1762,7 +1817,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 107,
+              "DocumentIndex": 111,
               "Title": "Beneficiary.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Beneficiary.cs",
               "RelativeDocumentMoniker": "Entities\\Beneficiary.cs",
@@ -1774,7 +1829,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 106,
+              "DocumentIndex": 110,
               "Title": ".gitignore",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
@@ -1786,31 +1841,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 108,
-              "Title": "AuditLog.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AuditLog.cs",
-              "RelativeDocumentMoniker": "Entities\\AuditLog.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\AuditLog.cs",
-              "RelativeToolTip": "Entities\\AuditLog.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T16:48:47.74Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 109,
-              "Title": "Card.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Card.cs",
-              "RelativeDocumentMoniker": "Entities\\Card.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Card.cs",
-              "RelativeToolTip": "Entities\\Card.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T16:43:31.589Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 110,
+              "DocumentIndex": 112,
               "Title": "Transaction.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Entities\\Transaction.cs",
               "RelativeDocumentMoniker": "Entities\\Transaction.cs",

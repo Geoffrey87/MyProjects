@@ -9,6 +9,7 @@
         public DateOnly ExpiryDate { get; set; }
         public bool IsActive { get; set; }
         public decimal DailyLimit { get; set; }
+        public string Status { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
     }
 }
