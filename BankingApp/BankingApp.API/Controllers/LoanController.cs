@@ -33,10 +33,9 @@ namespace BankingApp.API.Controllers
             => Ok(await _loanService.GetByIdAsync(id));
 
         /// <summary>
-        /// Create new loan — Admin only
+        /// Create new loan — Client
         /// </summary>
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<LoanResponseDto>> Create([FromBody] LoanRequestDto dto)
         {
             var loan = await _loanService.CreateAsync(dto);
@@ -83,5 +82,13 @@ namespace BankingApp.API.Controllers
             await _loanService.RejectLoanAsync(id);
             return NoContent();
         }
+
+        /// <summary>
+        /// Get all loans — Admin only
+        /// </summary>
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<List<LoanResponseDto>>> GetAll()
+            => Ok(await _loanService.GetAllAsync());
     }
 }

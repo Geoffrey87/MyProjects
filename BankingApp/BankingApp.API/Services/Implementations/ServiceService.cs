@@ -32,15 +32,15 @@ namespace BankingApp.API.Services.Implementations
             _mapper = mapper;
         }
 
-        public async Task<List<ServiceResponseDto>> GetAllAsync()
+        public async Task<List<ServiceResponseDto>> GetAllAsync(int userId)
         {
-            var services = await _serviceRepository.GetAllAsync();
+            var services = await _serviceRepository.GetByUserIdAsync(userId);
             return _mapper.Map<List<ServiceResponseDto>>(services);
         }
 
-        public async Task<List<ServiceResponseDto>> GetByCategoryAsync(string category)
+        public async Task<List<ServiceResponseDto>> GetByCategoryAsync(int userId, string category)
         {
-            var services = await _serviceRepository.GetByCategoryAsync(category);
+            var services = await _serviceRepository.GetByCategoryAsync(userId, category);
             return _mapper.Map<List<ServiceResponseDto>>(services);
         }
 
@@ -51,9 +51,10 @@ namespace BankingApp.API.Services.Implementations
             return _mapper.Map<ServiceResponseDto>(service);
         }
 
-        public async Task<ServiceResponseDto> CreateAsync(ServiceRequestDto dto)
+        public async Task<ServiceResponseDto> CreateAsync(ServiceRequestDto dto, int userId)
         {
             var service = _mapper.Map<Service>(dto);
+            service.UserId = userId;
             await _serviceRepository.AddAsync(service);
             return _mapper.Map<ServiceResponseDto>(service);
         }

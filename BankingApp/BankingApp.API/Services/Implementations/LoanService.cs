@@ -52,23 +52,37 @@ namespace BankingApp.API.Services.Implementations
         public async Task<List<LoanResponseDto>> GetByUserIdAsync(int userId)
         {
             var loans = await _loanRepository.GetByUserIdAsync(userId);
-            if (loans == null || !loans.Any())
-                throw new NotFoundException(ErrorMessages.LoanNotFound);
-            return _mapper.Map<List<LoanResponseDto>>(loans);
+
+            return _mapper.Map<List<LoanResponseDto>>(loans ?? new List<Loan>());
         }
 
         public async Task<LoanResponseDto> CreateAsync(LoanRequestDto dto)
         {
-            var loan = _mapper.Map<Loan>(dto);
-            await _loanRepository.AddAsync(loan);
-
-            // Busca o utilizador para o nome
             var account = await _accountRepository.GetByIdAsync(dto.AccountId)
                 ?? throw new NotFoundException(ErrorMessages.AccountNotFound);
+
+            var pendingStatus = await _loanRepository.GetStatusByNameAsync("Pending");
+
+            const decimal interestRate = 5.0m; // taxa definida pelo banco
+
+            var loan = new Loan
+            {
+                UserId = account.UserId,
+                AccountId = dto.AccountId,
+                Amount = dto.Amount,
+                InterestRate = interestRate,
+                TermMonths = dto.TermMonths,
+                MonthlyPayment = CalculateMonthlyPayment(dto.Amount, interestRate, dto.TermMonths),
+                RemainingBalance = dto.Amount,
+                LoanStatusId = pendingStatus!.Id,
+                StartDate = DateTime.UtcNow
+            };
+
+            await _loanRepository.AddAsync(loan);
+
             var user = await _userRepository.GetByIdAsync(account.UserId)
                 ?? throw new NotFoundException(ErrorMessages.UserNotFound);
 
-            // Notifica todos os Admins
             var notificationType = await _notificationRepository.GetTypeByNameAsync("Loan");
             var adminIds = await _notificationRepository.GetAdminUserIdsAsync();
 

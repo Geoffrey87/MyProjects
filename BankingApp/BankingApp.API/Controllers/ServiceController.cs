@@ -13,6 +13,12 @@ namespace BankingApp.API.Controllers
     {
         private readonly IServiceService _serviceService;
 
+        /// <summary>
+        /// Extracts the authenticated user's ID from the JWT token claims
+        /// </summary>
+        private int GetUserId() => int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)!.Value);
+
+
         public ServiceController(IServiceService serviceService)
         {
             _serviceService = serviceService;
@@ -23,14 +29,14 @@ namespace BankingApp.API.Controllers
         /// </summary>
         [HttpGet]
         public async Task<ActionResult<List<ServiceResponseDto>>> GetAll()
-            => Ok(await _serviceService.GetAllAsync());
+     => Ok(await _serviceService.GetAllAsync(GetUserId()));
 
         /// <summary>
         /// Get services by category
         /// </summary>
         [HttpGet("category/{category}")]
         public async Task<ActionResult<List<ServiceResponseDto>>> GetByCategory(string category)
-            => Ok(await _serviceService.GetByCategoryAsync(category));
+    => Ok(await _serviceService.GetByCategoryAsync(GetUserId(), category));
 
         /// <summary>
         /// Get service by ID
@@ -45,7 +51,7 @@ namespace BankingApp.API.Controllers
         [HttpPost]
         public async Task<ActionResult<ServiceResponseDto>> Create([FromBody] ServiceRequestDto dto)
         {
-            var service = await _serviceService.CreateAsync(dto);
+            var service = await _serviceService.CreateAsync(dto, GetUserId());
             return CreatedAtAction(nameof(GetById), new { id = service.Id }, service);
         }
 

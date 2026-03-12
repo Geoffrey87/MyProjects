@@ -36,9 +36,8 @@ namespace BankingApp.API.Services.Implementations
         public async Task<List<NotificationResponseDto>> GetByUserIdAsync(int userId)
         {
             var notifications = await _notificationRepository.GetByUserIdAsync(userId);
-            if (notifications == null || !notifications.Any())
-                throw new NotFoundException(ErrorMessages.NotificationNotFound);
-            return _mapper.Map<List<NotificationResponseDto>>(notifications);
+            
+            return _mapper.Map<List<NotificationResponseDto>>(notifications ?? new List<Notification>());
         }
 
         public async Task<List<NotificationResponseDto>> GetUnreadByUserIdAsync(int userId)
