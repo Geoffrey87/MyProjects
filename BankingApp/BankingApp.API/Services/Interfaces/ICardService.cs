@@ -16,6 +16,6 @@ namespace BankingApp.API.Services.Interfaces
         Task<CardResponseDto> RejectCardAsync(int cardId);
         Task<CardResponseDto> UpdateAsync(int id, CardRequestDto dto);
         Task DeleteAsync(int id);
-        Task ToggleCardAsync(int cardId);
+        Task<CardResponseDto> ToggleCardAsync(int cardId);
     }
 }

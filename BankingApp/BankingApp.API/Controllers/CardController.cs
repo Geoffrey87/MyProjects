@@ -95,15 +95,19 @@ namespace BankingApp.API.Controllers
             await _cardService.DeleteAsync(id);
             return NoContent();
         }
+        /// <summary>
+        /// Get all cards — Admin only
+        /// </summary>
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<List<CardResponseDto>>> GetAll()
+            => Ok(await _cardService.GetAllAsync());
 
         /// <summary>
         /// Activate/deactivate card — toggle IsActive
         /// </summary>
         [HttpPatch("{id}/toggle")]
-        public async Task<ActionResult> Toggle(int id)
-        {
-            await _cardService.ToggleCardAsync(id);
-            return NoContent();
-        }
+        public async Task<ActionResult<CardResponseDto>> Toggle(int id)
+     => Ok(await _cardService.ToggleCardAsync(id));
     }
 }

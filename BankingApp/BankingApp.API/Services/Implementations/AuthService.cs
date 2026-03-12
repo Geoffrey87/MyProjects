@@ -21,42 +21,39 @@ namespace BankingApp.API.Services.Implementations
         private readonly IUserRepository _userRepository;
         private readonly IAccountRepository _accountRepository;
         private readonly ITransactionRepository _transactionRepository;
+        private readonly ICardService _cardService;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
 
         public AuthService(
-            IUserRepository userRepository,
-            IAccountRepository accountRepository,
-            ITransactionRepository transactionRepository,
-            IMapper mapper,
-            IConfiguration configuration)
+       IUserRepository userRepository,
+       IAccountRepository accountRepository,
+       ITransactionRepository transactionRepository,
+       ICardService cardService, 
+       IMapper mapper,
+       IConfiguration configuration)
         {
             _userRepository = userRepository;
             _accountRepository = accountRepository;
             _transactionRepository = transactionRepository;
+            _cardService = cardService; 
             _mapper = mapper;
             _configuration = configuration;
         }
 
- 
-
         public async Task<AuthResponseDto> RegisterAsync(UserRequestDto dto)
         {
-            // Verifica se o email já existe
             if (await _userRepository.ExistsByEmailAsync(dto.Email))
                 throw new ConflictException(ErrorMessages.UserEmailAlreadyExists);
 
-            // Cria o utilizador
             var user = _mapper.Map<User>(dto);
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
             await _userRepository.AddAsync(user);
 
             var accountType = await _accountRepository.GetCheckingAccountTypeAsync();
-
             if (accountType == null)
                 throw new BadRequestException("AccountType 'Checking' not found. Seeder may not have run.");
 
-            // Cria conta bancária automaticamente
             var account = new Account
             {
                 UserId = user.Id,
@@ -69,7 +66,12 @@ namespace BankingApp.API.Services.Implementations
             };
             await _accountRepository.AddAsync(account);
 
-            // Regista transação de boas vindas
+            // Gerar cartão de débito automaticamente
+            await _cardService.CreateAutomaticDebitCardAsync(
+                account.Id,
+                $"{user.FirstName} {user.LastName}"
+            );
+
             await _transactionRepository.AddAsync(new Transaction
             {
                 ToAccountId = account.Id,

@@ -150,7 +150,7 @@ namespace BankingApp.API.Services.Implementations
             await _cardRepository.DeleteAsync(card.Id);
         }
 
-        public async Task ToggleCardAsync(int cardId)
+        public async Task<CardResponseDto> ToggleCardAsync(int cardId)
         {
             var card = await _cardRepository.GetByIdAsync(cardId)
                 ?? throw new NotFoundException(ErrorMessages.CardNotFound);
@@ -161,9 +161,10 @@ namespace BankingApp.API.Services.Implementations
             card.IsActive = !card.IsActive;
             card.Status = card.IsActive ? CardStatus.Active : CardStatus.Inactive;
             await _cardRepository.UpdateAsync(card);
+            return _mapper.Map<CardResponseDto>(card);
         }
 
-        // Gera número de cartão único no formato XXXX-XXXX-XXXX-XXXX
+        // Gera número de cartão único
         private static string GenerateCardNumber()
         {
             var rng = new Random();
