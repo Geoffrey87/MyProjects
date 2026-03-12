@@ -2,12 +2,13 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { AccountService } from '../../../core/services/account.service';
 import { CardService } from '../../../core/services/card.service';
-import { Card, Account } from '../../../core/models';
+import { Card, Account, CardType, CardStatus } from '../../../core/models';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-card-list',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './card-list.html',
   styleUrl: './card-list.css',
 })
@@ -15,10 +16,23 @@ export class CardList implements OnInit {
   private auth = inject(AuthService);
   private accountService = inject(AccountService);
   private cardService = inject(CardService);
+  private fb = inject(FormBuilder);
 
   cards = signal<Card[]>([]);
+  accounts = signal<Account[]>([]);
   loading = signal(true);
   togglingId = signal<number | null>(null);
+  showModal = signal(false);
+  requesting = signal(false);
+
+  CardStatus = CardStatus;
+  CardType = CardType;
+
+  requestForm = this.fb.group({
+    accountId: [0, [Validators.required, Validators.min(1)]],
+    cardType: [CardType.Debit, Validators.required],
+    dailyLimit: [1000, [Validators.required, Validators.min(1)]],
+  });
 
   ngOnInit(): void {
     const user = this.auth.currentUser();
@@ -28,10 +42,13 @@ export class CardList implements OnInit {
 
     this.accountService.getByUser(userId).subscribe({
       next: (accounts) => {
+        this.accounts.set(accounts);
         if (accounts.length === 0) {
           this.loading.set(false);
           return;
         }
+        // pre-select first account
+        this.requestForm.patchValue({ accountId: accounts[0].id });
         this.loadCardsForAccounts(accounts);
       },
       error: () => this.loading.set(false),
@@ -64,6 +81,8 @@ export class CardList implements OnInit {
   }
 
   toggleCard(card: Card): void {
+    if (card.status === CardStatus.Pending || card.status === CardStatus.Rejected) return;
+
     this.togglingId.set(card.id);
     this.cardService.toggle(card.id).subscribe({
       next: (updated) => {
@@ -72,6 +91,51 @@ export class CardList implements OnInit {
       },
       error: () => this.togglingId.set(null),
     });
+  }
+
+  openModal(): void {
+    this.showModal.set(true);
+  }
+
+  closeModal(): void {
+    this.showModal.set(false);
+    this.requestForm.reset({
+      accountId: this.accounts()[0]?.id ?? 0,
+      cardType: CardType.Debit,
+      dailyLimit: 1000,
+    });
+  }
+
+  submitRequest(): void {
+    if (this.requestForm.invalid) return;
+
+    this.requesting.set(true);
+    this.cardService.request(this.requestForm.value as any).subscribe({
+      next: (card) => {
+        this.cards.update((cards) => [...cards, card]);
+        this.requesting.set(false);
+        this.closeModal();
+      },
+      error: () => this.requesting.set(false),
+    });
+  }
+
+  getCardClass(card: Card): string {
+    if (card.status === CardStatus.Pending) return 'bank-card bank-card-pending';
+    if (card.status === CardStatus.Rejected) return 'bank-card bank-card-rejected';
+    return card.isActive ? 'bank-card bank-card-active' : 'bank-card bank-card-inactive';
+  }
+
+  getStatusLabel(card: Card): string {
+    if (card.status === CardStatus.Pending) return 'Pending Approval';
+    if (card.status === CardStatus.Rejected) return 'Rejected';
+    return card.isActive ? 'Active' : 'Inactive';
+  }
+
+  getStatusClass(card: Card): string {
+    if (card.status === CardStatus.Pending) return 'status-pending';
+    if (card.status === CardStatus.Rejected) return 'status-rejected';
+    return card.isActive ? 'status-active' : 'status-inactive';
   }
 
   formatDate(date: string): string {
@@ -83,5 +147,19 @@ export class CardList implements OnInit {
 
   maskCardNumber(number: string): string {
     return '**** **** **** ' + number.slice(-4);
+  }
+
+  visibleCardIds = signal<Set<number>>(new Set());
+
+  toggleCardNumber(cardId: number): void {
+    this.visibleCardIds.update((ids) => {
+      const newIds = new Set(ids);
+      newIds.has(cardId) ? newIds.delete(cardId) : newIds.add(cardId);
+      return newIds;
+    });
+  }
+
+  isCardNumberVisible(cardId: number): boolean {
+    return this.visibleCardIds().has(cardId);
   }
 }

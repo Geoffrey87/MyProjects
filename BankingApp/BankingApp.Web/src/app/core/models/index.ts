@@ -24,6 +24,13 @@ export enum CardType {
   Credit = 'Credit',
 }
 
+export enum CardStatus {
+  Pending = 'Pending',
+  Active = 'Active',
+  Inactive = 'Inactive',
+  Rejected = 'Rejected',
+}
+
 // ─── User ─────────────────────────────────────────────────────────────────────
 
 export interface User {
@@ -122,7 +129,14 @@ export interface Card {
   expiryDate: string;
   isActive: boolean;
   dailyLimit: number;
+  status: CardStatus;
   createdAt: string;
+}
+
+export interface CardRequestByClient {
+  accountId: number;
+  cardType: CardType;
+  dailyLimit: number;
 }
 
 // ─── Loan ─────────────────────────────────────────────────────────────────────

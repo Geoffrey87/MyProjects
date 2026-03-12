@@ -1,0 +1,123 @@
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Card Approvals</h1>
+      <p class="page-subtitle">Review and manage card requests</p>
+    </div>
+    @if (pendingCards.length > 0) {
+      <div class="pending-badge">{{ pendingCards.length }} pending</div>
+    }
+  </div>
+
+  @if (loading()) {
+    <div class="loading-wrapper">
+      <div class="spinner"></div>
+      <p>Loading cards...</p>
+    </div>
+  } @else {
+    @if (pendingCards.length === 0) {
+      <div class="empty-state">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <p>No pending card requests.</p>
+      </div>
+    } @else {
+      <h2 class="section-title">Pending Requests</h2>
+      <div class="cards-list">
+        @for (card of pendingCards; track card.id) {
+          <div class="card-item pending">
+            <div class="card-header">
+              <div class="card-header-left">
+                <p class="card-holder">{{ card.cardHolderName }}</p>
+                <p class="card-subtitle">
+                  {{ card.cardType }} · **** {{ card.cardNumber.slice(-4) }}
+                </p>
+              </div>
+              <span class="status-pending">Pending</span>
+            </div>
+
+            <div class="card-details">
+              <div class="card-detail">
+                <p class="detail-label">Card Type</p>
+                <p class="detail-value">{{ card.cardType }}</p>
+              </div>
+              <div class="card-detail">
+                <p class="detail-label">Daily Limit</p>
+                <p class="detail-value">{{ card.dailyLimit }}€</p>
+              </div>
+              <div class="card-detail">
+                <p class="detail-label">Expires</p>
+                <p class="detail-value">{{ card.expiryDate }}</p>
+              </div>
+              <div class="card-detail">
+                <p class="detail-label">Requested On</p>
+                <p class="detail-value">{{ formatDate(card.createdAt) }}</p>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <button
+                (click)="reject(card.id)"
+                [disabled]="processingId() === card.id"
+                class="btn-reject"
+              >
+                {{ processingId() === card.id ? 'Processing...' : 'Reject' }}
+              </button>
+              <button
+                (click)="approve(card.id)"
+                [disabled]="processingId() === card.id"
+                class="btn-approve"
+              >
+                {{ processingId() === card.id ? 'Processing...' : 'Approve' }}
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    @if (processedCards.length > 0) {
+      <h2 class="section-title" style="margin-top: 2rem">Processed Requests</h2>
+      <div class="cards-list">
+        @for (card of processedCards; track card.id) {
+          <div class="card-item">
+            <div class="card-header">
+              <div class="card-header-left">
+                <p class="card-holder">{{ card.cardHolderName }}</p>
+                <p class="card-subtitle">
+                  {{ card.cardType }} · **** {{ card.cardNumber.slice(-4) }}
+                </p>
+              </div>
+              <span [class]="getStatusClass(card.status)">{{ card.status }}</span>
+            </div>
+
+            <div class="card-details">
+              <div class="card-detail">
+                <p class="detail-label">Card Type</p>
+                <p class="detail-value">{{ card.cardType }}</p>
+              </div>
+              <div class="card-detail">
+                <p class="detail-label">Daily Limit</p>
+                <p class="detail-value">{{ card.dailyLimit }}€</p>
+              </div>
+              <div class="card-detail">
+                <p class="detail-label">Expires</p>
+                <p class="detail-value">{{ card.expiryDate }}</p>
+              </div>
+              <div class="card-detail">
+                <p class="detail-label">Processed On</p>
+                <p class="detail-value">{{ formatDate(card.createdAt) }}</p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  }
+</div>

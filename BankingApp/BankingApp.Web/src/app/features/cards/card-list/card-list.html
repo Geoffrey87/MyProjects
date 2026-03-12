@@ -4,6 +4,7 @@
       <h1 class="page-title">Cards</h1>
       <p class="page-subtitle">Manage your debit and credit cards</p>
     </div>
+    <button class="btn-request" (click)="openModal()">+ Request New Card</button>
   </div>
 
   @if (loading()) {
@@ -28,9 +29,7 @@
       @for (card of cards(); track card.id) {
         <div class="card-wrapper">
           <!-- Visual Card -->
-          <div
-            [class]="card.isActive ? 'bank-card bank-card-active' : 'bank-card bank-card-inactive'"
-          >
+          <div [class]="getCardClass(card)">
             <div class="card-top">
               <span class="card-bank">BankingApp</span>
               <span class="card-type">{{ card.cardType }}</span>
@@ -42,43 +41,80 @@
                 <div></div>
               </div>
             </div>
-            <div class="card-number">{{ maskCardNumber(card.cardNumber) }}</div>
-            <div class="card-bottom">
-              <div>
-                <p class="card-label">CARD HOLDER</p>
-                <p class="card-value">{{ card.cardHolderName }}</p>
-              </div>
-              <div>
-                <p class="card-label">EXPIRES</p>
-                <p class="card-value">{{ formatDate(card.expiryDate) }}</p>
-              </div>
-            </div>
+            <div class="card-number">{{ card.cardNumber }}</div>
           </div>
 
           <!-- Card Actions -->
           <div class="card-actions">
             <div class="card-info">
-              <span [class]="card.isActive ? 'status-active' : 'status-inactive'">
-                {{ card.isActive ? 'Active' : 'Inactive' }}
-              </span>
+              <span [class]="getStatusClass(card)">{{ getStatusLabel(card) }}</span>
               <span class="daily-limit">Daily limit: {{ card.dailyLimit }}€</span>
             </div>
-            <button
-              (click)="toggleCard(card)"
-              [disabled]="togglingId() === card.id"
-              [class]="card.isActive ? 'btn-deactivate' : 'btn-activate'"
-            >
-              {{
-                togglingId() === card.id
-                  ? 'Processing...'
-                  : card.isActive
-                    ? 'Deactivate'
-                    : 'Activate'
-              }}
-            </button>
+            @if (card.status === CardStatus.Pending) {
+              <span class="badge-pending">Awaiting Admin</span>
+            } @else if (card.status === CardStatus.Rejected) {
+              <span class="badge-rejected">Rejected</span>
+            } @else {
+              <button
+                (click)="toggleCard(card)"
+                [disabled]="togglingId() === card.id"
+                [class]="card.isActive ? 'btn-deactivate' : 'btn-activate'"
+              >
+                {{
+                  togglingId() === card.id
+                    ? 'Processing...'
+                    : card.isActive
+                      ? 'Deactivate'
+                      : 'Activate'
+                }}
+              </button>
+            }
           </div>
         </div>
       }
     </div>
   }
 </div>
+
+<!-- Modal -->
+@if (showModal()) {
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2 class="modal-title">Request New Card</h2>
+        <button class="modal-close" (click)="closeModal()">✕</button>
+      </div>
+
+      <form [formGroup]="requestForm" (ngSubmit)="submitRequest()">
+        <div class="form-group">
+          <label class="form-label">Account</label>
+          <select class="form-input" formControlName="accountId">
+            @for (account of accounts(); track account.id) {
+              <option [value]="account.id">{{ account.iban }} — {{ account.currency }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Card Type</label>
+          <select class="form-input" formControlName="cardType">
+            <option [value]="CardType.Debit">Debit</option>
+            <option [value]="CardType.Credit">Credit</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Daily Limit (€)</label>
+          <input class="form-input" type="number" formControlName="dailyLimit" min="1" />
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" (click)="closeModal()">Cancel</button>
+          <button type="submit" class="btn-submit" [disabled]="requestForm.invalid || requesting()">
+            {{ requesting() ? 'Submitting...' : 'Submit Request' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+}

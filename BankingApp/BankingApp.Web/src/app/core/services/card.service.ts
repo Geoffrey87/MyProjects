@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { Card } from '../models';
+import { Card, CardRequestByClient } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class CardService {
@@ -19,5 +19,20 @@ export class CardService {
 
   toggle(id: number): Observable<Card> {
     return this.http.patch<Card>(`${this.base}/${id}/toggle`, {});
+  }
+
+  request(dto: CardRequestByClient): Observable<Card> {
+    return this.http.post<Card>(`${this.base}/request`, dto);
+  }
+  getAll(): Observable<Card[]> {
+    return this.http.get<Card[]>(this.base);
+  }
+
+  approve(id: number): Observable<Card> {
+    return this.http.patch<Card>(`${this.base}/${id}/approve`, {});
+  }
+
+  reject(id: number): Observable<Card> {
+    return this.http.patch<Card>(`${this.base}/${id}/reject`, {});
   }
 }

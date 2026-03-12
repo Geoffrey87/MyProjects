@@ -65,6 +65,12 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/admin/loan-approval/loan-approval').then((m) => m.LoanApproval),
       },
+      {
+        path: 'admin/cards',
+        canActivate: [roleGuard('Admin')],
+        loadComponent: () =>
+          import('./features/admin/card-approval/card-approval').then((m) => m.CardApproval),
+      },
     ],
   },
 
