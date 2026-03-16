@@ -1,0 +1,154 @@
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Transfer</h1>
+      <p class="page-subtitle">Send money to another account via IBAN</p>
+    </div>
+    <button class="btn-back" (click)="goBack()">← Back</button>
+  </div>
+
+  @if (loading()) {
+    <div class="loading-wrapper">
+      <div class="spinner"></div>
+      <p>Loading accounts...</p>
+    </div>
+  } @else if (accounts().length === 0) {
+    <div class="empty-state">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+        />
+      </svg>
+      <p>No active accounts found.</p>
+    </div>
+  } @else {
+    <div class="transfer-layout">
+      <!-- Form -->
+      <div class="transfer-card">
+        <h2 class="section-title">Transfer Details</h2>
+
+        <form [formGroup]="transferForm" (ngSubmit)="submit()">
+          <div class="form-group">
+            <label class="form-label">From Account</label>
+            <select class="form-input" formControlName="fromAccountId">
+              @for (account of accounts(); track account.id) {
+                <option [value]="account.id">{{ account.accountType }} — {{ account.iban }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Destination IBAN</label>
+            <input
+              class="form-input"
+              type="text"
+              formControlName="toIBAN"
+              placeholder="PT50 0000 0000 0000 0000 0000 0"
+            />
+            @if (transferForm.get('toIBAN')?.invalid && transferForm.get('toIBAN')?.touched) {
+              <span class="field-error">Please enter a valid IBAN.</span>
+            }
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Amount (€)</label>
+            <div class="amount-wrapper">
+              <span class="currency-symbol">€</span>
+              <input
+                class="form-input amount-input"
+                type="number"
+                formControlName="amount"
+                placeholder="0.00"
+                min="0.01"
+                step="0.01"
+              />
+            </div>
+            @if (transferForm.get('amount')?.invalid && transferForm.get('amount')?.touched) {
+              <span class="field-error">Amount must be greater than zero.</span>
+            }
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Description <span class="optional">(optional)</span></label>
+            <input
+              class="form-input"
+              type="text"
+              formControlName="description"
+              placeholder="e.g. Rent, Invoice #123..."
+            />
+          </div>
+
+          @if (errorMessage()) {
+            <div class="alert alert-error">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              {{ errorMessage() }}
+            </div>
+          }
+
+          @if (success()) {
+            <div class="alert alert-success">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              Transfer completed successfully!
+            </div>
+          }
+
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" (click)="goBack()">Cancel</button>
+            <button
+              type="submit"
+              class="btn-submit"
+              [disabled]="transferForm.invalid || submitting()"
+            >
+              {{ submitting() ? 'Processing...' : 'Send Transfer' }}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Account Summary -->
+      <div class="summary-card">
+        <h2 class="section-title">Account Summary</h2>
+
+        @if (getSelectedAccount(); as acc) {
+          <div class="account-visual">
+            <div class="account-visual-header">
+              <span class="account-bank">BankingApp</span>
+              <span class="account-type-badge">{{ acc.accountType }}</span>
+            </div>
+            <div class="account-balance-label">Available Balance</div>
+            <div class="account-balance">{{ acc.balance | number: '1.2-2' }} €</div>
+            <div class="account-iban">{{ acc.iban }}</div>
+          </div>
+
+          <div class="summary-info">
+            <div class="summary-row">
+              <span class="summary-label">Currency</span>
+              <span class="summary-value">{{ acc.currency }}</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Status</span>
+              <span class="summary-value status-active">Active</span>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

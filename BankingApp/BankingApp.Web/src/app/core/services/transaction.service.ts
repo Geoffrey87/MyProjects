@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { Transaction, TransferRequest } from '../models';
+import { Transaction, TransferRequest, TransferByIbanRequest } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class TransactionService {
@@ -24,5 +24,9 @@ export class TransactionService {
 
   transfer(req: TransferRequest): Observable<Transaction> {
     return this.http.post<Transaction>(`${this.base}/transfer`, req);
+  }
+
+  transferByIban(req: TransferByIbanRequest): Observable<void> {
+    return this.http.post<void>(`${this.base}/transfer/iban`, req);
   }
 }

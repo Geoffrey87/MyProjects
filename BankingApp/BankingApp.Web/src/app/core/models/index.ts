@@ -217,3 +217,12 @@ export interface ApiError {
   error: string;
   message: string;
 }
+
+// ─── Transaction ──────────────────────────────────────────────────────────────
+export interface TransferByIbanRequest {
+  fromAccountId: number;
+  toIBAN: string;
+  amount: number;
+  currency?: string;
+  description?: string;
+}
