@@ -19,5 +19,9 @@ namespace BankingApp.API.Repositories.Implementations
                 .Where(t => (t.FromAccountId == accountId || t.ToAccountId == accountId)
                     && t.CreatedAt >= start && t.CreatedAt <= end)
                 .ToListAsync();
+
+        public async Task<Account?> GetByIBANAsync(string iban)
+                => await _context.Accounts
+                    .FirstOrDefaultAsync(a => a.IBAN.Replace(" ", "").ToUpper() == iban);
     }
 }

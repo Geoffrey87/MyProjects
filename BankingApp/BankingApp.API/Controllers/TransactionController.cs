@@ -56,24 +56,36 @@ namespace BankingApp.API.Controllers
         /// Transfer between accounts
         /// </summary>
         [HttpPost("transfer")]
-        public async Task<ActionResult> Transfer(
-            [FromQuery] int fromAccountId,
-            [FromQuery] int toAccountId,
-            [FromQuery] decimal amount)
+        public async Task<ActionResult> Transfer([FromBody] TransactionRequestDto dto)
         {
-            await _transactionService.TransferAsync(fromAccountId, toAccountId, amount);
+            await _transactionService.TransferAsync(dto.FromAccountId, dto.ToAccountId!.Value, dto.Amount);
             return Ok();
         }
 
-        /// <summary>
-        /// Delete transaction — Admin only
-        /// </summary>
-        [HttpDelete("{id}")]
+            /// <summary>
+            /// Delete transaction — Admin only
+            /// </summary>
+            [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int id)
         {
             await _transactionService.DeleteAsync(id);
             return NoContent();
+        }
+
+        [HttpPost("transfer/iban")]
+        public async Task<ActionResult> TransferByIBAN([FromBody] TransactionRequestDto dto)
+        {
+            if (string.IsNullOrEmpty(dto.ToIBAN))
+                return BadRequest("ToIBAN is required");
+
+            await _transactionService.TransferByIBANAsync(
+                dto.FromAccountId,
+                dto.ToIBAN,
+                dto.Amount,
+                dto.Description
+            );
+            return Ok();
         }
     }
 }

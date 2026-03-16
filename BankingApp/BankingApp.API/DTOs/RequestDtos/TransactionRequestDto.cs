@@ -10,6 +10,8 @@ namespace BankingApp.API.DTOs.RequestDtos
 
         public int? ToAccountId { get; set; }
 
+        public string? ToIBAN { get; set; }
+
         [Required(ErrorMessage = "Amount is required")]
         [Range(0.01, double.MaxValue, ErrorMessage = "Amount must be greater than zero")]
         public decimal Amount { get; set; }

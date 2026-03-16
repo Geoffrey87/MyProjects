@@ -123,5 +123,17 @@ namespace BankingApp.API.Services.Implementations
                 ?? throw new NotFoundException(ErrorMessages.TransactionNotFound);
             await _transactionRepository.DeleteAsync(transaction.Id);
         }
+        public async Task TransferByIBANAsync(int fromAccountId, string toIBAN, decimal amount, string description = "")
+        {
+            var normalizedIBAN = toIBAN.Replace(" ", "").ToUpper();
+
+            var toAccount = await _accountRepository.GetByIBANAsync(normalizedIBAN)
+                ?? throw new NotFoundException(ErrorMessages.AccountNotFound);
+
+            if (fromAccountId == toAccount.Id)
+                throw new BadRequestException(ErrorMessages.InvalidTransfer);
+
+            await TransferAsync(fromAccountId, toAccount.Id, amount);
+        }
     }
 }

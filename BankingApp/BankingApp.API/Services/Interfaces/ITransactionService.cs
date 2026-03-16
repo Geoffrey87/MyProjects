@@ -12,5 +12,6 @@ namespace BankingApp.API.Services.Interfaces
         Task<TransactionResponseDto> CreateAsync(TransactionRequestDto dto);
         Task TransferAsync(int fromAccountId, int toAccountId, decimal amount);
         Task DeleteAsync(int id);
+        Task TransferByIBANAsync(int fromAccountId, string toIBAN, decimal amount, string description = "");
     }
 }
