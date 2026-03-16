@@ -3,11 +3,12 @@ import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 import { AccountService } from '../../../core/services/account.service';
 import { Account } from '../../../core/models';
+import { IbanPipe } from '../../../shared/pipes/iban.pipe';
 
 @Component({
   selector: 'app-account-list',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, IbanPipe],
   templateUrl: './account-list.html',
   styleUrl: './account-list.css',
 })

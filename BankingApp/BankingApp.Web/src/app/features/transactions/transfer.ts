@@ -6,11 +6,12 @@ import { AccountService } from '../../core/services/account.service';
 import { TransactionService } from '../../core/services/transaction.service';
 import { AuthService } from '../../core/services/auth.service';
 import { Account } from '../../core/models';
+import { IbanPipe } from '../../shared/pipes/iban.pipe';
 
 @Component({
   selector: 'app-transfer',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, IbanPipe],
   templateUrl: './transfer.html',
   styleUrl: './transfer.css',
 })

@@ -35,7 +35,9 @@
             <label class="form-label">From Account</label>
             <select class="form-input" formControlName="fromAccountId">
               @for (account of accounts(); track account.id) {
-                <option [value]="account.id">{{ account.accountType }} — {{ account.iban }}</option>
+                <option [value]="account.id">
+                  {{ account.accountType }} — {{ account.iban | iban }}
+                </option>
               }
             </select>
           </div>
@@ -134,7 +136,7 @@
             </div>
             <div class="account-balance-label">Available Balance</div>
             <div class="account-balance">{{ acc.balance | number: '1.2-2' }} €</div>
-            <div class="account-iban">{{ acc.iban }}</div>
+            <div class="account-iban">{{ acc.iban | iban }}</div>
           </div>
 
           <div class="summary-info">

@@ -72,7 +72,7 @@ export const routes: Routes = [
           import('./features/admin/card-approval/card-approval').then((m) => m.CardApproval),
       },
       {
-        path: 'transactions/transfer',
+        path: 'transfer',
         loadComponent: () =>
           import('./features/transactions/transfer').then((m) => m.TransferComponent),
       },

@@ -114,7 +114,7 @@
                 </div>
                 <div>
                   <p class="account-type">{{ account.accountType }}</p>
-                  <p class="account-iban">{{ account.iban }}</p>
+                  <p class="account-iban">{{ account.iban | iban }}</p>
                 </div>
               </div>
               <div class="account-right">
@@ -133,7 +133,7 @@
     <div class="section-card">
       <h2 class="section-title" style="margin-bottom: 1rem">Quick Actions</h2>
       <div class="quick-actions">
-        <a routerLink="/transactions/transfer" class="quick-action-btn">
+        <a routerLink="/transfer" class="quick-action-btn">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"

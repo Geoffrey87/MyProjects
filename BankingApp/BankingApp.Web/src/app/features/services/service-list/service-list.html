@@ -33,7 +33,9 @@
       >
         @for (account of accounts(); track account.id) {
           <option [value]="account.id">
-            {{ account.accountType }} — {{ account.iban }} ({{ formatCurrency(account.balance) }})
+            {{ account.accountType }} — {{ account.iban | iban }} ({{
+              formatCurrency(account.balance)
+            }})
           </option>
         }
       </select>

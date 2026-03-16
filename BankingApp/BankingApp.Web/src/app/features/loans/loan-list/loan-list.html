@@ -43,7 +43,9 @@
           <label class="modal-label">Account</label>
           <select [(ngModel)]="newLoan.accountId" class="modal-input">
             @for (account of accounts(); track account.id) {
-              <option [value]="account.id">{{ account.accountType }} — {{ account.iban }}</option>
+              <option [value]="account.id">
+                {{ account.accountType }} — {{ account.iban | iban }}
+              </option>
             }
           </select>
         </div>

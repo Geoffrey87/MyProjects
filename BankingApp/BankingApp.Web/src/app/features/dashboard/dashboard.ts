@@ -4,11 +4,12 @@ import { AuthService } from '../../core/services/auth.service';
 import { AccountService } from '../../core/services/account.service';
 import { NotificationService } from '../../core/services/notification.service';
 import { Account } from '../../core/models';
+import { IbanPipe } from '../../shared/pipes/iban.pipe';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, IbanPipe],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })

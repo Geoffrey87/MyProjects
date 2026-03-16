@@ -18,7 +18,7 @@
       <div class="account-header-left">
         <div class="account-type-badge">{{ account()!.accountType }}</div>
         <h1 class="account-balance">{{ formatCurrency(account()!.balance) }}</h1>
-        <p class="account-iban">{{ account()!.iban }}</p>
+        <p class="account-iban">{{ account()!.iban | iban }}</p>
       </div>
       <div class="account-header-right">
         <div class="account-meta-row">

@@ -6,11 +6,14 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { AuthResponse, LoginRequest, RegisterRequest } from '../models';
 import { CLAIMS } from '../constants/claims.constants';
+import { NotificationService } from './notification.service';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
+  private notificationService = inject(NotificationService);
 
   private _authData = signal<AuthResponse | null>(this.loadFromStorage());
   private _token = signal<string | null>(sessionStorage.getItem('banking_token'));
@@ -58,6 +61,7 @@ export class AuthService {
     sessionStorage.removeItem('banking_auth');
     this._authData.set(null);
     this._token.set(null);
+    this.notificationService.unreadCount.set(0);
     this.router.navigate(['/login']);
   }
 

@@ -4,11 +4,12 @@ import { AccountService } from '../../../core/services/account.service';
 import { CardService } from '../../../core/services/card.service';
 import { Card, Account, CardType, CardStatus } from '../../../core/models';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { IbanPipe } from '../../../shared/pipes/iban.pipe';
 
 @Component({
   selector: 'app-card-list',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, IbanPipe],
   templateUrl: './card-list.html',
   styleUrl: './card-list.css',
 })

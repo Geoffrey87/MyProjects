@@ -4,11 +4,12 @@ import { AccountService } from '../../../core/services/account.service';
 import { LoanService } from '../../../core/services/loan.service';
 import { Loan, Account } from '../../../core/models';
 import { FormsModule } from '@angular/forms';
+import { IbanPipe } from '../../../shared/pipes/iban.pipe';
 
 @Component({
   selector: 'app-loan-list',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, IbanPipe],
   templateUrl: './loan-list.html',
   styleUrl: './loan-list.css',
 })

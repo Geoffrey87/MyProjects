@@ -90,7 +90,9 @@
           <label class="form-label">Account</label>
           <select class="form-input" formControlName="accountId">
             @for (account of accounts(); track account.id) {
-              <option [value]="account.id">{{ account.iban }} — {{ account.currency }}</option>
+              <option [value]="account.id">
+                {{ account.iban | iban }} — {{ account.currency }}
+              </option>
             }
           </select>
         </div>

@@ -27,6 +27,6 @@ export class TransactionService {
   }
 
   transferByIban(req: TransferByIbanRequest): Observable<void> {
-    return this.http.post<void>(`${this.base}/transfer/iban`, req);
+    return this.http.post<void>(`${this.base}/transfer-iban`, req);
   }
 }

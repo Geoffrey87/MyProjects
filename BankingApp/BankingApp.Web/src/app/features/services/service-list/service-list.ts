@@ -4,11 +4,12 @@ import { AccountService } from '../../../core/services/account.service';
 import { ServicePaymentService } from '../../../core/services/service-payment.service';
 import { BankingService, Account } from '../../../core/models';
 import { FormsModule } from '@angular/forms';
+import { IbanPipe } from '../../../shared/pipes/iban.pipe';
 
 @Component({
   selector: 'app-service-list',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, IbanPipe],
   templateUrl: './service-list.html',
   styleUrl: './service-list.css',
 })

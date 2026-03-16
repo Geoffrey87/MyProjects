@@ -32,7 +32,12 @@ export class LoginComponent {
     this.auth.login(this.form.value as any).subscribe({
       next: () => this.router.navigate(['/dashboard']),
       error: (err) => {
-        this.errorMessage = err.error?.message ?? 'Invalid email or password';
+        const msg = err.error?.message;
+        if (msg === 'Invalid credentials') {
+          this.errorMessage = 'Wrong email or password. Please try again.';
+        } else {
+          this.errorMessage = msg ?? 'Something went wrong.';
+        }
         this.loading = false;
       },
     });
