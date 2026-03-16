@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\implementations\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\dtos\\requestdtos\\transactionrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\requestdtos\\transactionrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\implementations\\transactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,16 +19,20 @@
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\interfaces\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\dtos\\requestdtos\\transactionrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\requestdtos\\transactionrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\repositories\\interfaces\\itransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:repositories\\interfaces\\itransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\dtos\\responsedtos\\transactionresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:dtos\\responsedtos\\transactionresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -462,7 +462,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -474,20 +474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TransactionRepository.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\TransactionRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Implementations\\TransactionRepository.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\TransactionRepository.cs",
-              "RelativeToolTip": "Repositories\\Implementations\\TransactionRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T12:35:02.692Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TransactionService.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\TransactionService.cs",
               "RelativeDocumentMoniker": "Services\\Implementations\\TransactionService.cs",
@@ -500,20 +487,59 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ITransactionService.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\ITransactionService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\ITransactionService.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\ITransactionService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\ITransactionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T15:03:29.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "TransactionRepository.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\TransactionRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implementations\\TransactionRepository.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\TransactionRepository.cs",
+              "RelativeToolTip": "Repositories\\Implementations\\TransactionRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T12:35:02.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\AuthService.cs",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AuthService.cs",
+              "RelativeToolTip": "Services\\Implementations\\AuthService.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAowG8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T10:42:46.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "TransactionController.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\TransactionController.cs",
               "RelativeDocumentMoniker": "Controllers\\TransactionController.cs",
               "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Controllers\\TransactionController.cs",
               "RelativeToolTip": "Controllers\\TransactionController.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAuwEsAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAwwFUAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-09T10:20:33.033Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "TransactionRequestDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\RequestDtos\\TransactionRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\RequestDtos\\TransactionRequestDto.cs",
@@ -521,25 +547,11 @@
               "RelativeToolTip": "DTOs\\RequestDtos\\TransactionRequestDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T16:07:52.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T16:07:52.766Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ITransactionService.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\ITransactionService.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\ITransactionService.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Interfaces\\ITransactionService.cs",
-              "RelativeToolTip": "Services\\Interfaces\\ITransactionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:03:29.387Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ITransactionRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Interfaces\\ITransactionRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\ITransactionRepository.cs",
@@ -547,12 +559,11 @@
               "RelativeToolTip": "Repositories\\Interfaces\\ITransactionRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T12:21:48.39Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T12:21:48.39Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "TransactionResponseDto.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\DTOs\\ResponseDtos\\TransactionResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ResponseDtos\\TransactionResponseDto.cs",
@@ -560,21 +571,7 @@
               "RelativeToolTip": "DTOs\\ResponseDtos\\TransactionResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T16:08:25.392Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AuthService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\AuthService.cs",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Services\\Implementations\\AuthService.cs",
-              "RelativeToolTip": "Services\\Implementations\\AuthService.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAmwI0AAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T10:42:46.241Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T16:08:25.392Z"
             },
             {
               "$type": "Document",
@@ -586,8 +583,7 @@
               "RelativeToolTip": "Data\\DataSeeder.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAgwDwAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T12:03:02.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T12:03:02.47Z"
             },
             {
               "$type": "Document",
@@ -599,8 +595,7 @@
               "RelativeToolTip": "Services\\Implementations\\AccountService.cs",
               "ViewState": "AgIAAGEAAAAAAAAAAAAwwIUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T15:06:36.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T15:06:36.679Z"
             },
             {
               "$type": "Document",

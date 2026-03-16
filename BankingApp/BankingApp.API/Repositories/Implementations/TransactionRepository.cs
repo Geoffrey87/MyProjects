@@ -21,7 +21,7 @@ namespace BankingApp.API.Repositories.Implementations
                 .ToListAsync();
 
         public async Task<Account?> GetByIBANAsync(string iban)
-                => await _context.Accounts
-                    .FirstOrDefaultAsync(a => a.IBAN.Replace(" ", "").ToUpper() == iban);
+    => await _context.Accounts
+        .FirstOrDefaultAsync(a => a.IBAN == iban);
     }
 }

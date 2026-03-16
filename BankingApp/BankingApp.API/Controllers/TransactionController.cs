@@ -73,7 +73,7 @@ namespace BankingApp.API.Controllers
             return NoContent();
         }
 
-        [HttpPost("transfer/iban")]
+        [HttpPost("transfer-iban")]
         public async Task<ActionResult> TransferByIBAN([FromBody] TransactionRequestDto dto)
         {
             if (string.IsNullOrEmpty(dto.ToIBAN))

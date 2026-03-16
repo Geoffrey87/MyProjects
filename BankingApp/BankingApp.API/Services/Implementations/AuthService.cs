@@ -108,7 +108,7 @@ namespace BankingApp.API.Services.Implementations
         private string GenerateIBAN()
         {
             var random = new Random();
-            return $"PT50 {random.Next(1000, 9999)} {random.Next(1000, 9999)} {random.Next(1000, 9999)} {random.Next(1000, 9999)} {random.Next(100, 999)}";
+            return $"PT50{random.Next(1000, 9999)}{random.Next(1000, 9999)}{random.Next(1000, 9999)}{random.Next(1000, 9999)}{random.Next(100, 999)}";
         }
 
         /// <summary>
