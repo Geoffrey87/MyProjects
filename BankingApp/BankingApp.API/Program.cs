@@ -131,7 +131,8 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    await DataSeeder.SeedAsync(context);
+    var configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
+    await DataSeeder.SeedAsync(context, configuration);
 }
 
 app.Run();

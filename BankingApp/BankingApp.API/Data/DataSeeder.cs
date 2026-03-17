@@ -6,7 +6,7 @@ namespace BankingApp.API.Data
 {
     public static class DataSeeder
     {
-        public static async Task SeedAsync(AppDbContext context)
+        public static async Task SeedAsync(AppDbContext context, IConfiguration configuration)
         {
             // Account Types
             if (!await context.AccountTypes.AnyAsync())
@@ -49,12 +49,15 @@ namespace BankingApp.API.Data
             // Admin User
             if (!await context.Users.AnyAsync(u => u.Role == UserRole.Admin))
             {
+                var adminPassword = configuration["Seeder:AdminPassword"]
+            ?? throw new Exception("Admin password not configured");
+
                 var admin = new User
                 {
                     FirstName = "Admin",
                     LastName = "BankingApp",
                     Email = "admin@bankingapp.com",
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123!"),
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword(adminPassword),
                     Role = UserRole.Admin,
                     IsActive = true
                 };

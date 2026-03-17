@@ -15,12 +15,14 @@ namespace BankingApp.API.Repositories.Implementations
                 .Where(l => l.UserId == userId)
                 .ToListAsync();
 
-        public async Task<List<Loan>> GetAllAsync()
+        // Overrides base to include LoanStatus navigation property
+        public new async Task<List<Loan>> GetAllAsync()
             => await _context.Loans
                 .Include(l => l.LoanStatus)
                 .ToListAsync();
 
-        public async Task<Loan?> GetByIdAsync(int id)
+        // Overrides base to include LoanStatus navigation property
+        public new async Task<Loan?> GetByIdAsync(int id)
             => await _context.Loans
                 .Include(l => l.LoanStatus)
                 .FirstOrDefaultAsync(l => l.Id == id);
