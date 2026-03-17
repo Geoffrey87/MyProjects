@@ -18,14 +18,24 @@
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">First Name</label>
-            <input type="text" formControlName="firstName" placeholder="John" class="form-input" />
+            <input
+              type="text"
+              formControlName="firstName"
+              placeholder="First Name"
+              class="form-input"
+            />
             @if (form.get('firstName')?.invalid && form.get('firstName')?.touched) {
               <p class="form-error">First name is required</p>
             }
           </div>
           <div class="form-group">
             <label class="form-label">Last Name</label>
-            <input type="text" formControlName="lastName" placeholder="Doe" class="form-input" />
+            <input
+              type="text"
+              formControlName="lastName"
+              placeholder="Last Name"
+              class="form-input"
+            />
             @if (form.get('lastName')?.invalid && form.get('lastName')?.touched) {
               <p class="form-error">Last name is required</p>
             }

@@ -39,7 +39,7 @@ export class RegisterComponent {
     this.errorMessage = '';
 
     this.auth.register(this.form.value as any).subscribe({
-      next: () => this.router.navigate(['/dashboard']),
+      next: () => this.router.navigate(['/login']),
       error: (err) => {
         if (err.error?.errors) {
           // Validation errors from backend

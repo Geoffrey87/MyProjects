@@ -74,7 +74,12 @@ export class TransferComponent implements OnInit {
         next: () => {
           this.submitting.set(false);
           this.success.set(true);
-          this.transferForm.patchValue({ toIBAN: '', amount: null, description: '' });
+          this.transferForm.reset({
+            fromAccountId: this.transferForm.value.fromAccountId,
+            toIBAN: '',
+            amount: null,
+            description: '',
+          });
           // Refresh accounts to show updated balance
           const userId = this.auth.getUserId();
           this.accountService.getByUser(userId).subscribe((accounts) => {
