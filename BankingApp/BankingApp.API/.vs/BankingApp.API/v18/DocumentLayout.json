@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FFCD0D-F5BA-85DA-519D-31FEF8B75045}|BankingApp.API.csproj|c:\\projects\\myprojects\\bankingapp\\bankingapp.api\\controllers\\servicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -478,20 +478,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\appsettings.Development.json",
-              "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-17T10:27:12.277Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -499,12 +486,11 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-06T11:06:43.509Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T11:06:43.509Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
@@ -512,12 +498,11 @@
               "RelativeToolTip": "Data\\AppDbContext.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAA9wCkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T10:56:08.085Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T10:56:08.085Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DataSeeder.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Data\\DataSeeder.cs",
               "RelativeDocumentMoniker": "Data\\DataSeeder.cs",
@@ -525,12 +510,36 @@
               "RelativeToolTip": "Data\\DataSeeder.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAkwEUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T12:03:02.47Z",
+              "WhenOpened": "2026-03-09T12:03:02.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-03-05T16:01:07.156Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-17T10:27:12.277Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "LoanRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\LoanRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\LoanRepository.cs",
@@ -538,12 +547,11 @@
               "RelativeToolTip": "Repositories\\Implementations\\LoanRepository.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T12:35:36.377Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T12:35:36.377Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "TransactionRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\TransactionRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\TransactionRepository.cs",
@@ -551,12 +559,11 @@
               "RelativeToolTip": "Repositories\\Implementations\\TransactionRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T12:35:02.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T12:35:02.692Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "BaseRepository.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Repositories\\Implementations\\BaseRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\BaseRepository.cs",
@@ -564,12 +571,11 @@
               "RelativeToolTip": "Repositories\\Implementations\\BaseRepository.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T12:29:22.379Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T12:29:22.379Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -577,21 +583,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAGwAAAAAAAAAAAAAAIYAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T12:56:00.188Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\.gitignore",
-              "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Projects\\MyProjects\\BankingApp\\BankingApp.API\\.gitignore",
-              "RelativeToolTip": ".gitignore",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAADIAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-03-05T16:01:07.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T12:56:00.188Z"
             },
             {
               "$type": "Document",
@@ -603,8 +595,7 @@
               "RelativeToolTip": "Controllers\\ServiceController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T14:36:41.526Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T14:36:41.526Z"
             },
             {
               "$type": "Document",
