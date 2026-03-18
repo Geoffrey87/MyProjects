@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,8 +52,12 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 // DbContext — InMemory
+//builder.Services.AddDbContext<AppDbContext>(options =>
+//options.UseInMemoryDatabase("BankingAppDb"));
+
+// DbContext — PostgreSQL
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseInMemoryDatabase("BankingAppDb"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -106,7 +112,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
+        policy.WithOrigins("http://localhost:4200", "http://localhost:8080")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -131,8 +137,10 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    var configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
-    await DataSeeder.SeedAsync(context, configuration);
+    var config = scope.ServiceProvider.GetRequiredService<IConfiguration>();
+
+    await context.Database.MigrateAsync();
+    await DataSeeder.SeedAsync(context, config);
 }
 
 app.Run();

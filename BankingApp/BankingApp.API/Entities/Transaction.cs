@@ -14,7 +14,7 @@ namespace BankingApp.API.Entities
         public TransactionStatus Status { get; set; } = TransactionStatus.Pending;
 
         // Foreign Keys
-        public int FromAccountId { get; set; }
+        public int? FromAccountId { get; set; }
         public int? ToAccountId { get; set; } // Nullable for non-transfer transactions
 
         // Navigation properties

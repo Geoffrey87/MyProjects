@@ -30,7 +30,8 @@ namespace BankingApp.API.Data
                 .HasOne(t => t.FromAccount)
                 .WithMany(a => a.Transactions)
                 .HasForeignKey(t => t.FromAccountId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Restrict)
+                .IsRequired(false);
 
             modelBuilder.Entity<Transaction>()
                 .HasOne(t => t.ToAccount)
