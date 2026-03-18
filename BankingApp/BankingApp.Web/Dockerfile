@@ -15,5 +15,6 @@ RUN npm run build -- --configuration=production
 # Stage 2 — lightweight runtime base image (nginx to serve static files)
 FROM nginx:alpine AS final
 COPY --from=build /app/dist/banking-web/browser /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 ENTRYPOINT ["nginx", "-g", "daemon off;"]

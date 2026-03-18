@@ -5,6 +5,7 @@ using BankingApp.API.Entities;
 using BankingApp.API.Enums;
 using BankingApp.API.Exceptions;
 using BankingApp.API.Exceptions.Custom;
+using BankingApp.API.Repositories.Implementations;
 using BankingApp.API.Repositories.Interfaces;
 using BankingApp.API.Services.Interfaces;
 
@@ -14,12 +15,17 @@ namespace BankingApp.API.Services.Implementations
     {
         private readonly ICardRepository _cardRepository;
         private readonly IAccountRepository _accountRepository;
+        private readonly INotificationRepository _notificationRepository;
         private readonly IMapper _mapper;
 
-        public CardService(ICardRepository cardRepository, IAccountRepository accountRepository, IMapper mapper)
+        public CardService(ICardRepository cardRepository, 
+            IAccountRepository accountRepository,
+            INotificationRepository notificationRepository,
+            IMapper mapper)
         {
             _cardRepository = cardRepository;
             _accountRepository = accountRepository;
+            _notificationRepository = notificationRepository;
             _mapper = mapper;
         }
 
@@ -116,6 +122,23 @@ namespace BankingApp.API.Services.Implementations
             card.Status = CardStatus.Active;
             card.IsActive = true;
             await _cardRepository.UpdateAsync(card);
+
+            // Envia notificação para o cliente
+            var account = await _accountRepository.GetByIdAsync(card.AccountId);
+            var notificationType = await _notificationRepository.GetTypeByNameAsync("Transaction");
+
+            if (account != null && notificationType != null)
+            {
+                await _notificationRepository.AddAsync(new Notification
+                {
+                    UserId = account.UserId,
+                    Title = "Card Approved",
+                    Message = $"Your card ending in {card.CardNumber[^4..]} has been approved.",
+                    NotificationTypeId = notificationType.Id,
+                    IsRead = false
+                });
+            }
+
             return _mapper.Map<CardResponseDto>(card);
         }
 
@@ -131,6 +154,24 @@ namespace BankingApp.API.Services.Implementations
             card.Status = CardStatus.Rejected;
             card.IsActive = false;
             await _cardRepository.UpdateAsync(card);
+
+            await _cardRepository.UpdateAsync(card);
+
+            var account = await _accountRepository.GetByIdAsync(card.AccountId);
+            var notificationType = await _notificationRepository.GetTypeByNameAsync("Transaction");
+
+            if (account != null && notificationType != null)
+            {
+                await _notificationRepository.AddAsync(new Notification
+                {
+                    UserId = account.UserId,
+                    Title = "Card Rejected",
+                    Message = $"Your card request has been rejected.",
+                    NotificationTypeId = notificationType.Id,
+                    IsRead = false
+                });
+            }
+
             return _mapper.Map<CardResponseDto>(card);
         }
 
