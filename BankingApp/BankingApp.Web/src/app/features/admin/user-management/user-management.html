@@ -1,1 +1,114 @@
-<p>user-management works!</p>
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">User Management</h1>
+      <p class="page-subtitle">Manage all registered users</p>
+    </div>
+  </div>
+
+  @if (loading()) {
+    <div class="loading-wrapper">
+      <div class="spinner"></div>
+      <p>Loading users...</p>
+    </div>
+  } @else if (users().length === 0) {
+    <div class="empty-state">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+        />
+      </svg>
+      <p>No users found.</p>
+    </div>
+  } @else {
+    <div class="table-card">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Joined</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of users(); track user.id) {
+            <tr>
+              <td>
+                <div class="user-cell">
+                  <div class="user-avatar">{{ user.firstName[0] }}{{ user.lastName[0] }}</div>
+                  <span>{{ user.firstName }} {{ user.lastName }}</span>
+                </div>
+              </td>
+              <td>{{ user.email }}</td>
+              <td>
+                <span [class]="user.role === 'Admin' ? 'badge-admin' : 'badge-client'">
+                  {{ user.role }}
+                </span>
+              </td>
+              <td>
+                <span [class]="user.isActive ? 'status-active' : 'status-inactive'">
+                  {{ user.isActive ? 'Active' : 'Inactive' }}
+                </span>
+              </td>
+              <td>{{ formatDate(user.createdAt) }}</td>
+              <td>
+                <button class="btn-logs" (click)="openLogs(user)">View Logs</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>
+
+<!-- Modal -->
+@if (showModal()) {
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title">Audit Logs</h2>
+          @if (selectedUser(); as user) {
+            <p class="modal-subtitle">
+              {{ user.firstName }} {{ user.lastName }} — {{ user.email }}
+            </p>
+          }
+        </div>
+        <button class="modal-close" (click)="closeModal()">✕</button>
+      </div>
+
+      @if (logsLoading()) {
+        <div class="loading-wrapper">
+          <div class="spinner"></div>
+          <p>Loading logs...</p>
+        </div>
+      } @else if (logs().length === 0) {
+        <div class="empty-state">
+          <p>No logs found for this user.</p>
+        </div>
+      } @else {
+        <div class="logs-list">
+          @for (log of logs(); track log.id) {
+            <div class="log-item">
+              <div class="log-left">
+                <span [class]="getActionClass(log.action)">{{ log.action }}</span>
+                <span class="log-entity">{{ log.entity }}</span>
+              </div>
+              <div class="log-right">
+                <p class="log-details">{{ log.details }}</p>
+                <p class="log-date">{{ formatDate(log.createdAt) }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+}

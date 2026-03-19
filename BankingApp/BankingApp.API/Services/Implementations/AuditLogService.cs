@@ -36,9 +36,7 @@ namespace BankingApp.API.Services.Implementations
         public async Task<List<AuditLogResponseDto>> GetByUserIdAsync(int userId)
         {
             var logs = await _auditLogRepository.GetByUserIdAsync(userId);
-            if (logs == null || !logs.Any())
-                throw new NotFoundException(ErrorMessages.AuditLogNotFound);
-            return _mapper.Map<List<AuditLogResponseDto>>(logs);
+            return _mapper.Map<List<AuditLogResponseDto>>(logs ?? new List<AuditLog>());
         }
 
         public async Task LogAsync(int userId, string action, string entity, string ipAddress, string details)

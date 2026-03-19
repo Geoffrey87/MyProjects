@@ -16,9 +16,15 @@ namespace BankingApp.API.Controllers
         {
             _auditLogService = auditLogService;
         }
+        /// <summary>
+        /// Get all audit logs — Admin only
+        /// </summary>
+        [HttpGet]
+        public async Task<ActionResult<List<AuditLogResponseDto>>> GetAll()
+            => Ok(await _auditLogService.GetAllAsync());
 
         /// <summary>
-        /// Get all audit logs by user ID — Admin only
+        /// Get audit logs by user ID — Admin only
         /// </summary>
         [HttpGet("user/{userId}")]
         public async Task<ActionResult<List<AuditLogResponseDto>>> GetByUserId(int userId)

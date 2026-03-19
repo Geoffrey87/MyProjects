@@ -16,6 +16,7 @@ namespace BankingApp.API.Services.Implementations
         private readonly IAccountService _accountService;
         private readonly IAccountRepository _accountRepository;
         private readonly INotificationRepository _notificationRepository;
+        private readonly IAuditLogService _auditLogService;
         private readonly IMapper _mapper;
 
         public TransactionService(
@@ -23,12 +24,14 @@ namespace BankingApp.API.Services.Implementations
             IAccountService accountService,
             IAccountRepository accountRepository,
             INotificationRepository notificationRepository,
-            IMapper mapper)
+            IAuditLogService auditLogService,
+        IMapper mapper)
         {
             _transactionRepository = transactionRepository;
             _accountService = accountService;
             _accountRepository = accountRepository;
             _notificationRepository = notificationRepository;
+            _auditLogService = auditLogService;
             _mapper = mapper;
         }
 
@@ -114,6 +117,17 @@ namespace BankingApp.API.Services.Implementations
                     NotificationTypeId = notificationType.Id,
                     IsRead = false
                 });
+            }
+            // Regista log da transferência
+            if (fromAccount != null)
+            {
+                await _auditLogService.LogAsync(
+                    fromAccount.UserId,
+                    "Transfer",
+                    "Transaction",
+                    "N/A",
+                    $"Transferred {amount}€ from account {fromAccountId} to account {toAccountId}"
+                );
             }
         }
 

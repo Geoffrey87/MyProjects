@@ -22,6 +22,7 @@ namespace BankingApp.API.Services.Implementations
         private readonly IAccountRepository _accountRepository;
         private readonly ITransactionRepository _transactionRepository;
         private readonly ICardService _cardService;
+        private readonly IAuditLogService _auditLogService;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
 
@@ -29,14 +30,16 @@ namespace BankingApp.API.Services.Implementations
        IUserRepository userRepository,
        IAccountRepository accountRepository,
        ITransactionRepository transactionRepository,
-       ICardService cardService, 
+       ICardService cardService,
+       IAuditLogService auditLogService,
        IMapper mapper,
        IConfiguration configuration)
         {
             _userRepository = userRepository;
             _accountRepository = accountRepository;
             _transactionRepository = transactionRepository;
-            _cardService = cardService; 
+            _cardService = cardService;
+            _auditLogService = auditLogService;
             _mapper = mapper;
             _configuration = configuration;
         }
@@ -49,6 +52,10 @@ namespace BankingApp.API.Services.Implementations
             var user = _mapper.Map<User>(dto);
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
             await _userRepository.AddAsync(user);
+
+            await _auditLogService.LogAsync(
+    user.Id, "Register", "User", "N/A", $"New account created for {user.Email}"
+);
 
             var accountType = await _accountRepository.GetCheckingAccountTypeAsync();
             if (accountType == null)
@@ -90,8 +97,13 @@ namespace BankingApp.API.Services.Implementations
             var user = await _userRepository.GetByEmailAsync(dto.Email)
                 ?? throw new UnauthorizedException(ErrorMessages.InvalidCredentials);
 
+
             if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
                 throw new UnauthorizedException(ErrorMessages.InvalidCredentials);
+
+            await _auditLogService.LogAsync(
+user.Id, "Login", "User", "N/A", $"User {user.Email} logged in"
+);
 
             return GenerateToken(user);
         }
