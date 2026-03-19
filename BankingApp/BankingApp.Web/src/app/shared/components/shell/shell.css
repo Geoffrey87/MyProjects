@@ -173,13 +173,9 @@
 }
 
 @media (max-width: 768px) {
-  .layout {
-    flex-direction: row;
-  }
-
   .sidebar {
-    width: 60px;
-    overflow: hidden;
+    width: 56px;
+    min-width: 56px;
   }
 
   .sidebar-logo {
@@ -195,12 +191,7 @@
   .nav-item {
     justify-content: center;
     padding: 0.75rem 0;
-    gap: 0;
-  }
-
-  .nav-item span,
-  .nav-item:not(:has(svg)) {
-    display: none;
+    font-size: 0;
   }
 
   .nav-section-title {
@@ -208,12 +199,22 @@
   }
 
   .nav-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.4rem;
+    height: 1.4rem;
   }
 
-  .user-info,
-  .logout-btn span {
+  .notif-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    margin-left: 0;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .user-info {
     display: none;
   }
 
@@ -235,5 +236,10 @@
   .main-content {
     flex: 1;
     min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .dashboard-page {
+    padding: 1rem 0.75rem;
   }
 }
