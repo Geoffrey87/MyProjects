@@ -287,7 +287,8 @@
 
 @media (max-width: 768px) {
   .dashboard-page {
-    padding: 1rem 0.75rem;
+    padding: 5px !important;
+    max-width: 100% !important;
   }
 
   .dashboard-header {
