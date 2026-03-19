@@ -112,7 +112,9 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200", "http://localhost:8080")
+        policy.WithOrigins("http://localhost:4200",
+                            "http://localhost:8080",
+                            "https://bankingapp-web.fly.dev")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
