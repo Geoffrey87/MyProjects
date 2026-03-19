@@ -321,3 +321,30 @@
   width: 1rem;
   height: 1rem;
 }
+
+/*for mobile */
+@media (max-width: 768px) {
+  .page {
+    padding: 1rem 0.75rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .account-selector {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .selector-input {
+    width: 100%;
+  }
+
+  .modal {
+    max-width: calc(100vw - 2rem);
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}

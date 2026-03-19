@@ -448,3 +448,19 @@
 .btn-toggle-number:hover {
   color: white;
 }
+
+@media (max-width: 768px) {
+  .page {
+    padding: 1rem 0.75rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    max-width: calc(100vw - 2rem);
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
