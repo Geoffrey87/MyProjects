@@ -238,6 +238,7 @@
     min-width: 0;
     max-width: calc(100vw - 56px);
     overflow-x: hidden;
+    padding: 0;
   }
 
   .dashboard-page {
