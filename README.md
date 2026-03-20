@@ -50,6 +50,8 @@ A basic project built to understand how the TCP (Transmission Control Protocol) 
 **Todo List**
 
 A simple Todo List application built as a practical introduction to TypeScript — types, interfaces, and basic DOM manipulation.
++
+A simple web app that allows users to search for countries and view detailed information about them. The app fetches country data from the Rest Countries API and displays it in an interactive and user-friendly interface. Users can search by country name, view detailed information, and explore neighboring countries.
 
 📂 [Project Folder](./TypeScript)
 
