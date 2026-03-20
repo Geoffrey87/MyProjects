@@ -141,8 +141,22 @@ using (var scope = app.Services.CreateScope())
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     var config = scope.ServiceProvider.GetRequiredService<IConfiguration>();
 
-    await context.Database.MigrateAsync();
-    await DataSeeder.SeedAsync(context, config);
+    var retries = 5;
+    while (retries > 0)
+    {
+        try
+        {
+            await context.Database.MigrateAsync();
+            await DataSeeder.SeedAsync(context, config);
+            break;
+        }
+        catch (Exception)
+        {
+            retries--;
+            if (retries == 0) throw;
+            await Task.Delay(3000); // espera 3 segundos antes de tentar de novo
+        }
+    }
 }
 
 app.Run();
